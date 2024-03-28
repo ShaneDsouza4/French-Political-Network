@@ -26,6 +26,8 @@ export class EventDetailsComponent {
   loggedInUserID: any
   loggedIn: boolean = false;
   allowedToVote: boolean = false
+  loader: boolean = true
+  noDataAvailable: boolean = false
 
   otherEvents: any[] = []
 
@@ -56,8 +58,10 @@ export class EventDetailsComponent {
 
   getEventDetail(eventID: any) {
     console.log("Event ID: ", eventID)
+    this.loader = true
     this._projectService.getEventById(eventID).subscribe((res: any) => {
       this.eventDetails = res[0];
+      this.loader = false
       console.log("Event Detail: ", this.eventDetails)
 
 

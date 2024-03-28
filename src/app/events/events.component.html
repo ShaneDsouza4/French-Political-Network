@@ -1,5 +1,4 @@
-
-<section class="schedule-section spad pt-4">
+<section *ngIf="!loader" class="schedule-section spad pt-4">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -53,14 +52,15 @@
                                     <div class="row">
                                         <div class="col-lg-2">
                                             <div class="sc-pic">
-                                                <img  [src]="event.imageUrl">
+                                                <img [src]="event.imageUrl">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="sc-text">
                                                 <h4>{{event.eventName}}</h4>
                                                 <ul>
-                                                    <li><i class="fa fa-clock-o"></i>{{event.eventStart}} - {{event.eventEnd}}</li>
+                                                    <li><i class="fa fa-clock-o"></i>{{event.eventStart}} -
+                                                        {{event.eventEnd}}</li>
                                                     <li><i class="fa fa-map-marker"></i> {{event.location}}
                                                     </li>
                                                 </ul>
@@ -89,3 +89,16 @@
         </div>
     </div>
 </section>
+
+
+<div class="spinner" *ngIf="loader">
+</div>
+
+<!-- No Data Available -->
+<div *ngIf="noDataAvailable" class="row mt-0" style="position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);">
+    <h1>No Data Available</h1>
+
+</div>

@@ -24,6 +24,8 @@ import { ProjectService } from '../service/project.service';
 export class EventsComponent implements OnInit {
 
   eventList:any[] = []
+  loader: boolean = true
+  noDataAvailable: boolean = false
  
 
   constructor(public dialog: MatDialog, private _ProjectService: ProjectService, private router: Router){}
@@ -34,9 +36,11 @@ export class EventsComponent implements OnInit {
   }
 
   loadEvents(){
+    this.loader = true
     this._ProjectService.getFutureEvents().subscribe((res:any)=>{
       console.log("Response of all Fututre Events: ", res)
       this.eventList = res
+      this.loader = false
     })
   }
 
