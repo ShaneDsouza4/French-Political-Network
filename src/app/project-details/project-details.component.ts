@@ -43,8 +43,9 @@ export class ProjectDetailsComponent implements OnInit {
   faArrowDown = faArrowAltCircleDown
   incompleteComment: boolean = false
   spinner: boolean = false
-
+  loader: boolean = true
   opinionForm!: FormGroup
+  noDataAvailable: boolean = false
 
   constructor(private activatedRouted: ActivatedRoute, private _projectService: ProjectService, private router: Router, public dialog: MatDialog) {
 
@@ -88,14 +89,18 @@ export class ProjectDetailsComponent implements OnInit {
 
   getProjectDetail(activeProjectId: number) {
     console.log("Project ID: ", activeProjectId)
+    this.loader = true
     this._projectService.getProjectDetailById(activeProjectId).subscribe((res: any) => {
       console.log("Response of Specific: ", res);
       if (res.status == 1) {
+        this.loader = false
         this.projectDetails = res.projects[0]
         console.log("Get Project Detail: ", this.projectDetails)
         this.getProjectComments(activeProjectId)
       } else {
         this.projectDetails = {}
+        this.loader = false
+        this.noDataAvailable = true
       }
     })
   }

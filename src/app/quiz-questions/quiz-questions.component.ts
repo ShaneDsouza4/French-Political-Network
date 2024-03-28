@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuizResult } from '../interface/quiz-result';
+import { ProjectService } from '../service/project.service';
 
 @Component({
   selector: 'app-quiz-questions',
@@ -26,13 +27,19 @@ export class QuizQuestionsComponent {
   questions:any[] = []
   selected = {} as Question;
 
-  result = {} as QuizResult;
+  //result = {} as QuizResult;
+  result:any
 
   index:number = 0;
 
   answer: string = "";
 
-  constructor(){
+  //Politics
+  interests:any[]=[]
+
+  spinner:boolean = false;
+
+  constructor(private _projectService: ProjectService){
     this.questions = []
     this.reset();
   }
@@ -54,16 +61,37 @@ export class QuizQuestionsComponent {
   }
 
   checkAnswer(){
-    let isAnswer = this.questions[this.index].correct_answers[this.answer];
-    (isAnswer == 'true') ? this.result.correct++ : this.result.wrong++;
+    if(this.questions[this.index].correct_answers[this.answer] == "true"){
+      this.interests.push(this.questions[this.index].ValueToAdd)
+    }
+
+    //let isAnswer = this.questions[this.index].correct_answers[this.answer];
+    //(isAnswer == 'true') ? this.result.correct++ : this.result.wrong++;
   }
 
   finishQuiz(){
-    this.result.total = this.questions.length;
-    this.result.correctPercentage = (this.result.correct / this.result.total) * 100;
-    this.result.wrongPercentage = (this.result.wrong / this.result.total) * 100;
-    //console.log("Result: ",this.result)
-    this.finalResult.emit(this.result);
+    this.spinner = true
+    console.log("Final Array: ", this.interests)
+    let payLoad:any = {
+      "interests":this.interests
+    }
+    console.log(payLoad)
+    this._projectService.partyQuiz(payLoad).subscribe((res:any)=>{
+      
+      if(res.status == 1){
+        this.spinner = false
+        console.log("Response: ", res);
+        this.finalResult.emit(res.result);
+      }else{
+        this.spinner = false
+      }
+      
+    })
+    // this.result.total = this.questions.length;
+    // this.result.correctPercentage = (this.result.correct / this.result.total) * 100;
+    // this.result.wrongPercentage = (this.result.wrong / this.result.total) * 100;
+    // //console.log("Result: ",this.result)
+    // this.finalResult.emit(this.result);
   }
 
   reset(){
@@ -76,5 +104,6 @@ export class QuizQuestionsComponent {
       correctPercentage: 0,
       wrongPercentage:0
     }
+    this.interests = []
   }
 }

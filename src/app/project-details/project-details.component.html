@@ -1,4 +1,4 @@
-<div class="container-fluid body-background">
+<div *ngIf="!loader" class="container-fluid body-background">
     <div class="container pt-5 ">
         <div class="row">
             <div class="col-8 project">
@@ -333,4 +333,17 @@
         
     </div>
 
+</div>
+
+ <!-- No Data Available -->
+ <div *ngIf="noDataAvailable" class="row mt-0" style="position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);">
+   <h1>No Data Available</h1>
+
+ </div>
+
+
+<div class="spinner" *ngIf="loader">
 </div>
