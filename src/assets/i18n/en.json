@@ -79,5 +79,27 @@
     "Other Events":"Other Events",
     "Find out which political parties align with your interests.":"Find out which political parties align with your interests.",
     "Answer the following questions to see how your political beliefs match your political parties.":"Answer the following questions to see how your political beliefs match your political parties.",
-    "Start Quiz":"Start Quiz"
+    "Start Quiz":"Start Quiz",
+    "Create Project":"Create Project",
+    "First Name":"First Name",
+    "Last Name":"Last Name",
+    "First Name is required":"First Name is required",
+    "Last Name is required":"Last Name is required",
+    "Date of Birth is required":"Date of Birth is required",
+    "Valid Contact Number is required":"Valid Contact Number is required",
+    "Password must be min 5 characters and max 10 characters":"Password must be min 5 characters and max 10 characters",
+    "Cancel":"Cancel",
+    "Please fill out registration form correctly":"Please fill out registration form correctly",
+    "Password":"Password",
+    "Email Address":"Email Address",
+    "Contact Number":"Contact Number",
+    "Identity Number or Passport Number":"Identitiy Number or Passport Number",
+    "Select City":"Select City",
+    "Date Of Birth":"Date Of Birth",
+    "Sign Up":"Sign Up",
+    "Select Department":"Select Department"
+    
+
+
+
 }   

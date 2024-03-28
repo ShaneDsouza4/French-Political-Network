@@ -28,7 +28,7 @@
                 </div> -->
 
                 <div class="col-10"><b>{{ 'Project:' | translate}} </b> {{ project?.name }}</div>
-                <div class="col-1 text-end">
+                <div class="col-2 text-end">
                   <!--  -->
                   <a [routerLink]="'/project-detail/' + project.projectId" style="color: white">
                     <fa-icon [icon]="faArrowUpRight"></fa-icon>
@@ -151,7 +151,7 @@
                 </p>
                 <p class="card-text">{{event.location}}</p>
                 <a [routerLink]="'/event-detail/' + event.id"
-                  class="btn btn-primary">View</a><!-- `/event-detail/${eventId}` -->
+                  class="btn btn-primary">{{ 'View' | translate}}</a><!-- `/event-detail/${eventId}` -->
               </div>
             </div>
           </div>

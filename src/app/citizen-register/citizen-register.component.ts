@@ -8,6 +8,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-citizen-register',
@@ -17,7 +18,8 @@ import { LoginComponent } from '../login/login.component';
     CommonModule,
     ReactiveFormsModule,
     RxReactiveFormsModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    TranslateModule
   ],
   templateUrl: './citizen-register.component.html',
   styleUrl: './citizen-register.component.css'

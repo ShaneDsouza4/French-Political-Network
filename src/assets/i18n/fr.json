@@ -79,7 +79,26 @@
     "Other Events":"Autres événements",
     "Find out which political parties align with your interests.":"Découvrez quels partis politiques correspondent à vos intérêts.",
     "Answer the following questions to see how your political beliefs match your political parties.":"Répondez aux questions suivantes pour voir dans quelle mesure vos convictions politiques correspondent à vos partis politiques.",
-    "Start Quiz":"Démarrer le quiz"
+    "Start Quiz":"Démarrer le quiz",
+    "Create Project":"Créer un projet",
+    "First Name":"Prénom",
+    "Last Name":"Nom de famille",
+    "First Name is required":"Le prénom est requis",
+    "Last Name is required":"Le nom de famille est requis",
+    "Date of Birth is required":"La date de naissance est requise",
+    "Valid Contact Number is required":"Un numéro de contact valide est requis",
+    "Password must be min 5 characters and max 10 characters":"Le mot de passe doit comporter au moins 5 caractères et au maximum 10 caractères",
+    "Cancel":"Annuler",
+    "Please fill out registration form correctly":"Veuillez remplir correctement le formulaire d'inscription",
+    "Password":"Mot de passe",
+    "Email Address":"Adresse e-mail",
+    "Contact Number":"Numéro de contact",
+    "Identity Number or Passport Number":"Numéro d'identité ou de passeport",
+    "Select City":"Sélectionner la ville",
+    "Date Of Birth":"Date de naissance",
+    "Sign Up":"S'inscrire",
+    "Select Department":"Sélectionner le département"
+   
 
 
 }
