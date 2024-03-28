@@ -57,7 +57,14 @@
     "Enter a Valid Email":"Entrer un email valide",
     "Password":"Mot de passe",
     "Cancel":"Annuler",
-    "Please fill out login details":"Veuillez remplir les informations de connexion"
+    "Please fill out login details":"Veuillez remplir les informations de connexion",
+    "Next":"Suivante",
+    "Finish":"Finition",
+    "Quiz Result":"Résultat du quiz",
+    "Political Party":"Parti politique",
+    "aligns":"aligne",
+    "with your interests":"avec vos intérêts",
+    "Main Menu":"Menu principal"
 
 
 }
