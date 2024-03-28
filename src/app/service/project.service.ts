@@ -76,6 +76,41 @@ export class ProjectService {
     return this.http.get(`${this.urlToUse}/comment/project/${projectId}`);
   }
 
+  createEvent(obj:any){
+    return this.http.post(`${this.urlToUse}/event/`, obj);
+  }
+
+  getFutureEvents(){
+    return this.http.get(`${this.urlToUse}/event/futureevents`);
+  }
+
+  getEventById(eventId:any){
+    return this.http.get(`${this.urlToUse}/event/futureevents/${eventId}`);
+  }
+
+  registerForEvent(obj:any){
+    return this.http.patch(`${this.urlToUse}/event/register`, obj);
+  }
+
+  unRegisterForEvent(obj:any){
+    return this.http.patch(`${this.urlToUse}/event/unregister`, obj);
+  }
+
+  getAllPartyVotes(){
+    return this.http.get(`${this.urlToUse}/party/`);
+  }
+
+  voteParty(obj:any){
+    return this.http.patch(`${this.urlToUse}/party/vote`, obj);
+  }
+
+  unVoteParty(obj:any){
+    return this.http.patch(`${this.urlToUse}/party/unvote`, obj);
+  }
+
+  
+
+
 
 
 }

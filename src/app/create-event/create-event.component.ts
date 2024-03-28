@@ -5,6 +5,7 @@ import { EventService } from '../service/event.service';
 import { NumericValueType, RxReactiveFormsModule, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { cities } from '../constants/constants';
 import { ProjectService } from '../service/project.service';
+import { faL } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-create-event',
@@ -26,6 +27,7 @@ export class CreateEventComponent implements OnInit {
   loggedInDetails: any = {}
   loggedIn: boolean = false
   incompleteForm: boolean = false
+  spinner: boolean = false
 
   constructor(private _EventService: EventService, private _projectService: ProjectService){ }
 
@@ -49,8 +51,8 @@ export class CreateEventComponent implements OnInit {
       description: new FormControl(null, [RxwebValidators.required()]),
       capacity: new FormControl('', [RxwebValidators.required()]),
       organizer: new FormControl('', [RxwebValidators.required()]),
-      createdBy: new FormControl(this.loggedInDetails.email),
-      price: new FormControl(''),
+      createdBy: new FormControl(this.loggedInUserID),
+      price: new FormControl(null),
     })
 
 
@@ -62,14 +64,28 @@ export class CreateEventComponent implements OnInit {
       this.incompleteForm = true
       //return ;
     }else{
+      this.spinner = true
       this.incompleteForm = false
       let payLoad: any = this.createEventForm.getRawValue();
-      console.log(payLoad)
-      alert("Event Created Succesfully.")
+      this._projectService.createEvent(payLoad).subscribe((res:any)=>{
+        if(res.status == 1){
+          console.log('Response Added Sucessfully: ', res)
+          this.spinner = false
+          alert("Event Added Sucessfully.")
+          this.reset();
+        }else{
+          this.spinner = false
+        }
+      })
+      
     }
   }
 
   reset(){
     this.createEventForm.reset({})
+  }
+
+  uploadImage(event:any){
+    
   }
 }

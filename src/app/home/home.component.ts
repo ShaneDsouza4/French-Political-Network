@@ -68,7 +68,9 @@ export class HomeComponent implements OnInit{
 
   ngOnInit(): void {
     let postListX:any = localStorage.getItem('postsList');
+    console.log("Post List: ", postListX)
     this.postsList = JSON.parse(postListX);
+    console.log("Post List: ", this.postsList)
   }
 
   upLikePost(postID:any){
@@ -93,7 +95,7 @@ export class HomeComponent implements OnInit{
     var _popup = this.dialog.open(CreatePostModalComponent, {
       width: '60%',
       data: {
-        title: "Add a Post",
+        title: "Feedback Details",
       }
     })
     _popup.afterClosed().subscribe((item:any)=>{

@@ -41,6 +41,10 @@ import { EventListComponent } from './event-list/event-list.component';
 import { MyBookingComponent } from './my-booking/my-booking.component';
 import { EventBookingModalComponent } from './event-booking-modal/event-booking-modal.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
+import { WarningModalComponent } from './warning-modal/warning-modal.component';
+import { VoteComponent } from './vote/vote.component';
+import { PoliticalQuizComponent } from './political-quiz/political-quiz.component';
+import { PoliticalQuizQuestionsComponent } from './political-quiz-questions/political-quiz-questions.component';
 
 @Component({
   selector: 'app-root',
@@ -80,7 +84,11 @@ import { EventDetailsComponent } from './event-details/event-details.component';
     EventListComponent,
     MyBookingComponent,
     EventBookingModalComponent,
-    EventDetailsComponent
+    EventDetailsComponent,
+    WarningModalComponent,
+    VoteComponent,
+    PoliticalQuizComponent,
+    PoliticalQuizQuestionsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

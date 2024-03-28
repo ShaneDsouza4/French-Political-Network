@@ -5,6 +5,7 @@ import { EventService } from '../service/event.service';
 import { RouterLink } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ProjectService } from '../service/project.service';
 
 @Component({
   selector: 'app-event-list',
@@ -22,17 +23,14 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 export class EventListComponent {
 
   eventList:any[] = []
-  constructor(private _EventService: EventService){
+  constructor(private _EventService: EventService, private _ProjectService: ProjectService){
     this.loadEvents();
   }
 
   loadEvents(){
-    /* this._EventService.allEvents().subscribe((res:any)=>{
-        if(res.status == 'ok'){
-          
-        }else{
-        }
-      }) */
+    this._ProjectService.getFutureEvents().subscribe((res:any)=>{
+        console.log("Response of all Fututre Events: ", res)
+      })
 
       this.eventList = [
         {

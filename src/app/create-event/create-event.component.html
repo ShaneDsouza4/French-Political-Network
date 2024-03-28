@@ -45,6 +45,13 @@
             <small class="text-danger" *ngIf="createEventForm.get('organizer')?.invalid && createEventForm.get('organizer')?.touched">Event Organizer is required</small>
           </div>
 
+
+          <!-- <div class="form-group mt-2 ">
+            <label for="organizer">Featured Image</label>
+            <input type="file" class="form-control" (change)="uploadImage($eve)">
+           
+          </div> -->
+
           <div class="form-group mt-2 ">
             <label for="description">Event Description</label>
             <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
@@ -52,12 +59,22 @@
           </div>
 
           <!-- Action Buttons -->
-          <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="submit()">Submit</button>
-          <button type="submit" class="btn btn-danger mt-2" (click)="reset()">Reset</button>
-  
-          <div class="alert alert-danger mt-2" *ngIf="incompleteForm">
-            Please fill out form correctly
+          <!-- <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="submit()">Submit</button>
+          <button type="submit" class="btn btn-danger mt-2" (click)="reset()">Reset</button> -->
+
+          <div class="form-btn">
+            <button class="btn btn-success" style="margin-right: 10px;" (click)="submit()" *ngIf="!spinner">Submit</button>
+            <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
+              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              Loading...
+            </button>
+            <button type="button" class="btn btn-danger" (click)="reset()">Reset</button>
+            <div class="alert alert-danger mt-2" *ngIf="incompleteForm">
+              Please fill out form correctly
+            </div>
           </div>
+  
+          
         </form>
         
       </div>

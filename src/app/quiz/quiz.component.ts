@@ -8,6 +8,7 @@ import { QuizService } from '../service/quiz.service';
 import { QuizQuestionsComponent } from '../quiz-questions/quiz-questions.component';
 import { Question } from '../interface/question';
 import { QuizResultComponent } from '../quiz-result/quiz-result.component';
+import { PoliticalQuizQuestionsComponent } from '../political-quiz-questions/political-quiz-questions.component';
 
 @Component({
   selector: 'app-quiz',
@@ -19,7 +20,8 @@ import { QuizResultComponent } from '../quiz-result/quiz-result.component';
     RouterLink,
     FontAwesomeModule,
     QuizQuestionsComponent,
-    QuizResultComponent
+    QuizResultComponent,
+    PoliticalQuizQuestionsComponent
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
@@ -34,6 +36,8 @@ export class QuizComponent implements OnInit{
   showResultScreen : boolean = false;
 
   spinner: boolean = false;
+
+  showPoliticQuestions:boolean = false
 
   
   @ViewChild('quiz',{static:true}) quiz! : QuizQuestionsComponent;
@@ -233,6 +237,11 @@ export class QuizComponent implements OnInit{
   showMainMenuScreen(event:any){
     this.showResultScreen = false;
     this.showMainMenu = true;
+  }
+
+  getPoliticalQuizQuestions(){
+    this.toggleSpinner();
+    this.showPoliticQuestions = true
   }
 
  

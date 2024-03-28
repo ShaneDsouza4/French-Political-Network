@@ -72,7 +72,7 @@
                 <div class="row pt-2">
                     <form [formGroup]="opinionForm">
                         <fieldset class="form-group">
-                            <div class="row">
+                            <!-- <div class="row">
                               <legend class="col-form-label col-sm-2 pt-0">What are your thoughts?</legend>
                               <div class="col-sm-10">
                                 <div class="form-check">
@@ -111,16 +111,27 @@
                                 </div>
                                 
                               </div>
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Comment</label>
                                 <textarea class="form-control" formControlName="message" id="exampleFormControlTextarea1" rows="3"></textarea>
                               </div>
                           </fieldset>
-                          <button type="submit" class="btn btn-primary mt-2" (click)="submitComment()">Submit</button>
+                          <div class="form-btn">
+                            <button class="btn btn-success" style="margin-right: 10px;" (click)="submitComment()" *ngIf="!spinner">Submit</button>
+                            <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
+                              <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                              Loading...
+                            </button>
+                            <!-- <button type="button" class="btn btn-danger" (click)="closepopup()">Cancel</button> -->
+                            <div class="alert alert-danger mt-2" *ngIf="incompleteComment">
+                                Please add comment details
+                              </div>
+                          </div>
+                          <!-- <button type="submit" class="btn btn-primary mt-2" (click)="submitComment()">Submit</button> -->
+                          
                     </form>
                 </div>
-                <hr>
                 <!-- Comments -->
                 <!-- <div class="row pt-2">
                     <div class="card mb-5" *ngFor="let item of projectDetails.opinions">
@@ -140,30 +151,32 @@
                 <!-- Test -->
                 <div class="row pt-2">
                     <div class="wrapper">
-                        <div class="comment">
+                        <div class="comment" *ngFor="let comment of projectComments">
                             <div>
+                                <hr>
                                 <div class="content">
-                                    <div class="avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg"></div>
+                                    <!-- <div class="avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg"></div> -->
+                                    <div class="avatar"><img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png"></div>
                                     <div class="content-comment">
                                         <div class="user">
-                                            <h5>Cameron Williamson</h5>
-                                            <span class="is-mute">17 SEP 2020</span>
+                                            <h5>{{comment.first_name}} {{comment.last_name}}</h5>
+                                            <span class="is-mute">{{comment.timestamp | date: 'medium':'MMM d, y, h:mm a' }}</span>
                                         </div>
-                                        <p>Serious astronomy fanatic like a lot of us are, you can probably remember that one event in childhood that started you along this exciting hobby.</p>
-                                        <div class="content-footer">
+                                        <p>{{comment.content}}</p>
+                                        <!-- <div class="content-footer">
                                             <button class="btn btn-outline"><i class="ri-share-forward-fill"></i>Reply</button>
                                             <button class="btn"><i class="ri-more-fill"></i></button>
-                                        </div>
+                                        </div> -->
                                     </div>
-                                    <div class="rate">
+                                    <!-- <div class="rate">
                                         <button class="btn"><i class="ri-arrow-down-s-line"></i></button>
                                         <div class="value green">7</div>
                                         <button class="btn"><i class="ri-arrow-up-s-line"></i></button>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="footer"></div>
                             </div>
-                            <div class="subcomment">
+                            <!-- <div class="subcomment">
                                 <div class="icon">
                                     <svg width="20" height="20" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M20 21a1 1 0 0 1-.883.993L19 22h-6.5a3.5 3.5 0 0 1-3.495-3.308L9 18.5V5.415L5.707 8.707a1 1 0 0 1-1.32.083l-.094-.083a1 1 0 0 1-.083-1.32l.083-.094 5-5a1.01 1.01 0 0 1 .112-.097l.11-.071.114-.054.105-.035.118-.025.058-.007L10 2l.075.003.126.017.111.03.111.044.098.052.092.064.094.083 5 5a1 1 0 0 1-1.32 1.497l-.094-.083L11 5.415V18.5a1.5 1.5 0 0 0 1.355 1.493L12.5 20H19a1 1 0 0 1 1 1Z" fill="#969696" />
@@ -215,7 +228,7 @@
                                         <div class="footer"></div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

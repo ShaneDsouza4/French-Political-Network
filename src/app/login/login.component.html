@@ -1,6 +1,6 @@
 <div *ngIf="showLogin">
   <h1 mat-dialog-title>Login</h1>
-  <div>Don't have an account ? <button type="button" (click)="openSignUp()" class="btn btn-link">Sign Up</button></div>
+  <div style="margin-left: 1.5em;">Don't have an account ? <button type="button" (click)="openSignUp()" class="btn btn-link">Sign Up</button></div>
   <div mat-dialog-content>
     <form [formGroup]="loginForm">
       <div class="form-group mt-2">
@@ -15,26 +15,26 @@
         <small class="text-danger"
           *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"></small>
       </div>
-  
+
       <!-- <button type="submit" class="btn btn-primary mt-2" (click)="onLogin()">Submit</button> -->
     </form>
-      
+
   </div>
-  
-  <div mat-dialog-actions>
+
+  <div style="margin-left: 1.1em;" mat-dialog-actions>
     <div class="form-btn">
       <button class="btn btn-success" style="margin-right: 10px;" (click)="onLogin()" *ngIf="!spinner">Submit</button>
       <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
-          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-          Loading...
+        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        Loading...
       </button>
       <button type="button" class="btn btn-danger" (click)="closepopup()">Cancel</button>
       <div class="alert alert-danger mt-2" *ngIf="incompleteForm">
         Please fill out login details
       </div>
-  </div>
-  
-  
+    </div>
+
+
   </div>
 </div>
 

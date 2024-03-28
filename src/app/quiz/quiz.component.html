@@ -2,48 +2,38 @@
     <div class="section-center">
         <div class="card container">
            
-            <app-quiz-questions #quiz [style.display]="(showQuizScreen)?'block':'none'"  (finalResult)="finalResult($event)"></app-quiz-questions>
-            <app-quiz-result #result [style.display]="(showResultScreen)?'block':'none'" (showMainMenuScreen)="showMainMenuScreen($event)"></app-quiz-result>
+           <!--  <app-quiz-questions #quiz [style.display]="(showQuizScreen)?'block':'none'"  (finalResult)="finalResult($event)"></app-quiz-questions>
+            <app-quiz-result #result [style.display]="(showResultScreen)?'block':'none'" (showMainMenuScreen)="showMainMenuScreen($event)"></app-quiz-result> -->
+
+            <app-political-quiz-questions *ngIf="showPoliticQuestions"></app-political-quiz-questions>
             
-            <div [style.display]="(showMainMenu)?'block':'none'" class="row justify-content-md-center">
+            <!-- <div [style.display]="(showMainMenu)?'block':'none'" class="row justify-content-md-center"> -->
+            <div *ngIf="!showPoliticQuestions" class="row justify-content-md-center">
                 <!-- <div class="col-md-6 mx-auto"> -->
                     <div class="quiz-form">
                         <div class="row">
                             <div class="col-md-12">
 
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title text-center">Quiz: Test your knowledge about France</h4>
+                                    <!-- <h4 class="card-title text-center">Quiz: Test your knowledge about France</h4> -->
+                                    <h4 class="card-title text-center">Where do you fit in the political typology?</h4>
                                   </div>
                                   
                                 <div class="form-group">
-                                    <span class="form-label">Difficulty</span>
-                                    <select class="form-control" [(ngModel)]="difficulty">
+                                    <span class="form-label">Answer the following questions to see how your political beliefs match your political parties.</span>
+                                    <!-- <select class="form-control" [(ngModel)]="difficulty">
                                         <option >Easy</option>
                                         <option>Medium</option>
                                         <option>Hard</option>
-                                    </select>
+                                    </select> -->
                                     <span class="select-arrow"></span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <span class="form-label">Questions</span>
-                                    <select class="form-control" [(ngModel)]="questionsLimit">
-                                        <option>5</option>
-                                        <option>10</option>
-                                        <option>15</option>
-                                        <option>20</option>
-                                    </select>
-                                    <span class="select-arrow"></span>
-                                </div>
-                            </div>
-                        </div> -->
-
-                        <div class="form-btn">
-                            <button class="submit-btn" (click)="getQuizQuestions()" *ngIf="!spinner">Start Quiz</button>
+                        <div class="form-btn text-center">
+                            <!-- <button class="submit-btn" (click)="getQuizQuestions()" *ngIf="!spinner">Start Quiz</button> -->
+                            <button class="submit-btn" (click)="getPoliticalQuizQuestions()" *ngIf="!spinner">Start Quiz</button>
                             <button class="submit-btn" type="button" disabled *ngIf="spinner">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 Loading...

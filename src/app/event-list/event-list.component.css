@@ -1,0 +1,262 @@
+@import 'https://fonts.googleapis.com/css?family=Lato';
+ @import 'http://weloveiconfonts.com/api/?family=fontawesome';
+ body {
+	 font-family: Lato, sans-serif;
+	 background: #fff;
+}
+ .wrapper {
+	 max-width: 750px;
+	 margin: 0 auto;
+}
+ h1.section-title {
+	 font-size: 3em;
+	 padding: 1em 0;
+	 text-align: center;
+	 position: relative;
+	 z-index: 1;
+}
+ h1.section-title span {
+	 background: #fff;
+	 padding: 0 0.5em;
+}
+ h1.section-title:before {
+	 border-top: 2px dashed #999;
+	 content: "";
+	 margin: 0 auto;
+	/* this centers the line to the full width specified */
+	 position: absolute;
+	 top: 50%;
+	 left: 0;
+	 right: 0;
+	 bottom: 0;
+	 width: 95%;
+	 z-index: -1;
+}
+ .event-list-item {
+	 background: #fafafa;
+	 border: 1px solid rgba(0, 0, 0, .05);
+	 max-width: 750px;
+	 max-height: 350px;
+	 position: relative;
+	 overflow: hidden;
+}
+ .event-list-item:nth-of-type(even) {
+	 background: #f5f5f5;
+}
+ .event-info {
+	 display: flex;
+	 flex-flow: row nowrap;
+	 justify-content: flex-start;
+}
+ .event-info .event-info-extras {
+	 display: flex;
+	 flex-flow: row nowrap;
+	 position: absolute;
+	 justify-content: flex-end;
+	 top: 0;
+	 right: 0;
+	 font-size: 1.25em;
+	 padding: 0.3em 0;
+}
+ .event-info .event-info-extras a {
+	 text-decoration: none;
+}
+ .event-info .event-info-extras .free:after {
+	 content: "Free";
+	 background: #5dbf0d;
+	 color: #fff;
+	 padding: 0.25em 0.5em;
+}
+ .event-info .event-info-extras .iCal:after {
+	 content: "\f073";
+	 font-family: "Fontawesome";
+	 font-size: 1.25em;
+	 color: #0099a9;
+	 margin: 0.25em 0.25em 0 0;
+}
+ .event-info .event-info-extras .register:after {
+	 content: "\f05a";
+	 font-family: "Fontawesome";
+	 font-size: 1.25em;
+	 color: #0099a9;
+	 margin: 0.25em 0.25em 0 0;
+}
+ .event-info .event-date {
+	 display: flex;
+	 flex-flow: column nowrap;
+	 width: 100px;
+	 max-width: 100px;
+}
+ .event-info .event-date .event-start, .event-info .event-date .event-end {
+	 width: 100px;
+	 height: 100px;
+	 text-align: center;
+	 resize: vertical;
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: center;
+	 font-size: 2em;
+	 color: #fff;
+	 background: #ccc;
+	 align-self: flex-start;
+}
+ .event-info .event-date .event-end {
+	 margin-top: 0;
+}
+ .event-info .event-date .event-end:before {
+	 content: "thru";
+	 font-size: 0.5em;
+	 position: absolute;
+	 top: 90px;
+	 left: 37px;
+}
+ .event-info .event-description {
+	 max-width: 600px;
+	 line-height: 1.25em;
+	 padding: 1.25em;
+}
+ .event-info .event-description .event-header {
+	 font-size: 1.5em;
+	 margin-bottom: 0.25em;
+}
+ .event-info .event-description .event-header a {
+	 text-decoration: none;
+	 color: #333;
+}
+ .event-info .event-description .event-header .event-title {
+	 margin-bottom: 0.25em;
+}
+ .event-info .event-description .event-header .event-location, .event-info .event-description .event-header .event-time {
+	 font-size: 0.55em;
+}
+ .event-info .event-description .event-header .event-location:before {
+	 content: "\f041";
+	 font-family: "Fontawesome";
+	 margin-right: 0.35em;
+}
+ .event-info .event-description .event-header .event-time:before {
+	 content: "\f017";
+	 font-family: "Fontawesome";
+	 margin-right: 0.35em;
+}
+ .event-info .event-description .event-excerpt {
+	 font-size: 0.85em;
+}
+ .event-info .event-description .event-excerpt a.more {
+	 color: #248f8b;
+	 text-decoration: none;
+	 text-transform: uppercase;
+}
+ .event-info .event-description .event-excerpt a.more:after {
+	 content: "\f0a9";
+	 font-family: "Fontawesome";
+	 margin-left: 0.25em;
+}
+ .event-list-item.featured {
+	 color: #fff;
+	 background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
+}
+ .event-list-item.featured .event-info {
+	 padding: 3em 2em;
+	 position: relative;
+	 z-index: 1;
+}
+ .event-list-item.featured .event-info .event-info-extras .iCal:after {
+	 color: #fff;
+	 text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+ .event-list-item.featured .event-info .event-info-extras .register:after {
+	 color: #fff;
+	 text-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+ .event-list-item.featured .event-info .event-date {
+	 max-width: 100px;
+	 position: relative;
+}
+ .event-list-item.featured .event-info .event-date .event-end {
+	 margin-top: 1em;
+}
+ .event-list-item.featured .event-info .event-date .event-end:before {
+	 top: 105px;
+	 left: 35px;
+}
+ .event-list-item.featured .event-info .event-description {
+	 max-width: 600px;
+	 line-height: 1.5em;
+	 text-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+ .event-list-item.featured .event-info .event-description a {
+	 text-decoration: none;
+	 color: #fff;
+}
+ .event-list-item.featured .event-info .event-description .event-header {
+	 font-size: 2em;
+	 margin-bottom: 0.5em;
+	 padding-bottom: 0.5em;
+	 border-bottom: 4px double rgba(255, 255, 255, .5);
+}
+ .event-list-item.featured .event-info .event-description .event-header .event-title {
+	 margin-bottom: 0.5em;
+}
+ .event-list-item.featured .event-info .event-description .event-header .event-title:before {
+	 content: "\f005";
+	 font-family: "Fontawesome";
+	 margin-right: 0.35em;
+}
+ .event-list-item.featured .event-info .event-description .event-header .event-location, .event-list-item.featured .event-info .event-description .event-header .event-time {
+	 font-size: 0.5em;
+}
+ .event-list-item.featured .event-info .event-description .event-header .event-location:before {
+	 content: "\f041";
+	 font-family: "Fontawesome";
+	 margin-right: 0.35em;
+}
+ .event-list-item.featured .event-info .event-description .event-header .event-time:before {
+	 content: "\f017";
+	 font-family: "Fontawesome";
+	 margin-right: 0.35em;
+}
+ .event-list-item.featured .event-info .event-description .event-excerpt {
+	 font-size: 1em;
+}
+ .event-list-item.featured .event-info .event-description .event-excerpt a {
+	 color: #fc0;
+}
+ .event-list-item.featured .event-image {
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 z-index: -1;
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+}
+ .event-list-item.gold .event-start, .event-list-item.gold .event-end {
+	 background: #fc0 !important;
+}
+ .event-list-item.navy .event-start, .event-list-item.navy .event-end {
+	 background: #00205c !important;
+}
+ .event-list-item.red .event-start, .event-list-item.red .event-end {
+	 background: #b30000 !important;
+}
+ .event-list-item.teal .event-start, .event-list-item.teal .event-end {
+	 background: #248f8b !important;
+}
+ .event-list-item.featured.gold {
+	 border-left: 10px solid #fc0;
+	 max-width: 740px;
+}
+ .event-list-item.featured.navy {
+	 border-left: 10px solid #00205c;
+	 max-width: 740px;
+}
+ .event-list-item.featured.red {
+	 border-left: 10px solid #b30000;
+	 max-width: 740px;
+}
+ .event-list-item.featured.teal {
+	 border-left: 10px solid #248f8b;
+	 max-width: 740px;
+}
+ 

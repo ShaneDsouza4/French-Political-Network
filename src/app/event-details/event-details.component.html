@@ -9,7 +9,7 @@
                                 <div class="col-10">Few Tickets Left</div>
                             </div>
                             <div class="row mt-2">
-                                <b>{{eventDetails?.startDate | date}}</b>
+                                <b>{{eventDetails?.eventStart | date}}</b>
                             </div>
 
 
@@ -23,10 +23,8 @@
 
                             <div class="row mt-2">
                                 <h2><b><i class="fa fa-clock-o"></i> Date & Time </b></h2>
-                                <span><b>Event Start: </b>{{eventDetails.startDate | date}} -
-                                    {{eventDetails.startTime}}</span>
-                                <span><b>Event End: </b>{{eventDetails.endDate | date}} -
-                                    {{eventDetails.endTime}}</span>
+                                <span><b>Event Start: </b>{{eventDetails.eventStart | date}} </span>
+                                <span><b>Event End: </b>{{eventDetails.eventEnd | date}} </span>
                             </div>
 
                             <div class="row mt-2">
@@ -34,19 +32,19 @@
                                 <span>{{eventDetails.location }} </span>
                             </div>
 
-                            <div class="row mt-2">
+                            <!-- <div class="row mt-2">
                                 <h2><b>Refund Policy</b></h2>
                                 <span>{{eventDetails.refunds }} </span>
-                            </div>
+                            </div> -->
 
                             <div class="row mt-2">
                                 <h2><b>Details</b></h2>
-                                <span>{{eventDetails.eventDescription }} </span>
+                                <span>{{eventDetails.description }} </span>
                             </div>
 
                             <div class="row mt-2">
                                 <h2><b>Organizer</b></h2>
-                                <span>{{eventDetails.eventOrganizer }} </span>
+                                <span>{{eventDetails.organizer }} </span>
                             </div>
 
                         </div>
@@ -58,7 +56,8 @@
             <div class="card">
                 <div class="card-body">
 
-                    <button class="btn btn-primary" (click)="registerForEvent(eventDetails)">Register</button>
+                    <button *ngIf="!userRegistered" class="btn btn-primary" (click)="registerForEvent()">Register</button>
+                    <button  *ngIf="userRegistered" class="btn btn-primary" (click)="unRegisterForEvent()">Un-register</button>
 
                 </div>
             </div>
@@ -72,13 +71,13 @@
 
                     <div *ngFor="let event of otherEvents">
                         <div class="card mt-2 ">
-                            <img class="card-img-top" style="height:200px" [src]="event.imageUrl" alt="Card image">
+                            <!-- <img class="card-img-top" style="height:200px" [src]="event.imageUrl" alt="Card image"> -->
                             <div class="card-body">
                                 <h4 class="card-title">{{event.eventName}}</h4>
-                                <p class="card-text">{{event.startDate | date}} {{event.startTime}} - ${{event.price}}
+                                <p class="card-text">{{event.eventStart | date}} - {{event.eventEnd | date}} 
                                 </p>
                                 <p class="card-text">{{event.location}}</p>
-                                <a [routerLink]="'/event-detail/' + event.eventID" class="btn btn-primary">View</a>
+                                <a [routerLink]="'/event-detail/' + event.id" class="btn btn-primary">View</a><!-- `/event-detail/${eventId}` -->
                             </div>
                         </div>
                     </div>

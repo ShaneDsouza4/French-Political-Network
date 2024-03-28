@@ -9,6 +9,7 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from '../login/login.component';
+import { WarningModalComponent } from '../warning-modal/warning-modal.component';
 
 @Component({
   selector: 'app-project-details',
@@ -26,22 +27,24 @@ import { LoginComponent } from '../login/login.component';
 })
 export class ProjectDetailsComponent implements OnInit {
 
-  projectComments: any[]= []
+  projectComments: any[] = []
   allowedToVote: boolean = false
   loggedIn: boolean = false;
   loggedInUserID: any
   loggedInDetails: any = {}
   activeProjectId: number = 0;
-  projectObj:any
-  userInfo:any
-  isLoggedIn:boolean = false
-  giveOpinion:boolean = false;
-  projectList:any
-  projectDetails:any = {}
+  projectObj: any
+  userInfo: any
+  isLoggedIn: boolean = false
+  giveOpinion: boolean = false;
+  projectList: any
+  projectDetails: any = {}
   faArrowUp = faArrowAltCircleUp
   faArrowDown = faArrowAltCircleDown
+  incompleteComment: boolean = false
+  spinner: boolean = false
 
-  opinionForm!:FormGroup
+  opinionForm!: FormGroup
 
   constructor(private activatedRouted: ActivatedRoute, private _projectService: ProjectService, private router: Router, public dialog: MatDialog) {
 
@@ -54,21 +57,19 @@ export class ProjectDetailsComponent implements OnInit {
     } */
 
     this.opinionForm = new FormGroup({
-      'opinion': new FormControl('Excellent', [RxwebValidators.required()]),
-      'message': new FormControl(''),
-      'date': new FormControl(new Date().toISOString())
+      'message': new FormControl('')
     })
-    
+
     // let projectListX:any = localStorage.getItem('projects')
     // this.projectList = JSON.parse(projectListX)
 
 
-    this.activatedRouted.params.subscribe((res:any)=>{
+    this.activatedRouted.params.subscribe((res: any) => {
       this.activeProjectId = res.projectId
       this.getProjectDetail(this.activeProjectId)
     })
 
-    
+
   }
   ngOnInit(): void {
     //Login Logout Check
@@ -85,37 +86,38 @@ export class ProjectDetailsComponent implements OnInit {
 
   }
 
-  getProjectDetail(activeProjectId:number){
+  getProjectDetail(activeProjectId: number) {
     console.log("Project ID: ", activeProjectId)
-    this._projectService.getProjectDetailById(activeProjectId).subscribe((res:any)=>{
-      console.log("Response of Specific: ",res);
-      if(res.status == 1){
+    this._projectService.getProjectDetailById(activeProjectId).subscribe((res: any) => {
+      console.log("Response of Specific: ", res);
+      if (res.status == 1) {
         this.projectDetails = res.projects[0]
-        console.log("Get Project Detail: ",this.projectDetails)
+        console.log("Get Project Detail: ", this.projectDetails)
         this.getProjectComments(activeProjectId)
-      }else{
+      } else {
         this.projectDetails = {}
       }
     })
   }
 
-  getProjectComments(projectId:any){
-    this._projectService.getCommentForID(projectId).subscribe((res:any)=>{
-      
-      if(res.status == 1){
+  getProjectComments(projectId: any) {
+    this._projectService.getCommentForID(projectId).subscribe((res: any) => {
+
+      if (res.status == 1) {
         this.projectComments = res.comments
+        this.projectComments = this.projectComments.reverse();
         console.log('COMMENTS: ', this.projectComments)
-      }else{
+      } else {
         this.projectComments = []
       }
     })
   }
 
-  cancelOpinion(){
+  cancelOpinion() {
     this.giveOpinion = false;
   }
 
-  openOpinionDialog(){
+  openOpinionDialog() {
     var _popup = this.dialog.open(OpinionModalComponent, {
       width: '60%',
       data: {
@@ -124,31 +126,68 @@ export class ProjectDetailsComponent implements OnInit {
       }
     })
 
-    _popup.afterClosed().subscribe((item:any)=>{
-      var FoundIndex = this.projectList.findIndex((x:any)=>x.id == item.id)
+    _popup.afterClosed().subscribe((item: any) => {
+      var FoundIndex = this.projectList.findIndex((x: any) => x.id == item.id)
       this.projectList[FoundIndex] = item
       localStorage.setItem('projects', JSON.stringify(this.projectList));
     })
   }
 
-  submitComment(){
-    console.log(this.opinionForm.getRawValue());
-    console.log(this.projectDetails)
-    let payLoad:any = {
-      "content": this.opinionForm.getRawValue().message,
-      "relation_id": this.projectDetails.projectId,
-      "timestamp": new Date().toISOString(),
-      "user_id": this.loggedInUserID
-    }
-    this._projectService.addComment(payLoad).subscribe((res: any) => {
-      console.log("Response: ", res)
-      if (res.status == 1) {
-        this.projectComments.push(res.id)
-        console.log("Project Comments: ", this.projectComments)
-      } else {
-        alert("Upvote unsucessfull");
+  submitComment() {
+    if (!this.loggedIn) {
+      this.allowedToVote = true
+      var _popup = this.dialog.open(LoginComponent, {
+        width: '60%',
+        data: {
+          title: "Login"
+        }
+      })
+    } else {
+      this.allowedToVote = false
+      console.log(this.opinionForm.getRawValue());
+      console.log(this.projectDetails)
+      let payLoad: any = {
+        "content": this.opinionForm.getRawValue().message,
+        "relation_id": this.projectDetails.projectId,
+        "timestamp": new Date().toISOString(),
+        "user_id": this.loggedInUserID
       }
-    })
+      if (payLoad.content == "") {
+        this.incompleteComment = true
+      } else {
+        var warningPopup = this.dialog.open(WarningModalComponent, {
+          width: '60%',
+          data: {
+            title: "Login",
+            content: "Comments once submitted cannot be edited or deleted. Do you want to proceed ?"
+          }
+        })
+        warningPopup.afterClosed().subscribe((item: any) => {
+          console.log("Warning Pop up Details: ", item)
+          if (item == "Confirm") {
+            this.incompleteComment = false
+            this.spinner = true
+            this._projectService.addComment(payLoad).subscribe((res: any) => {
+              console.log("Response: ", res)
+              if (res.status == 1) {
+                this.spinner = false
+                this.projectComments.unshift(res.id)
+                console.log("Project Comments: ", this.projectComments)
+                this.opinionForm.reset({});
+              } else {
+                this.spinner = false
+                alert("Upvote unsucessfull");
+              }
+            })
+          }
+        })
+
+
+
+      }
+
+    }
+
   }
 
   upVoteProject(projectId: any) {
@@ -174,7 +213,7 @@ export class ProjectDetailsComponent implements OnInit {
             alert("Upvote unsucessfull");
           }
         })
-      } 
+      }
     }
   }
 
@@ -205,6 +244,6 @@ export class ProjectDetailsComponent implements OnInit {
     }
   }
 
-  
+
 
 }

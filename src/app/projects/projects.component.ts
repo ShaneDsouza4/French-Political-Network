@@ -24,6 +24,7 @@ import { LoginComponent } from '../login/login.component';
 })
 export class ProjectsComponent implements OnInit {
 
+  otherEvents:any[] = []
   loggedInUserID: any
   loggedInDetails: any = {}
   allowedToVote: boolean = false
@@ -55,6 +56,10 @@ export class ProjectsComponent implements OnInit {
     } else {
       this.loggedIn = false
     }
+
+    this._projectService.getFutureEvents().subscribe((res:any)=>{
+      this.otherEvents = res
+    })
   }
 
   loadProjects() {
@@ -148,6 +153,10 @@ export class ProjectsComponent implements OnInit {
     if (this.searchProject != "") {
       console.log(this.searchProject)
     }
+  }
+
+  createProject(){
+    this.router.navigate([`/new-project`])
   }
 
 }
