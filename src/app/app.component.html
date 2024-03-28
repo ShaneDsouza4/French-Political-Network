@@ -46,7 +46,7 @@
             </select>
           </div>
 
-          <button class="btn btn-success" type="button" (click)="openLoginModal()" *ngIf="!loggedIn">{{"Login" | translate}}</button>
+          <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="openLoginModal()" *ngIf="!loggedIn">{{"Login" | translate}}</button>
           <button class="btn btn-success" type="button" (click)="logout()" *ngIf="loggedIn">{{"Logout" | translate}}</button>
         </form>
       </div>
