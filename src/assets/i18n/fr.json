@@ -88,17 +88,26 @@
     "Date of Birth is required":"La date de naissance est requise",
     "Valid Contact Number is required":"Un numéro de contact valide est requis",
     "Password must be min 5 characters and max 10 characters":"Le mot de passe doit comporter au moins 5 caractères et au maximum 10 caractères",
-    "Cancel":"Annuler",
     "Please fill out registration form correctly":"Veuillez remplir correctement le formulaire d'inscription",
-    "Password":"Mot de passe",
-    "Email Address":"Adresse e-mail",
     "Contact Number":"Numéro de contact",
     "Identity Number or Passport Number":"Numéro d'identité ou de passeport",
     "Select City":"Sélectionner la ville",
     "Date Of Birth":"Date de naissance",
+    "Select Department":"Sélectionner le département",
+    "Don't have an account ?":"Vous n'avez pas de compte ?",
     "Sign Up":"S'inscrire",
-    "Select Department":"Sélectionner le département"
-   
+    "Email Address":"Adresse e-mail",
+    "Enter a Valid Email":"Entrer un email valide",
+    "Password":"Mot de passe",
+    "Cancel":"Annuler",
+    "Please fill out login details":"Veuillez remplir les informations de connexion",
+    "Next":"Suivante",
+    "Finish":"Finition",
+    "Quiz Result":"Résultat du quiz",
+    "Political Party":"Parti politique",
+    "aligns":"aligne",
+    "with your interests":"avec vos intérêts",
+    "Main Menu":"Menu principal"
 
 
 }

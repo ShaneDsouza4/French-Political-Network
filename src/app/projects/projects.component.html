@@ -1,6 +1,6 @@
 <div *ngIf="!loader" class="container-fluid " style="background-color: #f1f5f9; height: 100vh"><!-- pt-5 -->
   <div class="row mt-0">
-    <div class="col-8 project">
+    <div class="col-8 project" style="overflow-y: auto; max-height: 80vh;">
       <!-- Search Bar -->
       <!-- <div>
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
@@ -128,7 +128,7 @@
         </div>
       </div>
     </div>
-    <div class="col-4 filter pt-5">
+    <div class="col-4 filter pt-5" style="overflow-y: auto; max-height: 80vh;">
       <div class="card">
           <div class="card-body">
               <button  class="btn btn-primary" (click)="createProject()">{{ 'Create Project' | translate}}</button>            

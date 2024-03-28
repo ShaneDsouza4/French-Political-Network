@@ -88,18 +88,24 @@
     "Date of Birth is required":"Date of Birth is required",
     "Valid Contact Number is required":"Valid Contact Number is required",
     "Password must be min 5 characters and max 10 characters":"Password must be min 5 characters and max 10 characters",
-    "Cancel":"Cancel",
     "Please fill out registration form correctly":"Please fill out registration form correctly",
-    "Password":"Password",
-    "Email Address":"Email Address",
     "Contact Number":"Contact Number",
     "Identity Number or Passport Number":"Identitiy Number or Passport Number",
     "Select City":"Select City",
     "Date Of Birth":"Date Of Birth",
+    "Select Department":"Select Department",
+    "Don't have an account ?":"Don't have an account ?",
     "Sign Up":"Sign Up",
-    "Select Department":"Select Department"
-    
-
-
-
+    "Email Address":"Email Address",
+    "Enter a Valid Email":"Enter a Valid Email",
+    "Password":"Password",
+    "Cancel":"Cancel",
+    "Please fill out login details":"Please fill out login details",
+    "Next":"Next",
+    "Finish":"Finish",
+    "Quiz Result":"Quiz Result",
+    "Political Party":"Political Party",
+    "aligns":"aligns",
+    "with your interests":"with your interests",
+    "Main Menu":"Main Menu"
 }   

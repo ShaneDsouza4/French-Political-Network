@@ -5,13 +5,13 @@
                 <div class="col-md-12">
 
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title text-center">Quiz Result</h4>
+                        <h4 class="card-title text-center">{{"Quiz Result" | translate}}</h4>
                       </div>
 
                     <div class="form-group">
                         <!-- <h1>Result</h1> -->
                         <div *ngFor="let item of finalResult">
-                            <p>Political Party: <b>{{item.party}}</b> aligns <b>{{item.percentMatch}}%</b> with your interests<span *ngFor="let i of item.interests">, <b>{{i}}</b></span> </p>
+                            <p>{{"Political Party" | translate}}: <b>{{item.party}}</b> {{"aligns" | translate}} <b>{{item.percentMatch}}%</b> {{"with your interests" | translate}}<span *ngFor="let i of item.interests">, <b>{{i}}</b></span> </p>
                         </div>
                         <hr>
                         <!-- <div class="row text-center">
@@ -42,7 +42,7 @@
                         </div> -->
                         <br>
                         <div class="form-btn text-center">
-                            <button class="submit-btn" (click)="showMainMenu()">Main Menu</button>
+                            <button class="submit-btn" (click)="showMainMenu()">{{"Main Menu" | translate}}</button>
                         </div>
                     </div>
                 </div>
