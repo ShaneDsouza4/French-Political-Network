@@ -6,6 +6,7 @@ import { RxReactiveFormsModule, RxwebValidators } from '@rxweb/reactive-form-val
 import { cities } from '../constants/constants';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-project',
@@ -15,6 +16,7 @@ import { HttpClient } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     RxReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './create-project.component.html',
   styleUrl: './create-project.component.css'

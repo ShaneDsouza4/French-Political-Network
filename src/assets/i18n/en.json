@@ -17,5 +17,22 @@
     "Address: 123 Republic Street, Paris":"Address: 123 Republic Street, Paris",
     "Phone":"Phone",
     "Email":"Email",
-    "Legal Notice":"Legal Notice"
+    "Legal Notice":"Legal Notice",
+    "Create a new Project":"Create a new Project",
+    "Project Name":"Project Name",
+    "Project Department":"Project Department",
+    "Department is required":"Department is required",
+    "Project city":"Project city",
+    "City is required":"City is required",
+    "Name is required":"Name is required",
+    "Project Duration":"Project Duration",
+    "Project Budget":"Project Budget",
+    "Project Start Date":"Project Start Date",
+    "Project Description":"Project Description",
+    "Description is required":"Description is required",
+    "Start Date is required":"Start Date is required",
+    "Budget is required":"Budget is required",
+    "Duration is required":"Duration is required",
+    "(Specify in months or year)":"(Specify in months or year)"
+    
 }   
