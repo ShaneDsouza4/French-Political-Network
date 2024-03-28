@@ -59,7 +59,7 @@ export class LoginComponent {
         let loggedInUserDetails = res.userInfo;
         loggedInUserDetails.email = payLoad.email;
         localStorage.setItem('loggedInUser', JSON.stringify(loggedInUserDetails));
-        //this.router.navigate(['/projects'])
+        this.router.navigate(['/'])
         this.closepopup();
         window.location.reload()
       }else{

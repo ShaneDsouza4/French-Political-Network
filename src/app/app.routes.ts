@@ -18,7 +18,7 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { VoteComponent } from './vote/vote.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'/', redirectTo:'projects', pathMatch:'full'},
     {path:'home', component: HomeComponent},
     {path:'login', component: LoginComponent},
     {path:'citizen-register', component: CitizenRegisterComponent},
