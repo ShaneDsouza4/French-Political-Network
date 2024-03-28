@@ -1,75 +1,63 @@
 <div class="container-fluid" style="background-color: #f1f5f9">
-  <!-- pt-5 -->
-  <div class="row mt-0">
-    <div class="col-8 project">
-      <div class="row pt-5">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <div class="row card-header card-header-danger">
-                <div class="col-10">Few Tickets Left</div>
-              </div>
-              <div class="row mt-2">
-                <b>{{ eventDetails?.eventStart | date }}</b>
-              </div>
-
-              <div class="row mt-2">
-                <h1>{{ eventDetails?.eventName }}</h1>
-              </div>
-
+  <div class="row mt-4">
+    <div class="col-lg-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="card-header bg-danger text-white">Few Tickets Left</div>
+          <div class="row mt-3">
+            <div class="col-12">
+              <h2 class="mb-3">{{ eventDetails?.eventName }}</h2>
+              <p>
+                <strong>{{ eventDetails?.eventStart | date }}</strong>
+              </p>
               <hr />
-
-              <div class="row mt-2">
-                <h2>
-                  <b><i class="fa fa-clock-o"></i> Date & Time </b>
-                </h2>
-                <span
-                  ><b>Event Start: </b>{{ eventDetails.eventStart | date }}
-                </span>
-                <span
-                  ><b>Event End: </b>{{ eventDetails.eventEnd | date }}
-                </span>
+              <div class="row mt-3">
+                <div class="col-md-6">
+                  <h5><i class="fa fa-clock-o"></i> Date & Time</h5>
+                  <p>
+                    <strong>Event Start:</strong>
+                    {{ eventDetails.eventStart | date }}
+                  </p>
+                  <p>
+                    <strong>Event End:</strong>
+                    {{ eventDetails.eventEnd | date }}
+                  </p>
+                </div>
+                <div class="col-md-6">
+                  <h5><i class="fa fa-map-marker"></i> Location</h5>
+                  <p>{{ eventDetails.location }}</p>
+                </div>
               </div>
-
-              <div class="row mt-2">
-                <h2>
-                  <b><i class="fa fa-map-marker"></i> Location </b>
-                </h2>
-                <span>{{ eventDetails.location }} </span>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <h5><i class="fa fa-info-circle"></i> Details</h5>
+                  <p>{{ eventDetails.description }}</p>
+                </div>
               </div>
-
-              <!-- <div class="row mt-2">
-                                <h2><b>Refund Policy</b></h2>
-                                <span>{{eventDetails.refunds }} </span>
-                            </div> -->
-
-              <div class="row mt-2">
-                <h2><b>Details</b></h2>
-                <span>{{ eventDetails.description }} </span>
-              </div>
-
-              <div class="row mt-2">
-                <h2><b>Organizer</b></h2>
-                <span>{{ eventDetails.organizer }} </span>
+              <div class="row mt-3">
+                <div class="col-md-12">
+                  <h5><i class="fa fa-user"></i> Organizer</h5>
+                  <p>{{ eventDetails.organizer }}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-4 filter pt-5">
+    <div class="col-lg-4 filter">
       <div class="card">
         <div class="card-body">
           <button
             *ngIf="!userRegistered"
-            class="btn btn-primary"
+            class="btn btn-primary btn-block"
             (click)="registerForEvent()"
           >
             Register
           </button>
           <button
             *ngIf="userRegistered"
-            class="btn btn-primary"
+            class="btn btn-danger btn-block"
             (click)="unRegisterForEvent()"
           >
             Un-register
@@ -77,24 +65,22 @@
         </div>
       </div>
 
-      <div class="card mt-2">
-        <div class="card-body">
-          <h2>Other Events</h2>
-
+      <div class="card mt-3">
+        <div class="card-body" style="max-height: 50vh; overflow-y: auto">
+          <h5>Other Events</h5>
           <div *ngFor="let event of otherEvents">
-            <div class="card mt-2">
-              <!-- <img class="card-img-top" style="height:200px" [src]="event.imageUrl" alt="Card image"> -->
+            <div class="card mt-3">
               <div class="card-body">
-                <h4 class="card-title">{{ event.eventName }}</h4>
+                <h5 class="card-title">{{ event.eventName }}</h5>
                 <p class="card-text">
                   {{ event.eventStart | date }} - {{ event.eventEnd | date }}
                 </p>
                 <p class="card-text">{{ event.location }}</p>
                 <a
                   [routerLink]="'/event-detail/' + event.id"
-                  class="btn btn-primary"
+                  class="btn btn-primary btn-sm"
                   >View</a
-                ><!-- `/event-detail/${eventId}` -->
+                >
               </div>
             </div>
           </div>
