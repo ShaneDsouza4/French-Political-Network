@@ -7,6 +7,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { QuizResult } from '../interface/quiz-result';
 import { ProjectService } from '../service/project.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-quiz-questions',
@@ -17,6 +18,7 @@ import { ProjectService } from '../service/project.service';
     NgMultiSelectDropDownModule,
     RouterLink,
     FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './quiz-questions.component.html',
   styleUrl: './quiz-questions.component.css'

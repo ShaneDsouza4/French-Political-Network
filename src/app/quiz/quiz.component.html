@@ -16,11 +16,11 @@
 
                                 <div class="card-header card-header-danger">
                                     <!-- <h4 class="card-title text-center">Quiz: Test your knowledge about France</h4> -->
-                                    <h4 class="card-title text-center">Find out which political parties align with your interests.</h4>
+                                    <h4 class="card-title text-center">{{"Find out which political parties align with your interests." | translate}}</h4>
                                   </div>
                                   
                                 <div class="form-group">
-                                    <span class="form-label text-center">Answer the following questions to see how your political beliefs match your political parties.</span>
+                                    <span class="form-label text-center">{{"Answer the following questions to see how your political beliefs match your political parties." | translate}}</span>
                                     <!-- <select class="form-control" [(ngModel)]="difficulty">
                                         <option >Easy</option>
                                         <option>Medium</option>
@@ -32,11 +32,11 @@
                         </div>
 
                         <div class="form-btn text-center">
-                            <button class="submit-btn" (click)="getQuizQuestions()" *ngIf="!spinner">Start Quiz</button>
+                            <button class="submit-btn" (click)="getQuizQuestions()" *ngIf="!spinner">{{"Start Quiz" | translate}}</button>
                             <!-- <button class="submit-btn" (click)="getPoliticalQuizQuestions()" *ngIf="!spinner">Start Quiz</button> -->
                             <button class="submit-btn" type="button" disabled *ngIf="spinner">
                                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                Loading...
+                                {{"Loading" | translate}}...
                             </button>
                         </div>
                     </div>

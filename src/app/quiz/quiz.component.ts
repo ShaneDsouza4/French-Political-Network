@@ -9,6 +9,7 @@ import { QuizQuestionsComponent } from '../quiz-questions/quiz-questions.compone
 import { Question } from '../interface/question';
 import { QuizResultComponent } from '../quiz-result/quiz-result.component';
 import { PoliticalQuizQuestionsComponent } from '../political-quiz-questions/political-quiz-questions.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-quiz',
@@ -21,7 +22,8 @@ import { PoliticalQuizQuestionsComponent } from '../political-quiz-questions/pol
     FontAwesomeModule,
     QuizQuestionsComponent,
     QuizResultComponent,
-    PoliticalQuizQuestionsComponent
+    PoliticalQuizQuestionsComponent,
+    TranslateModule
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
