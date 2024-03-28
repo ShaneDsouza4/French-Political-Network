@@ -1,6 +1,6 @@
 <div *ngIf="showLogin">
   <h1 mat-dialog-title>Login</h1>
-  <div>Don't have an account ? <button type="button" (click)="openSignUp()" class="btn btn-link">Sign Up</button></div>
+  <div style="margin-left: 1.5em;">Don't have an account ? <button type="button" (click)="openSignUp()" class="btn btn-link">Sign Up</button></div>
   <div mat-dialog-content>
     <form [formGroup]="loginForm">
       <div class="form-group mt-2">
@@ -21,7 +21,7 @@
 
   </div>
 
-  <div mat-dialog-actions>
+  <div style="margin-left: 1.1em;" mat-dialog-actions>
     <div class="form-btn">
       <button class="btn btn-success" style="margin-right: 10px;" (click)="onLogin()" *ngIf="!spinner">Submit</button>
       <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
