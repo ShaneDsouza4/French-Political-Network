@@ -50,7 +50,14 @@
     "Vote":"Vote",
     "Find out which political parties align with your interests.":"Découvrez quels partis politiques correspondent à vos intérêts.",
     "Answer the following questions to see how your political beliefs match your political parties.":"Répondez aux questions suivantes pour voir dans quelle mesure vos convictions politiques correspondent à vos partis politiques.",
-    "Start Quiz":"Démarrer le quiz"
+    "Start Quiz":"Démarrer le quiz",
+    "Don't have an account ?":"Vous n'avez pas de compte ?",
+    "Sign Up":"S'inscrire",
+    "Email Address":"Adresse e-mail",
+    "Enter a Valid Email":"Entrer un email valide",
+    "Password":"Mot de passe",
+    "Cancel":"Annuler",
+    "Please fill out login details":"Veuillez remplir les informations de connexion"
 
 
 }
