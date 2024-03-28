@@ -19,7 +19,7 @@
         <div class="form-group mt-2 ">
           <label for="department">{{ 'Project Department' | translate}}</label>
           <select class="form-select" id="department" formControlName="department">
-            <option selected disabled value="null">Select Department</option>
+            <option selected disabled value="null">{{ 'Select Department' | translate}}</option>
             <option *ngFor="let item of departmentList" [value]="item.name">{{item.name}}</option>
           </select>
           <small class="text-danger" *ngIf="newProjectForm.get('department')?.invalid && newProjectForm.get('department')?.touched">{{ 'Department is required' | translate}}</small>
@@ -29,7 +29,7 @@
         <div class="form-group mt-2 ">
           <label for="city">{{ 'Project city' | translate}}</label>
           <select class="form-select" id="city" formControlName="city">
-            <option selected disabled value="null">Select City</option>
+            <option selected disabled value="null">{{ 'Select City' | translate}}</option>
             <option *ngFor="let item of cities" [value]="item.name">{{item.name}}</option>
           </select>
           <small class="text-danger" *ngIf="newProjectForm.get('city')?.invalid && newProjectForm.get('city')?.touched">{{ 'City is required' | translate}}</small>
@@ -73,11 +73,11 @@
         </div>
 
         <!-- Action Buttons -->
-        <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="onCreateProject()">Submit</button>
-        <button type="submit" class="btn btn-danger mt-2" (click)="reset()">Reset</button>
+        <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="onCreateProject()">{{ 'submit' | translate}}</button>
+        <button type="submit" class="btn btn-danger mt-2" (click)="reset()">{{ 'reset' | translate}}</button>
 
         <div class="alert alert-danger mt-2" *ngIf="incompleteForm">
-          Please fill out form correctly
+          {{ 'Please fill out form correctly' | translate}}
         </div>
       </form>
       

@@ -8,6 +8,7 @@ import { faArrowAltCircleDown, faArrowAltCircleUp, faArrowRightArrowLeft, faArro
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-projects',
@@ -17,7 +18,8 @@ import { LoginComponent } from '../login/login.component';
     FormsModule,
     NgMultiSelectDropDownModule,
     RouterLink,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css'

@@ -7,6 +7,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { EventBookingModalComponent } from '../event-booking-modal/event-booking-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ProjectService } from '../service/project.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-events',
@@ -16,7 +17,8 @@ import { ProjectService } from '../service/project.service';
     FormsModule,
     NgMultiSelectDropDownModule,
     RouterLink,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './events.component.html',
   styleUrl: './events.component.css'

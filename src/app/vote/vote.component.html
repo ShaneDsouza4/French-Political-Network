@@ -1,5 +1,5 @@
-<div *ngIf="!loader" class="container-fluid" style="background-color: #f1f5f9; ">
-    <h2>Vote for Political Parties</h2>
+<div class="container-fluid" style="background-color: #f1f5f9; ">
+    <h2>{{ 'Vote for Political Parties' | translate}}</h2>
     <div class="row">
       <div class="col-3" *ngFor="let item of AllParties">
         <div class="card mt-2" >
@@ -7,11 +7,11 @@
           <div class="card-body text-center">
             <hr>
             <h4 class="card-title text-center">{{item?.name}}</h4>
-            <span >Total Votes: {{item?.vote.length}}</span>
+            <span >{{ 'Total Votes:' | translate}} {{item?.vote.length}}</span>
             <hr>
             <div class="text-center">
-              <button *ngIf="!item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="voteParty(item.id)">Vote</button>
-              <button *ngIf="item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="unVoteParty(item.id)">Un-vote</button>
+              <button *ngIf="!item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="voteParty(item.id)">{{ 'Vote' | translate}}</button>
+              <button *ngIf="item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="unVoteParty(item.id)">{{ 'Un-vote' | translate}}</button>
               <!-- <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Loading...

@@ -5,7 +5,7 @@
     </div> -->
     <div class="col-12 content">
       <div class="card-header card-header-danger">
-        <h4 class="card-title">Sign Up</h4>
+        <h4 class="card-title">{{ 'Sign Up' | translate}}</h4>
       </div>
 
       <form [formGroup]="citizenRegForm">
@@ -13,67 +13,67 @@
         
 
         <div class="form-group mt-2 ">
-          <label for="firstName">First Name</label>
+          <label for="firstName">{{ 'First Name' | translate}}</label>
           <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="Enter First Name">
-          <small class="text-danger" *ngIf="citizenRegForm.get('firstName')?.invalid && citizenRegForm.get('firstName')?.touched">First Name is required</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('firstName')?.invalid && citizenRegForm.get('firstName')?.touched">{{ 'First Name is required' | translate}}</small>
         </div>
 
         
         <div class="form-group mt-2 mt-2">
-          <label for="lastName">Last Name</label>
+          <label for="lastName">{{ 'Last Name' | translate}}</label>
           <input formControlName="lastName" type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
-          <small class="text-danger" *ngIf="citizenRegForm.get('lastName')?.invalid && citizenRegForm.get('lastName')?.touched">Last Name is required</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('lastName')?.invalid && citizenRegForm.get('lastName')?.touched">{{ 'Last Name is required' | translate}}</small>
         </div>
 
         <div class="form-group mt-2">
-          <label for="dob">Date Of Birth</label>
+          <label for="dob">{{ 'Date Of Birth' | translate}}</label>
           <input type="date" formControlName="dob" class="form-control" id="dob" placeholder="Enter Date of Birth">
-          <small class="text-danger" *ngIf="citizenRegForm.get('dob')?.invalid && citizenRegForm.get('dob')?.touched">Date of Birth is required</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('dob')?.invalid && citizenRegForm.get('dob')?.touched">{{ 'Date of Birth is required' | translate}}</small>
         </div>
 
         <div class="form-group mt-2 ">
-          <label for="city">City</label>
+          <label for="city">{{ 'City' | translate}}</label>
           <select class="form-select" id="city" formControlName="city">
-            <option selected disabled value="null">Select City</option>
+            <option selected disabled value="null">{{ 'Select City' | translate}}</option>
             <option *ngFor="let item of cities" [value]="item.name">{{item.name}}</option>
           </select>
-          <small class="text-danger" *ngIf="citizenRegForm.get('city')?.invalid && citizenRegForm.get('city')?.touched">City is required</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('city')?.invalid && citizenRegForm.get('city')?.touched">{{ 'City is required' | translate}}</small>
         </div>
         
    
         <div class="form-group mt-2">
-          <label for="passportNumber">Identitiy Number or Passport Number</label>
+          <label for="passportNumber">{{ 'Identity Number or Passport Number' | translate}}</label>
           <input  type="text" class="form-control" formControlName="passportNumber" id="passportNumber" placeholder="Enter Passport Number">
-          <small class="text-danger" *ngIf="citizenRegForm.get('passportNumber')?.invalid && citizenRegForm.get('passportNumber')?.touched">Identity Number is required</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('passportNumber')?.invalid && citizenRegForm.get('passportNumber')?.touched">{{ 'Identity Number is required' | translate}}</small>
         </div>
 
 
         <div class="form-group mt-2">
-          <label for="contactNumber">Contact Number</label>
+          <label for="contactNumber">{{ 'Contact Number' | translate}}</label>
           <input  type="text" class="form-control" formControlName="contactNumber" id="contactNumber" placeholder="Enter Contact Number">
-          <small class="text-danger" *ngIf="citizenRegForm.get('contactNumber')?.invalid && citizenRegForm.get('contactNumber')?.touched">Valid Contact Number is required</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('contactNumber')?.invalid && citizenRegForm.get('contactNumber')?.touched">{{ 'Valid Contact Number is required' | translate}}</small>
         </div>
 
 
         <div class="form-group mt-2">
-          <label for="email">Email Address</label>
+          <label for="email">{{ 'Email Address' | translate}}</label>
           <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter Email Address">
-          <small class="text-danger" *ngIf="citizenRegForm.get('email')?.invalid && citizenRegForm.get('email')?.touched">Enter a Valid Email</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('email')?.invalid && citizenRegForm.get('email')?.touched">{{ 'Enter a Valid Email' | translate}}</small>
         </div>
 
 
         <div class="form-group mt-2">
-          <label for="password">Password</label>
+          <label for="password">{{ 'Password' | translate}}</label>
           <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
-          <small class="text-danger" *ngIf="citizenRegForm.get('password')?.invalid && citizenRegForm.get('password')?.touched">Password must be min 5 characters and max 10 characters</small>
+          <small class="text-danger" *ngIf="citizenRegForm.get('password')?.invalid && citizenRegForm.get('password')?.touched">{{ 'Password must be min 5 characters and max 10 characters' | translate}}</small>
         </div>
 
    
-        <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="registerCitizen()">Submit</button>
-        <button type="submit" class="btn btn-danger mt-2" (click)="cancelRegistration()">Cancel</button>
+        <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="registerCitizen()">{{ 'Submit' | translate}}</button>
+        <button type="submit" class="btn btn-danger mt-2" (click)="cancelRegistration()">{{ 'Cancel' | translate}}</button>
 
         <div class="alert alert-danger mt-2" *ngIf="incompleteForm">
-          Please fill out registration form correctly
+          {{ 'Please fill out registration form correctly' | translate}}
         </div>
       </form>
       
