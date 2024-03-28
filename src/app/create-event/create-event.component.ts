@@ -6,6 +6,7 @@ import { NumericValueType, RxReactiveFormsModule, RxwebValidators } from '@rxweb
 import { cities } from '../constants/constants';
 import { ProjectService } from '../service/project.service';
 import { faL } from '@fortawesome/free-solid-svg-icons';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-event',
@@ -15,6 +16,7 @@ import { faL } from '@fortawesome/free-solid-svg-icons';
     FormsModule,
     ReactiveFormsModule,
     RxReactiveFormsModule,
+    TranslateModule
   ],
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.css'

@@ -8,6 +8,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ProjectService } from '../service/project.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-vote',
@@ -17,7 +18,8 @@ import { LoginComponent } from '../login/login.component';
     FormsModule,
     NgMultiSelectDropDownModule,
     RouterLink,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './vote.component.html',
   styleUrl: './vote.component.css'

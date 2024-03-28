@@ -11,7 +11,7 @@
       <div>
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
         [(ngModel)]="searchProject">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getSearchedProjects()">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getSearchedProjects()">{{ 'Search' | translate}}</button>
 
       </div>
       
@@ -33,7 +33,7 @@
                   > -->
                 </div>
 
-                <div class="col-10"><b>Project: </b> {{ project?.name }}</div>
+                <div class="col-10"><b>{{ 'Project:' | translate}} </b> {{ project?.name }}</div>
                 <div class="col-1 text-end">
                   <!--  -->
                   <a [routerLink]="'/project-detail/' + project.projectId" style="color: white">
@@ -43,25 +43,25 @@
               </div>
               <div class="row mt-2">
                 <div class="col-4">
-                  <b>Department</b>: {{ project?.department }}
+                  <b>{{ 'Department' | translate}}</b>: {{ project?.department }}
                 </div>
-                <div class="col-4"><b>City</b>: {{ project?.city }}</div>
-                <div class="col-4"><b>Budget</b>: € {{ project?.budget }}</div>
+                <div class="col-4"><b>{{ 'City' | translate}}</b>: {{ project?.city }}</div>
+                <div class="col-4"><b>{{ 'Budget' | translate}}</b>: € {{ project?.budget }}</div>
               </div>
               <div class="row mt-2">
                 <div class="col-12">
-                  <b>Description: </b>
+                  <b>{{ 'Description:' | translate}} </b>
                   <!-- <i class="fa fa-file-text-o" aria-hidden="true"></i> -->
                   <span class="text-muted">{{ project?.description | slice : 0 - 300 }}....<a
-                      [routerLink]="'/project-detail/' + project.projectId">Read More</a></span>
+                      [routerLink]="'/project-detail/' + project.projectId">{{ 'Search' | translate}}{{ 'Read More' | translate}}</a></span>
                   <hr />
                 </div>
               </div>
               <div class="row">
                 <div class="col-6">
-                  <b>Project Start: </b> {{ project?.projectStartDate | date }}
+                  <b>{{ 'Project Start:' | translate}} </b> {{ project?.projectStartDate | date }}
                   <br />
-                  <b>Duration: </b> {{ project?.duration }}
+                  <b>{{ 'Duration:' | translate}} </b> {{ project?.duration }}
                 </div>
                 <div class="col-6 text-end">
                   <!-- Up Vote -->
@@ -136,7 +136,7 @@
     <div class="col-4 filter pt-5">
       <div class="card">
           <div class="card-body">
-              <button  class="btn btn-primary" (click)="createProject()">Create Project</button>            
+              <button  class="btn btn-primary" (click)="createProject()">{{ 'Create Project' | translate}}</button>            
           </div>
       </div>
 
@@ -145,7 +145,7 @@
       <div class="card mt-2">
           <div class="card-body">
 
-              <h2>Upcoming Events</h2>
+              <h2>{{ 'Upcoming Events' | translate}}</h2>
 
               <div *ngFor="let event of otherEvents">
                   <div class="card mt-2 ">

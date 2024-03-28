@@ -73,8 +73,8 @@
         </div>
 
         <!-- Action Buttons -->
-        <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="onCreateProject()">Submit</button>
-        <button type="submit" class="btn btn-danger mt-2" (click)="reset()">Reset</button>
+        <button type="submit" class="btn btn-primary mt-2" style="margin-right: 10px;" (click)="onCreateProject()">{{ 'submit' | translate}}</button>
+        <button type="submit" class="btn btn-danger mt-2" (click)="reset()">{{ 'reset' | translate}}</button>
 
         <div class="alert alert-danger mt-2" *ngIf="incompleteForm">
           Please fill out form correctly
