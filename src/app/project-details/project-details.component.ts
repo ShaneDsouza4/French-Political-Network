@@ -10,6 +10,7 @@ import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-soli
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from '../login/login.component';
 import { WarningModalComponent } from '../warning-modal/warning-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-details',
@@ -20,7 +21,8 @@ import { WarningModalComponent } from '../warning-modal/warning-modal.component'
     RouterLink,
     ReactiveFormsModule,
     RxReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.css'
@@ -46,6 +48,7 @@ export class ProjectDetailsComponent implements OnInit {
   loader: boolean = true
   opinionForm!: FormGroup
   noDataAvailable: boolean = false
+  otherEvents: any[] = []
 
   constructor(private activatedRouted: ActivatedRoute, private _projectService: ProjectService, private router: Router, public dialog: MatDialog) {
 
@@ -70,6 +73,10 @@ export class ProjectDetailsComponent implements OnInit {
       this.getProjectDetail(this.activeProjectId)
     })
 
+    this._projectService.getFutureEvents().subscribe((res:any)=>{
+      this.otherEvents = res
+      console.log("Other Events: ", this.otherEvents)
+    })
 
   }
   ngOnInit(): void {

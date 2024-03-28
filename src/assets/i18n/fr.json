@@ -33,5 +33,18 @@
     "Start Date is required":"La date de début est requise",
     "Budget is required":"Le budget est requis",
     "Duration is required":"La durée est requise",
-    "(Specify in months or year)":"(Spécifiez en mois ou en années)"
+    "(Specify in months or year)":"(Spécifiez en mois ou en années)",
+    "Project":"Projet",
+    "Department":"Département",
+    "City":"Ville",
+    "Budget":"Budget",
+    "Description":"Description",
+    "Start Date":"Date de début",
+    "Duration":"Durée",
+    "Comment":"Commentaire",
+    "Submit":"Soumettre",
+    "Loading":"Chargement",
+    "Please add comment details":"Veuillez ajouter les détails du commentaire",
+    "Other Events":"Autres événements",
+    "View":"Voir"
 }
