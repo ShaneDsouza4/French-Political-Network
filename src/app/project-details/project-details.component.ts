@@ -10,6 +10,7 @@ import { faArrowAltCircleUp, faArrowAltCircleDown } from '@fortawesome/free-soli
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from '../login/login.component';
 import { WarningModalComponent } from '../warning-modal/warning-modal.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-project-details',
@@ -20,7 +21,8 @@ import { WarningModalComponent } from '../warning-modal/warning-modal.component'
     RouterLink,
     ReactiveFormsModule,
     RxReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './project-details.component.html',
   styleUrl: './project-details.component.css'
@@ -43,8 +45,10 @@ export class ProjectDetailsComponent implements OnInit {
   faArrowDown = faArrowAltCircleDown
   incompleteComment: boolean = false
   spinner: boolean = false
-
+  loader: boolean = true
   opinionForm!: FormGroup
+  noDataAvailable: boolean = false
+  otherEvents: any[] = []
 
   constructor(private activatedRouted: ActivatedRoute, private _projectService: ProjectService, private router: Router, public dialog: MatDialog) {
 
@@ -69,6 +73,10 @@ export class ProjectDetailsComponent implements OnInit {
       this.getProjectDetail(this.activeProjectId)
     })
 
+    this._projectService.getFutureEvents().subscribe((res:any)=>{
+      this.otherEvents = res
+      console.log("Other Events: ", this.otherEvents)
+    })
 
   }
   ngOnInit(): void {
@@ -88,14 +96,18 @@ export class ProjectDetailsComponent implements OnInit {
 
   getProjectDetail(activeProjectId: number) {
     console.log("Project ID: ", activeProjectId)
+    this.loader = true
     this._projectService.getProjectDetailById(activeProjectId).subscribe((res: any) => {
       console.log("Response of Specific: ", res);
       if (res.status == 1) {
+        this.loader = false
         this.projectDetails = res.projects[0]
         console.log("Get Project Detail: ", this.projectDetails)
         this.getProjectComments(activeProjectId)
       } else {
         this.projectDetails = {}
+        this.loader = false
+        this.noDataAvailable = true
       }
     })
   }

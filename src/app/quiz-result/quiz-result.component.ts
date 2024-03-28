@@ -1,9 +1,20 @@
+import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @Component({
   selector: 'app-quiz-result',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgMultiSelectDropDownModule,
+    RouterLink,
+    FontAwesomeModule
+  ],
   templateUrl: './quiz-result.component.html',
   styleUrl: './quiz-result.component.css'
 })

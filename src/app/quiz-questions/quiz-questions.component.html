@@ -5,7 +5,7 @@
                 <div class="col-md-12">
 
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title text-center">Quiz</h4>
+                        <h4 class="card-title text-center">{{"Quiz" | translate}}</h4>
                       </div>
                       
 
@@ -25,33 +25,14 @@
                             <label class="btn btn-outline-success" for="answer_b">{{selected.answers.answer_b}}</label><br><br>
                         </div>
 
-                        <div *ngIf="selected.answers.answer_c">
-                            <input type="radio" id="answer_c" class="btn-check" name="answer" autocomplete="off"
-                            value="answer_c_correct" [(ngModel)]="answer">
-                            <label class="btn btn-outline-success" for="answer_c">{{selected.answers.answer_c}}</label><br><br>
-                        </div>
-
-                        <div *ngIf="selected.answers.answer_d">
-                            <input type="radio" id="answer_d" class="btn-check" name="answer" autocomplete="off"
-                            value="answer_d_correct" [(ngModel)]="answer">
-                            <label class="btn btn-outline-success" for="answer_d">{{selected.answers.answer_d}}</label><br><br>
-                        </div>
-
-                        <div *ngIf="selected.answers.answer_e">
-                            <input type="radio" id="answer_e" class="btn-check" name="answer" autocomplete="off"
-                            value="answer_e_correct" [(ngModel)]="answer">
-                            <label class="btn btn-outline-success" for="answer_e">{{selected.answers.answer_e}}</label><br><br>
-                        </div>
-                        
-                        <div *ngIf="selected.answers.answer_f">
-                            <input type="radio" id="answer_f" class="btn-check" name="answer" autocomplete="off"
-                            value="answer_f_correct" [(ngModel)]="answer">
-                            <label class="btn btn-outline-success" for="answer_f">{{selected.answers.answer_f}}</label><br><br>
-                        </div>
                     </div>
 
                     <div class="form-btn">
-                        <button class="submit-btn" (click)="nextQuestion()">{{questions.length === (index+1) ? 'Finish' : 'Next'  }}</button>
+                        <button class="submit-btn" *ngIf="!spinner" (click)="nextQuestion()">{{questions.length === (index+1) ? 'Finish' : 'Next'  }}</button>
+                        <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                            Loading...
+                        </button>
                     </div>
                 </div>
             </div>

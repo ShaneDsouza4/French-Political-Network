@@ -29,3 +29,16 @@
       </div>
     </div>
   </div>
+
+   <!-- No Data Available -->
+ <div *ngIf="noDataAvailable" class="row mt-0" style="position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);">
+   <h1>No Data Available</h1>
+
+ </div>
+
+
+  <div class="spinner" *ngIf="loader">
+  </div>

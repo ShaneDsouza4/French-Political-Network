@@ -108,6 +108,10 @@ export class ProjectService {
     return this.http.patch(`${this.urlToUse}/party/unvote`, obj);
   }
 
+  partyQuiz(obj:any){
+    return this.http.post(`${this.urlToUse}/party/`, obj);
+  }
+
   
 
 

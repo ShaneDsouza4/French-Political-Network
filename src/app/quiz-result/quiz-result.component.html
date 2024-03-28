@@ -10,8 +10,11 @@
 
                     <div class="form-group">
                         <!-- <h1>Result</h1> -->
+                        <div *ngFor="let item of finalResult">
+                            <p>Political Party: <b>{{item.party}}</b> aligns <b>{{item.percentMatch}}%</b> with your interests<span *ngFor="let i of item.interests">, <b>{{i}}</b></span> </p>
+                        </div>
                         <hr>
-                        <div class="row text-center">
+                        <!-- <div class="row text-center">
                             <div class="col-md-4">
                                 <div class="circle">{{finalResult?.total}}</div>
                                 <p>Total<br>Questions</p>
@@ -24,9 +27,9 @@
                                 <div class="circle">{{finalResult?.wrong}}</div>
                                 <p>Wrong<br>Answers</p>
                             </div>
-                        </div>
+                        </div> -->
 
-                        <div class="progress-stacked">
+                        <!-- <div class="progress-stacked">
                             <div class="progress" role="progressbar" aria-label="Segment one" [attr.aria-valuenow]="finalResult?.correctPercentage"
                                 aria-valuemin="0" aria-valuemax="100" [style.width]="finalResult?.correctPercentage+'%'">
                                 <div class="progress-bar">{{finalResult?.correctPercentage}}%</div>
@@ -36,7 +39,7 @@
                                 aria-valuemin="0" aria-valuemax="100" [style.width]="finalResult?.wrongPercentage+'%'">
                                 <div class="progress-bar bg-danger">{{finalResult?.wrongPercentage}}%</div>
                             </div>
-                        </div>
+                        </div> -->
                         <br>
                         <div class="form-btn text-center">
                             <button class="submit-btn" (click)="showMainMenu()">Main Menu</button>

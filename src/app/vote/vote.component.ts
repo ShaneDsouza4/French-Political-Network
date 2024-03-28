@@ -35,6 +35,8 @@ export class VoteComponent implements OnInit {
   loggedIn: boolean = false;
   userVoted: boolean = false
   spinner: boolean = false
+  loader: boolean = true
+  noDataAvailable: boolean = false
 
   constructor(private _projectService: ProjectService, public dialog: MatDialog) {
 
@@ -56,13 +58,17 @@ export class VoteComponent implements OnInit {
 
 
   getPartyData() {
+    this.loader = true
     this._projectService.getAllPartyVotes().subscribe((res: any) => {
       console.log("Response: ", res);
       if (res.status == 1) {
         this.AllParties = res.result
         this.AllParties.sort((a, b) => b.vote.length - a.vote.length);
+        this.loader = false
       } else {
         this.AllParties = []
+        this.loader = false
+        this.noDataAvailable = true
       }
     })
   }

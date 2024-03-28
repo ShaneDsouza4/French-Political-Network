@@ -67,5 +67,19 @@
     "City":"Ville",
     "Budget":"Budget",
     "Project Start:":"Début du projet :",
-    "Duration:":"Durée :"
+    "Duration:":"Durée :",
+    "Project":"Projet",
+    "Description":"Description",
+    "Start Date":"Date de début",
+    "Duration":"Durée",
+    "Comment":"Commentaire",
+    "Submit":"Soumettre",
+    "Loading":"Chargement",
+    "Please add comment details":"Veuillez ajouter les détails du commentaire",
+    "Other Events":"Autres événements",
+    "Find out which political parties align with your interests.":"Découvrez quels partis politiques correspondent à vos intérêts.",
+    "Answer the following questions to see how your political beliefs match your political parties.":"Répondez aux questions suivantes pour voir dans quelle mesure vos convictions politiques correspondent à vos partis politiques.",
+    "Start Quiz":"Démarrer le quiz"
+
+
 }

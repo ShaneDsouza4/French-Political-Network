@@ -26,6 +26,8 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class ProjectsComponent implements OnInit {
 
+  noDataAvaialble:boolean = false
+  loader: boolean = true
   otherEvents:any[] = []
   loggedInUserID: any
   loggedInDetails: any = {}
@@ -69,8 +71,11 @@ export class ProjectsComponent implements OnInit {
       if (res.status == 1) {
         this.projectList = res.projects
         console.log("Project list: ", this.projectList)
+        this.loader = false
       } else {
         this.projectList = [];
+        this.loader = false;
+        this.noDataAvaialble = true
       }
     })
   }

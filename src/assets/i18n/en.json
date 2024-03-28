@@ -67,8 +67,17 @@
     "City":"City",
     "Budget":"Budget",
     "Project Start:":"Project Start:",
-    "Duration:":"Duration:"
- 
-
-
+    "Duration:":"Duration:",
+    "Project":"Project",
+    "Description":"Description",
+    "Start Date":"Start Date",
+    "Duration":"Duration",
+    "Comment":"Comment",
+    "Submit":"Submit",
+    "Loading":"Loading",
+    "Please add comment details":"Please add comment details",
+    "Other Events":"Other Events",
+    "Find out which political parties align with your interests.":"Find out which political parties align with your interests.",
+    "Answer the following questions to see how your political beliefs match your political parties.":"Answer the following questions to see how your political beliefs match your political parties.",
+    "Start Quiz":"Start Quiz"
 }   

@@ -9,6 +9,7 @@ import { QuizQuestionsComponent } from '../quiz-questions/quiz-questions.compone
 import { Question } from '../interface/question';
 import { QuizResultComponent } from '../quiz-result/quiz-result.component';
 import { PoliticalQuizQuestionsComponent } from '../political-quiz-questions/political-quiz-questions.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-quiz',
@@ -21,7 +22,8 @@ import { PoliticalQuizQuestionsComponent } from '../political-quiz-questions/pol
     FontAwesomeModule,
     QuizQuestionsComponent,
     QuizResultComponent,
-    PoliticalQuizQuestionsComponent
+    PoliticalQuizQuestionsComponent,
+    TranslateModule
   ],
   templateUrl: './quiz.component.html',
   styleUrl: './quiz.component.css'
@@ -44,7 +46,7 @@ export class QuizComponent implements OnInit{
   @ViewChild('result',{static:true}) result! : QuizResultComponent;
 
 
-  quizQuestionList:any = [
+  /* quizQuestionList:any = [
     {
       "id": "4",
       "question": "Who was the first female Prime Minister of France?",
@@ -195,8 +197,135 @@ export class QuizComponent implements OnInit{
       "category": null,
       "difficulty": "Easy"
     }
-  ]
+  ] */
  
+  quizQuestionList:any = [
+    {
+      "id": "1",
+      "question": "In your opinion, which of the following values is most important for guiding government policies??",
+      "description": "Identify the trailblazing woman who held the position of Prime Minister in France.",
+      "answers": {
+        "answer_a": "Upholding traditional values and institutions, promoting stability and order.",
+        "answer_b": "Embracing change and progress, prioritizing individual freedoms and social equality."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "Édith Cresson became the first female Prime Minister of France in 1991.",
+      "tip": "Look into notable figures in French political history.",
+      "tags": [
+        "Politics",
+        "France",
+        "Leadership"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Nationalism"
+    },
+    {
+      "id": "2",
+      "question": "Which government would you prefer?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "Limited government, traditional values.",
+        "answer_b": "Active government, social safety nets."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Conservatism"
+    },
+    {
+      "id": "3",
+      "question": "Which approach to technology do you prefer for your country?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "A country that prioritizes innovation and technological advancement, even if it means some risks and disruptions to traditional ways of life.",
+        "answer_b": "A country that exercises caution with technology, prioritizing stability and preserving traditional values, even if it means slower progress."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Technology"
+    },
+    {
+      "id": "4",
+      "question": "What type of society do you prefer living in?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "More freedom, less government.",
+        "answer_b": "More rules, fairer society."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Freedom"
+    },
+    {
+      "id": "5",
+      "question": "Which approach to welfare programs do you prefer for your country?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "A country that provides minimal welfare programs, emphasizing individual responsibility and self-sufficiency.",
+        "answer_b": "A country that offers comprehensive welfare programs, prioritizing social safety nets and assistance for those in need."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Welfare Programs"
+    }
+  ]
 
   constructor(private quizService: QuizService){
     this.questionsLimit = 5;
@@ -212,7 +341,7 @@ export class QuizComponent implements OnInit{
   getQuizQuestions(){
     this.toggleSpinner();
     this.quizService.getQuizQuestions(this.difficulty, this.questionsLimit).subscribe((res:any)=>{
-      console.log("Response: ", res);
+      //console.log("Response: ", res);
       //console.log("Response", res);
       //this.quiz.questions = res;
       this.quiz.questions = this.quizQuestionList;
@@ -229,6 +358,7 @@ export class QuizComponent implements OnInit{
   }
 
   finalResult(result:any){
+    console.log("REsult: ", result)
     this.result.finalResult = result;
     this.showQuizScreen = false;
     this.showResultScreen = true;
