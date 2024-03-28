@@ -8,48 +8,49 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="row card-header card-header-danger">
-                                <div class="col-10">Few Tickets Left</div>
+                                <div class="col-10"><h3>Few Tickets Left</h3></div>
                             </div>
-                            <div class="row mt-2">
-                                <b>{{eventDetails?.eventStart | date}}</b>
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <h2>{{eventDetails?.eventName}}</h2>
+                                </div>
                             </div>
-
-
-                            <div class="row mt-2">
-                                <h1>{{eventDetails?.eventName}}</h1>
-                            </div>
-
-
                             <hr>
-
-
-                            <div class="row mt-2">
-                                <h2><b><i class="fa fa-clock-o"></i> Date & Time </b></h2>
-                                <span><b>Event Start: </b>{{eventDetails.eventStart | date}} </span>
-                                <span><b>Event End: </b>{{eventDetails.eventEnd | date}} </span>
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <h4><i class="fa fa-clock-o"></i> Date & Time</h4>
+                                    <p><b>Event Start:</b> {{eventDetails.eventStart | date}}</p>
+                                    <p><b>Event End:</b> {{eventDetails.eventEnd | date}}</p>
+                                </div>
+                                <div class="col">
+                                    <h4><i class="fa fa-map-marker"></i> Location</h4>
+                                    <p>{{eventDetails.location}}</p>
+                                </div>
                             </div>
-
-                            <div class="row mt-2">
-                                <h2><b><i class="fa fa-map-marker"></i> Location </b></h2>
-                                <span>{{eventDetails.location }} </span>
+                            <!-- Uncomment below for Refund Policy -->
+                            <!--
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <h4>Refund Policy</h4>
+                                    <p>{{eventDetails.refunds}}</p>
+                                </div>
                             </div>
-
-                            <!-- <div class="row mt-2">
-                                <h2><b>Refund Policy</b></h2>
-                                <span>{{eventDetails.refunds }} </span>
-                            </div> -->
-
-                            <div class="row mt-2">
-                                <h2><b>Details</b></h2>
-                                <span>{{eventDetails.description }} </span>
+                            -->
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <h4>Details</h4>
+                                    <p>{{eventDetails.description}}</p>
+                                </div>
                             </div>
-
-                            <div class="row mt-2">
-                                <h2><b>Organizer</b></h2>
-                                <span>{{eventDetails.organizer }} </span>
+                            <div class="row mt-4">
+                                <div class="col">
+                                    <h4>Organizer</h4>
+                                    <p>{{eventDetails.organizer}}</p>
+                                </div>
                             </div>
-
                         </div>
+                        
+                        
                     </div>
                 </div>
             </div>
@@ -67,7 +68,7 @@
 
 
             <div class="card mt-2">
-                <div class="card-body">
+                <div class="card-body" style="max-height: 50vh; overflow-y: auto">
 
                     <h2>Other Events</h2>
 
