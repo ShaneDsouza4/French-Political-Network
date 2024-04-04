@@ -9,6 +9,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { OpinionModalComponent } from '../opinion-modal/opinion-modal.component';
 import { CreatePostModalComponent } from '../create-post-modal/create-post-modal.component';
 import { ProjectService } from '../service/project.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-home',
@@ -30,10 +31,11 @@ export class HomeComponent implements OnInit{
 
   showComments:boolean = false
 
-  postsList:any = [];
+  eventsList:any = [];
   loggedInDetails: any = {}
   loggedInUserID: any
   loggedIn: boolean = false;
+  allowedToGiveFeedback: boolean = false
 
  eventList: any = [
     {
@@ -84,26 +86,32 @@ export class HomeComponent implements OnInit{
 
     this._projectService.getFeedbacks().subscribe((res:any)=>{
       console.log("Feedbacks:-----------------------  ", res);
+      if(res.status == 1){
+        console.log(res.feedback)
+        this.eventsList = res.feedback;
+      }else{
+        this.eventsList = []
+      }
     })
 
-    let postListX:any = localStorage.getItem('postsList');
-    console.log("Post List: ", postListX)
-    this.postsList = JSON.parse(postListX);
-    console.log("Post List: ", this.postsList)
+    // let postListX:any = localStorage.getItem('postsList');
+    // console.log("Post List: ", postListX)
+    // this.postsList = JSON.parse(postListX);
+    // console.log("Post List: ", this.postsList)
   }
 
   upLikePost(postID:any){
     //console.log("Post ID: ", postID);
     //console.log(this.postsList.find(x=>x.postID == postID));
-    let post = this.postsList.find((x:any)=>x.postID == postID)
-    post.postUpLikes = post.postUpLikes+1;
+    // let post = this.postsList.find((x:any)=>x.postID == postID)
+    // post.postUpLikes = post.postUpLikes+1;
   }
 
   downLikePost(postID:any){
     //console.log("Post ID: ", postID);
     //console.log(this.postsList.find(x=>x.postID == postID));
-    let post = this.postsList.find((x:any)=>x.postID == postID)
-    post.postDownLikes = post.postDownLikes-1;
+    // let post = this.postsList.find((x:any)=>x.postID == postID)
+    // post.postDownLikes = post.postDownLikes-1;
     //console.log("post Updated: ", post);
   }
 
@@ -111,22 +119,37 @@ export class HomeComponent implements OnInit{
     this.showComments = true
   }
   openCreatePostModal(){
-    var _popup = this.dialog.open(CreatePostModalComponent, {
-      width: '60%',
-      
-    })
-    _popup.afterClosed().subscribe((item:any)=>{
-      //console.log("Post DetailsX:", item)
-      //this.postsList = item;
-      //localStorage.setItem('postsList', JSON.stringify(this.postsList));
-      // var FoundIndex = this.projectList.findIndex((x:any)=>x.id == item.id)
-      // this.projectList[FoundIndex] = item
-      // localStorage.setItem('projects', JSON.stringify(this.projectList));
-      /* const ObjectToReplace = this.projectList.find((x:any)=>{
-        x.id == item.id
+    if (!this.loggedIn) {
+      this.allowedToGiveFeedback = true
+      var _popupLogin = this.dialog.open(LoginComponent, {
+        width: '60%',
+        data: {
+          title: "Login"
+        }
       })
-      console.log("Object To Replace:", ObjectToReplace) */
-    })
+    } else {
+      this.allowedToGiveFeedback = false
+      var _popup = this.dialog.open(CreatePostModalComponent, {
+        width: '60%',
+        
+      })
+      _popup.afterClosed().subscribe((item:any)=>{
+        //console.log("Post DetailsX:", item)
+        //this.postsList = item;
+        //localStorage.setItem('postsList', JSON.stringify(this.postsList));
+        // var FoundIndex = this.projectList.findIndex((x:any)=>x.id == item.id)
+        // this.projectList[FoundIndex] = item
+        // localStorage.setItem('projects', JSON.stringify(this.projectList));
+        /* const ObjectToReplace = this.projectList.find((x:any)=>{
+          x.id == item.id
+        })
+        console.log("Object To Replace:", ObjectToReplace) */
+      })
+    }
+
+
+
+    
   }
 
   increasetTicket(){

@@ -35,19 +35,19 @@
             
             <div class="container-fluid mt-10 " style="padding-top: 0">
                 <h3>Feedback</h3>
-                <div class="card mb-5" *ngFor="let post of postsList">
+                <div class="card mb-5" *ngFor="let event of eventsList">
                     <div class="card-header">
                         <!-- <img src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
                             alt="Profile Picture" class="profile-pic"> -->
                         <img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
                             alt="Profile Picture" class="profile-pic">
                         <div class="user-info">
-                            <p>{{post.postAuthor}}</p>
-                            <span>{{post.postDate | date:'short':'GMT'}}</span>
+                            <p>{{event.first_name}} {{event.last_name}}</p>
+                            <span>{{event.timestamp  | date:'short':'GMT'}}</span>
                         </div>
                     </div>
                     <!-- <img src="https://th.bing.com/th/id/OIP.w2Mq5q0F70XOfoJi6ePRYwHaE6?rs=1&pid=ImgDetMain" alt="Building Image" class="post-image"> -->
-                    <p class="post-text">{{post.postDescription}}</p>
+                    <p class="post-text">{{event.description}}</p>
                     <div class="reactions">
 
                         <!-- <button class="button">
