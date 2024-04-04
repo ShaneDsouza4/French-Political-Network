@@ -1,44 +1,29 @@
-<div class="container-fluid" style="background-color: #f1f5f9; ">
-    <h2>{{ 'Vote for Political Parties' | translate}}</h2>
-    <div class="row">
-      <div class="col-3" *ngFor="let item of AllParties">
-        <div class="card mt-2" >
-          <img class="card-img-top" style="height:200px" [src]="item.imageURL" alt="Card image">
-          <div class="card-body text-center">
-            <hr>
-            <h4 class="card-title text-center">{{item?.name}}</h4>
-            <span >{{ 'Total Votes:' | translate}} {{item?.vote.length}}</span>
-            <hr>
-            <div class="text-center">
-              <button *ngIf="!item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="voteParty(item.id)">{{ 'Vote' | translate}}</button>
-              <button *ngIf="item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="unVoteParty(item.id)">{{ 'Un-vote' | translate}}</button>
-              <!-- <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
-                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                Loading...
-              </button> -->
-            </div>
-            <div class="text-center">
-               <!--  <a style="cursor: pointer;" >
-                    <fa-icon [icon]="faArrowDown" class="fa-2xl" style="color:red" ></fa-icon>
-                    <fa-icon [icon]="faArrowDown" class="fa-2xl" style="color:rgb(231, 229, 229)"></fa-icon>
-                </a>
-                5000 -->
-            </div>
-          </div>
-        </div>
+<!-- <img style="height: 401px; width: 100%;" src="/assets/Black Abstract We Are Hiring LinkedIn Banner.png" alt="image"> -->
+<img style="width: 100%;" src="/assets/Blue and Red 72x36 Landscape Voter Education Banner-cropped.png" alt="image">
+
+<div class="voting-container">
+  <!-- <h2 style="padding-bottom: 15px;">Voice Your Vote</h2> -->
+  <div class="candidates-grid">
+
+    <div class="candidate" *ngFor="let item of AllParties">
+      <img [src]="item.imageURL" alt="Party Name">
+      <p style="margin-top: -12px;">{{item?.name}}</p>
+      <!-- <div style="margin: auto; background-color: black; color: white; height: 28px; width: 28px; border-radius: 50%; display: flex; justify-content: center; flex-direction: column;">
+        0
+      </div>
+      <div hidden="true" style="margin: auto; background-color: #139536; color: white; height: 28px; width: 28px; border-radius: 50%; display: flex; justify-content: center; flex-direction: column;">
+        0
+      </div> -->
+      <span style="font-size: 0.9em;">{{ 'Total Votes:' | translate}} {{item?.vote.length}}</span>
+      <div class="text-center">
+        <button *ngIf="!item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="voteParty(item.id)">{{ 'Vote' | translate}}</button>
+        <button *ngIf="item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="unVoteParty(item.id)">{{ 'Un-vote' | translate}}</button>
+        <!-- <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Loading...
+        </button> -->
       </div>
     </div>
+
   </div>
-
-   <!-- No Data Available -->
- <div *ngIf="noDataAvailable" class="row mt-0" style="position: absolute;
- top: 50%;
- left: 50%;
- transform: translate(-50%, -50%);">
-   <h1>No Data Available</h1>
-
- </div>
-
-
-  <div class="spinner" *ngIf="loader">
-  </div>
+</div>
