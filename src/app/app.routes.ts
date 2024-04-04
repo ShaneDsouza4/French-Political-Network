@@ -16,10 +16,11 @@ import { CreateEventComponent } from './create-event/create-event.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { VoteComponent } from './vote/vote.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 export const routes: Routes = [
-    // {path:'', redirectTo:'home', pathMatch:'full'},
-    // {path:'home', component: HomeComponent},
+    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'home', component: HomeComponent},
     {path:'login', component: LoginComponent},
     {path:'citizen-register', component: CitizenRegisterComponent},
     {path:'govtEmp-register', component: GovtRegisterComponent},
@@ -36,5 +37,6 @@ export const routes: Routes = [
     {path:'events-list', component: EventListComponent},
     {path:'event-detail/:eventId', component: EventDetailsComponent},
     {path:'vote', component: VoteComponent},
-    // {path: '**', component:HomeComponent}
+    {path:'feedback', component: FeedbackComponent},
+    {path: '**', component:HomeComponent}
 ];

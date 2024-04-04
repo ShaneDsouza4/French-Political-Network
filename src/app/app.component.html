@@ -6,10 +6,27 @@
       <img src="https://svgur.com/i/152V.svg" style="height: 85px;" alt="Avant Garde Politique">
     </div>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#events">Events</a></li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="home">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="projects">{{"Projects" | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="" routerLink="/events">{{"Events" | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="" routerLink="/vote">{{"Vote" | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" routerLink="quiz">{{"Quiz" | translate}} </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" aria-current="page" routerLink="feedback">Feedback</a>
+      </li>
+      <!-- <li><a href="#events">Events</a></li>
       <li><a href="#vote">Vote</a></li>
-      <li><a href="#quiz">Quiz</a></li>
+      <li><a href="#quiz">Quiz</a></li> -->
     </ul>
     <div class="lang">
       <a href="#english" class="lang-link">English</a> |
@@ -18,8 +35,21 @@
     <div class="login-button">
       <button type="button">Login</button>
     </div>
+    <form class="d-flex">
+      <div class="form-group mt-2">
+        <select class="form-select" (change)="ChangeLanguage($event)">
+          <option [selected]="language==='en'"  value="en">{{"English" | translate}}</option>
+          <option [selected]="language==='fr'"  value="fr">{{"French" | translate}}</option>
+          
+        </select>
+      </div>
+
+      <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="openLoginModal()" *ngIf="!loggedIn">{{"Login" | translate}}</button>
+      <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="logout()" *ngIf="loggedIn">{{"Logout" | translate}}</button>
+    </form>
   </nav>
 </header>
+<router-outlet></router-outlet>
 
 <!-- <header>
   <nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -48,76 +78,13 @@
             <a class="nav-link" aria-current="page" routerLink="home">Feedback</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <div class="form-group mt-2">
-            <select class="form-select" (change)="ChangeLanguage($event)">
-              <option [selected]="language==='en'"  value="en">{{"English" | translate}}</option>
-              <option [selected]="language==='fr'"  value="fr">{{"French" | translate}}</option>
-              
-            </select>
-          </div>
-
-          <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="openLoginModal()" *ngIf="!loggedIn">{{"Login" | translate}}</button>
-          <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="logout()" *ngIf="loggedIn">{{"Logout" | translate}}</button>
-        </form>
+        
       </div>
     </div>
   </nav>
 </header> -->
 
-<!-- Main content -->
-<main class="mt-5">
-  <div class="page-wrapper">
-    <div style="height: 100vh; width: 100%;"></div>
-    <div class="red-box"></div>
-    <div class="blue-box"></div>
-    <img src="https://i.ibb.co/FXGmqtT/EmmyMac.jpg" alt="Your Image" class="image">
-    <div class="text-box-class">
-      <h2 class="heading-main-page"> Empowering France: Unveiling Progress, One Event at a Time!</h2>
-      <p class="main-page-para"> France unveils 'Révéler le Progrès': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement</p>
-      <p class="credits-para"> Image source:</p>
-      <p class="credits-para"> Christine Ockrent</p>
-    </div>
-    <!-- <div style="height: 10vh;"></div> -->
-    <h2 class="tagline-home" style="padding-top: 70px;">Innovating for Impact</h2>
-    <h2 class="tagline-home" style="margin-top: -20px;">Discover Our Government Projects</h2>
-    <div class="container">
-      <div class="item">
-        <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-        <h4 class="item-title"> Climate Plan</h4>
-        <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-      </div>
-      <div class="item">
-        <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-        <h4 class="item-title"> Climate Plan</h4>
-        <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-      </div>
-      <div class="item">
-        <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-        <h4 class="item-title"> Climate Plan</h4>
-        <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-      </div>
-      <div class="item">
-        <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-        <h4 class="item-title"> Climate Plan</h4>
-        <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-      </div>
-      <div class="item">
-        <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-        <h4 class="item-title"> Climate Plan</h4>
-        <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-      </div>
-      <div class="item">
-        <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-        <h4 class="item-title"> Climate Plan</h4>
-        <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-      </div>
-    </div>
-</div>
-<!-- <div class="footer">
 
-</div> -->
-</main>
 
 <!-- Footer -->
 <footer>

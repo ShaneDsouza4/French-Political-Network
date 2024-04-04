@@ -1,1 +1,191 @@
-<p>feedback works!</p>
+<div class="container-fluid " style="background-color: #f1f5f9; ">
+    <div class="row pt-4">
+        <!-- Tickets -->
+        <div class="col-4" id="sidebar">
+            <h3>Latest Events</h3>
+            <div class="card mb-2" *ngFor="let event of eventsList">
+                <div class="card-body">
+                    <div >
+                        <div class="event-info" style="display: flex;">
+                            <div style="width: 13%; margin-top: 12px;">
+                                <h1 style="margin-bottom: -7px;">{{event.eventStart | date: 'dd' }}</h1>
+                                <h4>
+                                    {{event.eventStart | date: 'LLL' | uppercase}}
+                                </h4>
+                            </div>
+                            <div style="margin-left: 40px;">
+                                <p>{{event.eventName}}</p>
+                                <p>{{event.eventStart | date: 'shortTime' }} - {{event.eventEnd | date: 'shortTime' }}</p>
+                                <p>{{event.eventLocaion}}</p>
+                            </div>
+                        </div>
+                        <div class="ticket-info">
+                            <button id="minus" (click)="decreasetTicket()">-</button>
+                            <button id="minus"><span id="quantity">{{ticketCount}}</span></button>
+                            <!-- <input type="text" style="width: 32px;" id="quantity" value="0"> -->
+                            <button id="plus" (click)="increasetTicket()">+</button>
+                            <button id="getTickets" (click)="getTickets(event)">Get Tickets</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Posts -->
+        <div class="col-6">
+            
+            <div class="container-fluid mt-10 " style="padding-top: 0">
+                <h3>Feedback</h3>
+                <div class="card mb-5" *ngFor="let event of eventsList">
+                    <div class="card-header">
+                        <!-- <img src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
+                            alt="Profile Picture" class="profile-pic"> -->
+                        <img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png"
+                            alt="Profile Picture" class="profile-pic">
+                        <div class="user-info">
+                            <p>{{event.first_name}} {{event.last_name}}</p>
+                            <span>{{event.timestamp  | date:'short':'GMT'}}</span>
+                        </div>
+                    </div>
+                    <!-- <img src="https://th.bing.com/th/id/OIP.w2Mq5q0F70XOfoJi6ePRYwHaE6?rs=1&pid=ImgDetMain" alt="Building Image" class="post-image"> -->
+                    <p class="post-text">{{event.description}}</p>
+                    <div class="reactions">
+
+                        <!-- <button class="button">
+                            <img src="https://cdn4.iconfinder.com/data/icons/web-ui-ux/32/044-Comment-512.png"
+                                alt="Like Icon" class="reaction-icon">
+                        </button> -->
+                       <!--  <span class="reaction-count">{{post.postComments.length}}</span> -->
+
+
+                        <!-- <button class="button" (click)="upLikePost(post.postID)">
+                            <fa-icon [icon]="faArrowUp" style="color:green"></fa-icon>
+                           
+                        </button>
+                        <span class="reaction-count">{{post.postUpLikes}}</span>
+
+                        <button class="button" (click)="downLikePost(post.postID)">
+                            <fa-icon [icon]="faArrowDown" style="color:red"></fa-icon>
+                        </button>
+                        <span class="reaction-count">{{post.postDownLikes}}</span> -->
+                    </div>
+
+                </div>
+
+                
+                <br />
+
+            </div>
+        </div>
+        <!-- Create Post -->
+        <div class="col-2">
+
+            <button rpl="" class="rounded-square-button" data-testid="create-post" (click)="openCreatePostModal()">
+                <span class="flex items-center justify-center">
+                    <span class="flex mr-xs"><svg style="margin-top: -4px;
+                        margin-right: 8px;" rpl="" fill="currentColor" height="20" icon-name="add-outline"
+                            viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
+                        </svg></span>
+                    <span class="flex items-center gap-xs">Create Feedback</span>
+                </span>
+
+            </button>
+
+        </div>
+    </div>
+</div>
+
+<!-- <div style="padding-top: 82px; display: flex;">
+  
+    <div id="sidebar" style="width: 20%;">
+        <div>
+            <div class="event-card">
+                <div class="event-info" style="display: flex;">
+                    <div style="width: 13%; margin-top: 12px;">
+                        <h1 style="margin-bottom: -7px;">23</h1>
+                        <h4>
+                            MAR
+                        </h4>
+                    </div>
+
+                    <div style="margin-left: 40px;">
+                        <p>Tom Alter and Dave Toennies</p>
+                        <p>Sat, 6:00–10:00 p.m.</p>
+                        <p>Infinity Hall and Sidebar</p>
+                    </div>
+
+                </div>
+
+                <div class="ticket-info" style="margin-left: 40px">
+                    <button id="minus" onclick="decrease()">-</button>
+                    <input type="text" style="width: 32px;" id="quantity" value="0">
+                    <button id="plus" onclick="increase()">+</button>
+                    <button id="getTickets">Get Tickets</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="home-content" class="home container-fluid mt-10 " style="padding-top: 0">
+
+        <div>
+            <div class="card" *ngFor="let post of postsList">
+                <div class="card-header">
+                    <img src="https://d2qp0siotla746.cloudfront.net/img/use-cases/profile-picture/template_3.jpg"
+                        alt="Profile Picture" class="profile-pic">
+                    <div class="user-info">
+                        <p>{{post.postAuthor}}</p>
+                        <span>{{post.postDate | date:'short':'GMT'}}</span>
+                    </div>
+                </div>
+                <p class="post-text">{{post.postDescription}}</p>
+                <div class="reactions">
+
+                    <button class="button">
+                        <img src="https://cdn4.iconfinder.com/data/icons/web-ui-ux/32/044-Comment-512.png"
+                            alt="Like Icon" class="reaction-icon">
+                    </button>
+                    <span class="reaction-count">{{post.postComments.length}}</span>
+
+
+                    <button class="button" (click)="upLikePost(post.postID)">
+                        <fa-icon [icon]="faArrowUp" style="color:green"></fa-icon>
+                     
+                    </button>
+                    <span class="reaction-count">{{post.postUpLikes}}</span>
+
+                    <button class="button" (click)="downLikePost(post.postID)">
+                        <fa-icon [icon]="faArrowDown" style="color:red"></fa-icon>
+                     
+                    </button>
+                    <span class="reaction-count">{{post.postDownLikes}}</span>
+
+
+
+                </div>
+            </div>
+            <br />
+
+        </div>
+
+
+    </div>
+
+
+    <div>
+        <button rpl="" class="rounded-square-button" data-testid="create-post">
+            <span class="flex items-center justify-center">
+                <span class="flex mr-xs"><svg style="margin-top: -4px;
+                margin-right: 8px;" rpl="" fill="currentColor" height="20" icon-name="add-outline" viewBox="0 0 20 20"
+                        width="20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 9.375h-8.375V1h-1.25v8.375H1v1.25h8.375V19h1.25v-8.375H19v-1.25Z"></path>
+                    </svg></span>
+                <span class="flex items-center gap-xs">Create post</span>
+            </span>
+
+        </button>
+    </div>
+
+</div> -->
