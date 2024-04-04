@@ -18,9 +18,8 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 import { VoteComponent } from './vote/vote.component';
 
 export const routes: Routes = [
-    /* {path:'/', redirectTo:'projects', pathMatch:'full'}, */
-    {path:'', redirectTo:'home', pathMatch:'full'},
-    {path:'home', component: HomeComponent},
+    // {path:'', redirectTo:'home', pathMatch:'full'},
+    // {path:'home', component: HomeComponent},
     {path:'login', component: LoginComponent},
     {path:'citizen-register', component: CitizenRegisterComponent},
     {path:'govtEmp-register', component: GovtRegisterComponent},
@@ -37,5 +36,5 @@ export const routes: Routes = [
     {path:'events-list', component: EventListComponent},
     {path:'event-detail/:eventId', component: EventDetailsComponent},
     {path:'vote', component: VoteComponent},
-    {path: '**', component:HomeComponent}
+    // {path: '**', component:HomeComponent}
 ];

@@ -107,5 +107,13 @@
     "Political Party":"Political Party",
     "aligns":"aligns",
     "with your interests":"with your interests",
-    "Main Menu":"Main Menu"
+    "Main Menu":"Main Menu",
+    "Enter the passport number":"Enter the passport number",
+    "Enter Name":"Enter Name",
+    "Enter Contact Number":"Enter Contact Number",
+    "Enter Email Address":"Enter Email Address",
+    "Enter First Name":"Enter First Name",
+    "Enter Last Name":"Enter Last Name",
+    "Enter Date of Birth":"Enter Date of Birth"
+
 }   
