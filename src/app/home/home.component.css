@@ -559,4 +559,7 @@
         display: none;
     }
   }
+  .input-group{
+    max-width: 50rem;
+  }
   

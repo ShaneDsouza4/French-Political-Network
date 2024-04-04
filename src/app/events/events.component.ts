@@ -26,6 +26,8 @@ import { TranslateModule } from '@ngx-translate/core';
 export class EventsComponent implements OnInit {
 
   eventList:any[] = []
+  filteredEvents: any[] = [];
+  searchText: string = '';
   loader: boolean = true
   noDataAvailable: boolean = false
  
@@ -54,5 +56,16 @@ export class EventsComponent implements OnInit {
   createEvent(){
     this.router.navigate([`/create-event`])
   }
+
+  searchEvents() {
+    if (this.searchText.trim() === '') {
+      this.filteredEvents = [...this.eventList]; // Reset to show all events
+    } else {
+      this.filteredEvents = this.eventList.filter(event =>
+        event.eventName.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    }
+  }
+
   
 }
