@@ -107,7 +107,14 @@
     "Political Party":"Parti politique",
     "aligns":"aligne",
     "with your interests":"avec vos intérêts",
-    "Main Menu":"Menu principal"
+    "Main Menu":"Menu principal",
+    "Enter the passport number": "Entrez le numéro de passeport",
+    "Enter Name":"Entrer le nom",
+    "Enter Contact Number":"Entrer le numéro de contact",
+    "Enter Email Address":"Entrer l'adresse e-mail",
+    "Enter First Name":"Entrez le prénom",
+    "Enter Last Name":"Entrez le nom de famille",
+    "Enter Date of Birth":"Entrez la date de naissance"
 
 
 }

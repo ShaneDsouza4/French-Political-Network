@@ -1,70 +1,83 @@
 <!-- Header -->
-<header>
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-    <div class="container">
-      <!-- Navigation bar content -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-        </span>
-      </button>
-      
-      <!-- Nav Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <!-- <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="home">{{"Home" | translate}}</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="projects">{{"Projects" | translate}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="" routerLink="/events">{{"Events" | translate}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="" routerLink="/vote">{{"Vote" | translate}}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" routerLink="quiz">{{"Quiz" | translate}} </a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="" routerLink="/new-project">{{"Create New Project" | translate}}</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="" routerLink="/govt-dashboard">{{"Dashboard" | translate}}</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="" routerLink="/events">{{"Events" | translate}}</a>
-          </li> -->
-         <!--  <li class="nav-item">
-            <a class="" routerLink="/vote">Vote</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="" routerLink="/create-event">{{"Create Event" | translate}}</a>
-          </li> -->
-        </ul>
-        <form class="d-flex">
-          <div class="form-group mt-2">
-            <select class="form-select" (change)="ChangeLanguage($event)">
-              <option [selected]="language==='en'"  value="en">{{"English" | translate}}</option>
-              <option [selected]="language==='fr'"  value="fr">{{"French" | translate}}</option>
-              
-            </select>
-          </div>
+<!-- <header>
+  <div>
+    <img src="https://i.ibb.co/rmrzkVD/Image.png" alt="">
+    <div>
+      <ul class="u-nav u-unstyled u-nav-1"><li><a  href="Home.html" style="padding: 10px 20px;">Home</a>
+    </li><li><a  href="/About.html" style="padding: 10px 20px;">Events</a>
+    </li><li><a  href="/Contact.html" style="padding: 10px 20px;">Vote</a>
+    </li><li><a  style="padding: 10px 20px;">Quiz</a>
+    </li></ul>
+    </div>
+    
+    <div>
+      <ul><li class="u-nav-item"><a style="padding: 0px 20px;">English</a>
+</li><li class="u-nav-item"><a style="padding: 0px 20px;">French</a>
+</li></ul>
+    </div>
 
-          <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="openLoginModal()" *ngIf="!loggedIn">{{"Login" | translate}}</button>
-          <button class="btn btn-success" type="button" (click)="logout()" *ngIf="loggedIn">{{"Logout" | translate}}</button>
-        </form>
-      </div>
+    <a href="tel:+12345678910">Login </a>
+  </div>
+</header> -->
+
+<header>
+  <nav class="navbar" style="max-height: 92px; box-shadow: none;">
+    <div class="logo">
+      <img src="https://svgur.com/i/152V.svg" style="height: 85px;" alt="Avant Garde Politique">
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#events">Events</a></li>
+      <li><a href="#vote">Vote</a></li>
+      <li><a href="#quiz">Quiz</a></li>
+    </ul>
+    <div class="lang">
+      <a href="#english" class="lang-link">English</a> |
+      <a href="#french" class="lang-link">French</a>
+    </div>
+    <div class="login-button">
+      <button type="button">Login</button>
     </div>
   </nav>
 </header>
 
 <!-- Main content -->
 <main class="mt-5">
-  <div class="container-fluid body-background pt-5">
-    <router-outlet></router-outlet>
-  </div>
+  <!-- <div class="container-fluid body-background pt-5">
+    <div class="container">
+      <div class="left-column">
+        <img src="https://i.ibb.co/FXGmqtT/EmmyMac.jpg" alt="Event Image">
+      </div>
+      <div class="right-column">
+        <div class="header">Empowering France: Unveiling Progress, One Event at a Time!</div>
+        <div class="subheader">France unveils 'Révéler le Progrès': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement</div>
+        <button class="button">Learn More</button>
+        <div class="image-source">Image source: Christine Ockrent</div>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="page-wrapper">
+    <div class="red-box"></div>
+    <div class="blue-box"></div>
+    <div class="content-wrapper">
+        <div class="content">
+            <h1>Empowering France: Unveiling Progress, One Event at a Time!</h1>
+            <p>France unveils 'Révéler le Progrès': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement</p>
+            <span class="image-source">Image source: Christine Ockrent</span>
+            <button class="learn-more-btn">Learn More</button>
+        </div>
+        <div class="speaker-image">
+            <!-- Speaker's image should go here -->
+            <img src="https://i.ibb.co/FXGmqtT/EmmyMac.jpg" alt="Speaker">
+            <div class="overlay">
+                <span class="hashtag">#LaFranceEnMarche</span>
+                <span class="event-info">Date, Event Description</span>
+            </div>
+        </div>
+    </div>
+</div>
+
 </main>
 
 <!-- Footer -->

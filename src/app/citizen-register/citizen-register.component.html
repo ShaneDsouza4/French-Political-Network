@@ -14,20 +14,20 @@
 
         <div class="form-group mt-2 ">
           <label for="firstName">{{ 'First Name' | translate}}</label>
-          <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="Enter First Name">
+          <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="{{ 'Enter First Name' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('firstName')?.invalid && citizenRegForm.get('firstName')?.touched">{{ 'First Name is required' | translate}}</small>
         </div>
 
         
         <div class="form-group mt-2 mt-2">
           <label for="lastName">{{ 'Last Name' | translate}}</label>
-          <input formControlName="lastName" type="text" class="form-control" id="lastName" placeholder="Enter Last Name">
+          <input formControlName="lastName" type="text" class="form-control" id="lastName" placeholder="{{ 'Enter Last Name' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('lastName')?.invalid && citizenRegForm.get('lastName')?.touched">{{ 'Last Name is required' | translate}}</small>
         </div>
 
         <div class="form-group mt-2">
           <label for="dob">{{ 'Date Of Birth' | translate}}</label>
-          <input type="date" formControlName="dob" class="form-control" id="dob" placeholder="Enter Date of Birth">
+          <input type="date" formControlName="dob" class="form-control" id="dob" placeholder="{{ 'Enter Date of Birth' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('dob')?.invalid && citizenRegForm.get('dob')?.touched">{{ 'Date of Birth is required' | translate}}</small>
         </div>
 
@@ -43,28 +43,28 @@
    
         <div class="form-group mt-2">
           <label for="passportNumber">{{ 'Identity Number or Passport Number' | translate}}</label>
-          <input  type="text" class="form-control" formControlName="passportNumber" id="passportNumber" placeholder="Enter Passport Number">
+          <input  type="text" class="form-control" formControlName="passportNumber" id="passportNumber" placeholder= "{{ 'Enter the passport number' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('passportNumber')?.invalid && citizenRegForm.get('passportNumber')?.touched">{{ 'Identity Number is required' | translate}}</small>
         </div>
 
 
         <div class="form-group mt-2">
           <label for="contactNumber">{{ 'Contact Number' | translate}}</label>
-          <input  type="text" class="form-control" formControlName="contactNumber" id="contactNumber" placeholder="Enter Contact Number">
+          <input  type="text" class="form-control" formControlName="contactNumber" id="contactNumber" placeholder="{{ 'Enter Contact Number' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('contactNumber')?.invalid && citizenRegForm.get('contactNumber')?.touched">{{ 'Valid Contact Number is required' | translate}}</small>
         </div>
 
 
         <div class="form-group mt-2">
           <label for="email">{{ 'Email Address' | translate}}</label>
-          <input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter Email Address">
+          <input type="email" class="form-control" formControlName="email" id="email" placeholder="{{ 'Enter Email Address' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('email')?.invalid && citizenRegForm.get('email')?.touched">{{ 'Enter a Valid Email' | translate}}</small>
         </div>
 
 
         <div class="form-group mt-2">
           <label for="password">{{ 'Password' | translate}}</label>
-          <input type="password" class="form-control" formControlName="password" id="password" placeholder="Password">
+          <input type="password" class="form-control" formControlName="password" id="password" placeholder="{{ 'Password' | translate}}">
           <small class="text-danger" *ngIf="citizenRegForm.get('password')?.invalid && citizenRegForm.get('password')?.touched">{{ 'Password must be min 5 characters and max 10 characters' | translate}}</small>
         </div>
 
