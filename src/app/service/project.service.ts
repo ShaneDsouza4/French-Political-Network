@@ -112,6 +112,14 @@ export class ProjectService {
     return this.http.post(`${this.urlToUse}/party/`, obj);
   }
 
+  postFeedback(obj:any){
+    return this.http.post(`${this.urlToUse}/feedback/`, obj);
+  }
+
+  getFeedbacks(){
+    return this.http.get(`${this.urlToUse}/feedback/`);
+  }
+
   
 
 

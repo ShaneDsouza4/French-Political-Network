@@ -40,10 +40,13 @@ export class QuizComponent implements OnInit{
   spinner: boolean = false;
 
   showPoliticQuestions:boolean = false
+  language:any = ""
 
   
   @ViewChild('quiz',{static:true}) quiz! : QuizQuestionsComponent;
   @ViewChild('result',{static:true}) result! : QuizResultComponent;
+
+  
 
 
   /* quizQuestionList:any = [
@@ -327,7 +330,137 @@ export class QuizComponent implements OnInit{
     }
   ]
 
+  quizQuestionListFrench:any = [
+    {
+      "id": "1",
+      "question": "Selon vous, laquelle des valeurs suivantes est la plus importante pour guider les politiques gouvernementales ?",
+      "description": "Identify the trailblazing woman who held the position of Prime Minister in France.",
+      "answers": {
+        "answer_a": "Défendre les valeurs et les institutions traditionnelles, promouvoir la stabilité et l’ordre.",
+        "answer_b": "Accepter le changement et le progrès, en donnant la priorité aux libertés individuelles et à l’égalité sociale."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "Édith Cresson became the first female Prime Minister of France in 1991.",
+      "tip": "Look into notable figures in French political history.",
+      "tags": [
+        "Politics",
+        "France",
+        "Leadership"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Nationalism"
+    },
+    {
+      "id": "2",
+      "question": "Quel gouvernement préféreriez-vous ?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "Gouvernement limité, valeurs traditionnelles.",
+        "answer_b": "Gouvernement actif, filets de sécurité sociale."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Conservatism"
+    },
+    {
+      "id": "3",
+      "question": "Quelle approche de la technologie préférez-vous pour votre pays",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "Un pays qui donne la priorité à l’innovation et au progrès technologique, même si cela implique certains risques et perturbations dans les modes de vie traditionnels.",
+        "answer_b": "Un pays qui fait preuve de prudence à l’égard de la technologie, privilégiant la stabilité et préservant les valeurs traditionnelles, même si cela signifie des progrès plus lents."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Technology"
+    },
+    {
+      "id": "4",
+      "question": "Dans quel type de société préférez-vous vivre ?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "Plus de liberté, moins de gouvernement.",
+        "answer_b": "Plus de règles, une société plus juste."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Freedom"
+    },
+    {
+      "id": "5",
+      "question": "Quelle approche des programmes sociaux préférez-vous pour votre pays ?",
+      "description": "Identify the main residence of the President of France.",
+      "answers": {
+        "answer_a": "Un pays qui offre des programmes sociaux minimaux, mettant l’accent sur la responsabilité individuelle et l’autosuffisance.",
+        "answer_b": "Un pays qui propose des programmes sociaux complets, donnant la priorité aux filets de sécurité sociale et à l’assistance à ceux qui en ont besoin."
+      },
+      "multiple_correct_answers": false,
+      "correct_answers": {
+        "answer_a_correct": "true",
+        "answer_b_correct": "false"
+      },
+      "correct_answer": "answer_a",
+      "explanation": "The Élysée Palace serves as the official residence of the President of France.",
+      "tip": "Focus on the prominent landmarks associated with French politics.",
+      "tags": [
+        "Politics",
+        "France",
+        "Landmarks"
+      ],
+      "category": null,
+      "difficulty": "Easy",
+      "ValueToAdd":"Welfare Programs"
+    }
+  ]
+
   constructor(private quizService: QuizService){
+    this.language = localStorage.getItem("language")
+    console.log("Language>>>", this.language)
     this.questionsLimit = 5;
     this.difficulty = "Easy";
     this.showMainMenu = true;
@@ -339,12 +472,17 @@ export class QuizComponent implements OnInit{
   }
 
   getQuizQuestions(){
+    this.language = localStorage.getItem("language")
     this.toggleSpinner();
     this.quizService.getQuizQuestions(this.difficulty, this.questionsLimit).subscribe((res:any)=>{
       //console.log("Response: ", res);
       //console.log("Response", res);
       //this.quiz.questions = res;
-      this.quiz.questions = this.quizQuestionList;
+      if(this.language == 'en'){
+        this.quiz.questions = this.quizQuestionList;
+      }else{
+        this.quiz.questions = this.quizQuestionListFrench;
+      }
       this.quiz.reset();
       this.quiz.showQuestions(0);
       this.showMainMenu = false;

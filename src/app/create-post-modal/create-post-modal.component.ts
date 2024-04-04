@@ -25,31 +25,47 @@ export class CreatePostModalComponent implements OnInit{
   postForm!:FormGroup
   inputData:any;
   postsList:any = [];
+  loggedInDetails: any = {}
+  loggedInUserID: any
+  loggedIn: boolean = false;
+  
   
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private ref:MatDialogRef<OpinionModalComponent>, private _projectService: ProjectService){}
 
   
 
   ngOnInit(): void {
-    let postListX:any = localStorage.getItem('postsList');
-    this.postsList = JSON.parse(postListX);
-    this.inputData = this.data
+
+    //Login Logout Check
+    let loggedInX = localStorage.getItem('loggedInUser')
+    if (loggedInX !== null) {
+      this.loggedInDetails = JSON.parse(loggedInX);
+      this.loggedInUserID = Number(this.loggedInDetails.id)
+      this.loggedIn = true
+    } else {
+      this.loggedIn = false
+    }
+
+    //let postListX:any = localStorage.getItem('postsList');
+    //this.postsList = JSON.parse(postListX);
+    //this.inputData = this.data
 
     this.postForm = new FormGroup({
       'postDescription': new FormControl('', [RxwebValidators.required()]),
-      'postDate': new FormControl(new Date().toISOString()),
-      'postAuthor': new FormControl('Logged-in User'),
-      'postID': new FormControl(Date.now()),
-      'postUpLikes': new FormControl(0),
-      'postDownLikes': new FormControl(0),
-      'postComments': new FormControl([]),
+      'timestamp': new FormControl(new Date().toISOString()),
+      'userId': new FormControl(this.loggedInUserID)
     })
   }
 
   submitPost(){
+    console.log(this.postForm.getRawValue())
+    let payLoad: any = this.postForm.getRawValue();
+    this._projectService.postFeedback(payLoad).subscribe((res:any)=>{
+      console.log('Feedback Posted: ', res)
+    })
    // console.log(this.postForm.getRawValue())
-    this.postsList.unshift(this.postForm.getRawValue())
-    localStorage.setItem('postsList', JSON.stringify(this.postsList));
+    //this.postsList.unshift(this.postForm.getRawValue())
+    //localStorage.setItem('postsList', JSON.stringify(this.postsList));
     //console.log("Post List: ", this.postsList);
     //this.inputData.projectDetails.opinions.unshift(this.opinionForm.getRawValue())
     //this.inputData.projectDetails.opinions.unshift(this.opinionForm.getRawValue())

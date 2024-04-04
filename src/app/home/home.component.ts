@@ -8,6 +8,7 @@ import { faArrowAltCircleDown, faArrowAltCircleUp, faArrowUp, faMessage, faUser,
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { OpinionModalComponent } from '../opinion-modal/opinion-modal.component';
 import { CreatePostModalComponent } from '../create-post-modal/create-post-modal.component';
+import { ProjectService } from '../service/project.service';
 
 @Component({
   selector: 'app-home',
@@ -30,6 +31,9 @@ export class HomeComponent implements OnInit{
   showComments:boolean = false
 
   postsList:any = [];
+  loggedInDetails: any = {}
+  loggedInUserID: any
+  loggedIn: boolean = false;
 
  eventList: any = [
     {
@@ -64,9 +68,24 @@ export class HomeComponent implements OnInit{
 
   ticketCount:any = 0
 
-  constructor(public dialog: MatDialog){}
+  constructor(public dialog: MatDialog, private _projectService: ProjectService){}
 
   ngOnInit(): void {
+
+    //Login Logout Check
+    let loggedInX = localStorage.getItem('loggedInUser')
+    if (loggedInX !== null) {
+      this.loggedInDetails = JSON.parse(loggedInX);
+      this.loggedInUserID = Number(this.loggedInDetails.id)
+      this.loggedIn = true
+    } else {
+      this.loggedIn = false
+    }
+
+    this._projectService.getFeedbacks().subscribe((res:any)=>{
+      console.log("Feedbacks:-----------------------  ", res);
+    })
+
     let postListX:any = localStorage.getItem('postsList');
     console.log("Post List: ", postListX)
     this.postsList = JSON.parse(postListX);
@@ -94,14 +113,12 @@ export class HomeComponent implements OnInit{
   openCreatePostModal(){
     var _popup = this.dialog.open(CreatePostModalComponent, {
       width: '60%',
-      data: {
-        title: "Feedback Details",
-      }
+      
     })
     _popup.afterClosed().subscribe((item:any)=>{
       //console.log("Post DetailsX:", item)
-      this.postsList = item;
-      localStorage.setItem('postsList', JSON.stringify(this.postsList));
+      //this.postsList = item;
+      //localStorage.setItem('postsList', JSON.stringify(this.postsList));
       // var FoundIndex = this.projectList.findIndex((x:any)=>x.id == item.id)
       // this.projectList[FoundIndex] = item
       // localStorage.setItem('projects', JSON.stringify(this.projectList));
