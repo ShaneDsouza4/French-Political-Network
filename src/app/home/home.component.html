@@ -10,12 +10,21 @@
         <p class="main-page-para"> France unveils 'Révéler le Progrès': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement</p>
         <p class="credits-para"> Image source:</p>
         <p class="credits-para"> Christine Ockrent</p>
+        <button (click)="scrollToProjectsDiv(projectsDiv)">Projects</button>
       </div>
       <!-- <div style="height: 10vh;"></div> -->
-      <h2 class="tagline-home" style="padding-top: 70px;">Innovating for Impact</h2>
+      <h2 #projectsDiv class="tagline-home" style="padding-top: 70px;">Innovating for Impact</h2>
       <h2 class="tagline-home" style="margin-top: -20px;">Discover Our Government Projects</h2>
       <div class="container">
-        <div class="item">
+        <div class="item"  *ngFor="let project of projectList" (click)="openProject(project.projectId)" style="cursor: pointer;">
+          <img  *ngIf="project.department == 'Transportation'" class="item-img" src="https://www.businesslinkuae.com/wp-content/uploads/2023/11/cb34db5d-eef1-4e26-a0e0-296b86234423.jpg" alt="">
+          <img  *ngIf="project.department == 'Education'" class="item-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDXElkBqy2NdiemHmgkGUOwx81VebcgMZ9KWI6ZtZZYw&s" alt="">
+          <img  *ngIf="project.department == 'Crime'" class="item-img" src="https://cdn-res.keymedia.com/cms/images/us/069/0308_637991685858639957.jpg" alt="">
+          <img  *ngIf="project.department == 'Environment'" class="item-img" src="https://images.inc.com/uploaded_files/image/1920x1080/getty_517129164_279516.jpg" alt="">
+          <h4 class="item-title">{{ project?.name }}</h4>
+          <p class="item-para">{{ project?.description | slice : 0 - 300 }}....</p>
+        </div>
+        <!-- <div class="item">
           <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
           <h4 class="item-title"> Climate Plan</h4>
           <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
@@ -39,12 +48,7 @@
           <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
           <h4 class="item-title"> Climate Plan</h4>
           <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-        </div>
-        <div class="item">
-          <img class="item-img" src="https://batinfo.com/news/2020/09/09/1920/09-La-Banque-des-Territoires-et-Bpifrance-lancent-un-Plan-Climat-de-40-milliards-d-euros.jpg" alt="">
-          <h4 class="item-title"> Climate Plan</h4>
-          <p class="item-para">Many travel companies talk about minimizing their impact. We aim to maximize ours. That's because all our trips are designed to do good.</p>
-        </div>
+        </div> -->
       </div>
   </div>
   <!-- <div class="footer">

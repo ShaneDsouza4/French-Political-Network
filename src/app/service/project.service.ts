@@ -82,7 +82,7 @@ export class ProjectService {
 
   getFutureEvents(){
     return this.http.get(`${this.urlToUse}/event/futureevents`);
-  }
+  } 
 
   getEventById(eventId:any){
     return this.http.get(`${this.urlToUse}/event/futureevents/${eventId}`);
