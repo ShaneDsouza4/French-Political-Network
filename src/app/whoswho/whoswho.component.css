@@ -78,7 +78,6 @@ footer {
   box-shadow: 1px 1px 2px rgba(21, 64, 94, 0.8);
   box-sizing: border-box;
   border: 1px solid #0b3a4f;
-  padding: 40px 0;
 }
 
 .flip-card .card-front {
@@ -106,4 +105,11 @@ body {
 
 .viewport {
   margin: 10px auto 0;
+}
+
+.flip-card .card-front img {
+  width: 100%; /* Set the width to 100% to make the image full-size */
+  height: 100%; /* Set the height to 100% to maintain aspect ratio */
+  object-fit: cover; /* Ensure the image covers the entire area without stretching */
+  border-radius: 5px; /* Apply border-radius if needed */
 }
