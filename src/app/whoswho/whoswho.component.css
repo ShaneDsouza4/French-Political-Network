@@ -1,0 +1,88 @@
+
+
+.flip-card {
+  display: block;
+  position: relative;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+}
+
+.flip-card .card-front,
+.flip-card .card-back {
+  backface-visibility: hidden;
+  transition: transform 500ms;
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.flip-card .card-front {
+  transform: perspective(300px) rotateY(0);
+  z-index: 900;
+}
+
+.flip-card .card-back {
+  transform: perspective(300px) rotateY(-180deg);
+  z-index: 800;
+}
+
+.flip-card:hover .card-front {
+  transform: perspective(300px) rotateY(180deg);
+}
+
+.flip-card:hover .card-back {
+  z-index: 950;
+  transform: perspective(300px) rotateY(0deg);
+}
+
+.flip-card {
+  text-shadow: 1px 1px 0 rgba(21, 64, 94, 0.8);
+  color: #fff;
+  cursor: pointer;
+  float: left;
+  font-weight: bold;
+  margin: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  min-width: 100px;
+  max-width: 400px;
+}
+
+.flip-card .card-front,
+.flip-card .card-back {
+  border-radius: 5px;
+  box-shadow: 1px 1px 2px rgba(21, 64, 94, 0.8);
+  box-sizing: border-box;
+  border: 1px solid #0b3a4f;
+  padding: 40px 0;
+}
+
+.flip-card .card-front {
+  box-sizing: border-box;
+  background-color: #499bea;
+  background-image: linear-gradient(top, #499bea 0%, #207ce5 100%);
+}
+
+.flip-card .card-back {
+  box-shadow: 0 0 20px rgba(21, 64, 94, 0.8) inset;
+  background-color: #478ce0;
+  background-image: linear-gradient(top, #478ce0 0%, #1168db 100%, #0263db 100%);
+}
+
+body {
+  background-color: #e6f2f7;
+  background-image: radial-gradient(center, circle cover, #e6f2f7 0%, #a0d8ef 100%);
+  background-image: -webkit-gradient(radial, center center, 0, center center, 506, color-stop(0%, #e6f2f7), color-stop(100%, #a0d8ef));
+  background-image: -webkit-radial-gradient(center, circle cover, #e6f2f7 0%, #a0d8ef 100%);
+  background-image: -moz-radial-gradient(center, circle cover, #e6f2f7 0%, #a0d8ef 100%);
+  background-image: -o-radial-gradient(center, circle cover, #e6f2f7 0%, #a0d8ef 100%);
+  background-image: -ms-radial-gradient(center, circle cover, #e6f2f7 0%, #a0d8ef 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e6f2f7', endColorstr='#a0d8ef', GradientType=1);
+}
+
+.viewport {
+  margin: 10px auto 0;
+  width: 500px;
+}

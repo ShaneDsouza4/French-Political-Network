@@ -1,22 +1,23 @@
 import { Routes } from '@angular/router';
+import { CitizenActivityComponent } from './citizen-activity/citizen-activity.component';
+import { CitizenProjectsComponent } from './citizen-projects/citizen-projects.component';
+import { CitizenRegisterComponent } from './citizen-register/citizen-register.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { EventsComponent } from './events/events.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { GovtDashboardComponent } from './govt-dashboard/govt-dashboard.component';
+import { GovtRegisterComponent } from './govt-register/govt-register.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { CitizenRegisterComponent } from './citizen-register/citizen-register.component';
-import { GovtRegisterComponent } from './govt-register/govt-register.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { ProjectListingComponent } from './project-listing/project-listing.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
-import { CreateProjectComponent } from './create-project/create-project.component';
-import { CitizenProjectsComponent } from './citizen-projects/citizen-projects.component';
-import { CitizenActivityComponent } from './citizen-activity/citizen-activity.component';
-import { GovtDashboardComponent } from './govt-dashboard/govt-dashboard.component';
+import { ProjectListingComponent } from './project-listing/project-listing.component';
+import { ProjectsComponent } from './projects/projects.component';
 import { QuizComponent } from './quiz/quiz.component';
-import { EventsComponent } from './events/events.component';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { EventListComponent } from './event-list/event-list.component';
-import { EventDetailsComponent } from './event-details/event-details.component';
 import { VoteComponent } from './vote/vote.component';
-import { FeedbackComponent } from './feedback/feedback.component';
+import { WhoswhoComponent } from './whoswho/whoswho.component';
 
 export const routes: Routes = [
     {path:'', redirectTo:'home', pathMatch:'full'},
@@ -38,5 +39,6 @@ export const routes: Routes = [
     {path:'event-detail/:eventId', component: EventDetailsComponent},
     {path:'vote', component: VoteComponent},
     {path:'feedback', component: FeedbackComponent},
+    {path:'whoswho', component: WhoswhoComponent},
     {path: '**', component:HomeComponent}
 ];
