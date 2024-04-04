@@ -1,25 +1,61 @@
-.spinner{
-	/*   for centering div */
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  
-	/*   spinner div css */
-	  height : 50px;
-	  width : 50px;
-	  border-radius : 50%;
-	/*   background-color : red; */
-	  border : 10px solid #ccc;
-	  border-top-color : #007bff;
-	  animation : spin 1s linear infinite;
+.voting-container {
+	font-family: Arial, sans-serif;
+	max-width: 1200px;
+	margin: 0 auto; /* Center the container */
+	text-align: center;
+	padding: 20px;
+  }
+  
+  .candidates-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr); /* 4 columns grid */
+	gap: 20px;
+  }
+  
+  .candidate {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: #fff;
+  }
+  
+  .candidate img {
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  .candidate p {
+	padding-top: 15px;
+	font-size: 0.9em;
+	margin: 10px 0 5px;
+  }
+  
+  .votes {
+	font-size: 1.2em;
+	font-weight: bold;
+	margin-top: 5px;
+  }
+  
+  @media (max-width: 980px) {
+	.candidates-grid {
+	  grid-template-columns: repeat(3, 1fr);
 	}
-	
-	@keyframes spin{
-	  0%{
-		transform : rotate(0deg);
-	  }
-	  100%{
-		transform : rotate(360deg);
-	  }
+  }
+  
+  @media (max-width: 680px) {
+	.candidates-grid {
+	  grid-template-columns: repeat(2, 1fr);
 	}
+  }
+  
+  @media (max-width: 480px) {
+	.candidates-grid {
+	  grid-template-columns: 1fr;
+	}
+  }
+  

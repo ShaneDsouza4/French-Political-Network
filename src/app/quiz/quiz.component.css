@@ -15,6 +15,7 @@
  #quiz {
 	 font-family: 'Consolas';
 	 background-image: url('../../assets/france_img.jpg');
+	 /* background-image: url('../../assets/Red Urban Traveling Vlog Youtube Banner.png'); */
 	 background-size: cover;
 	 background-position: center;
 }
@@ -25,7 +26,7 @@
 	 right: 0;
 	 bottom: 0;
 	 top: 0;
-	 background: rgba(47, 103, 177, 0.6);
+	 /* background: rgb(255, 255, 255); */
 }
  .quiz-form {
 	 background-color: #fff;
@@ -185,4 +186,24 @@
 .card .card-header {
     border-bottom: none;
     background: transparent;
+}
+
+.quiz-card {
+	box-shadow: 0 0.25rem 1rem 0 #282e3e14;
+    background-color:blue;
+    border-radius: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* margin: 0 auto var(--svwhkoh-3); */
+    max-width: 52.5rem;
+    min-height: 29.25rem;
+    /* padding: var(--svwhkoh-6); */
+    transition: all .5s ease;
+}
+
+.image-container {
+	background-image: url('/assets/Red Urban Traveling Vlog Youtube Banner.png');
+	background-size: cover; /* Scale the background image to cover the entire div */
+    background-position: center;
 }
