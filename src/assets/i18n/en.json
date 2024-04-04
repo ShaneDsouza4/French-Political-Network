@@ -100,7 +100,7 @@
     "Enter a Valid Email":"Enter a Valid Email",
     "Password":"Password",
     "Cancel":"Cancel",
-    "Please fill out login details":"Please fill out login details",
+    "Please fill out login details correctly":"Please fill out login details correctly",
     "Next":"Next",
     "Finish":"Finish",
     "Quiz Result":"Quiz Result",
@@ -114,6 +114,26 @@
     "Enter Email Address":"Enter Email Address",
     "Enter First Name":"Enter First Name",
     "Enter Last Name":"Enter Last Name",
-    "Enter Date of Birth":"Enter Date of Birth"
+    "Enter Date of Birth":"Enter Date of Birth",
+    "Enter Password":"Enter Password",
+    "Email is invalid":"Email is invalid",
+    "Email is required":"Email is required",
+    "Email must be greater than 6 characters":"Email must be greater than 6 characters",
+    "Email must be less than 100 characters":"Email must be less than 100 characters",
+    "Password is required":"Password is required",
+    "Password must be greater than 8 characters":"Password must be greater than 8 characters",
+    "Password must be less than 25 characters":"Password must be less than 25 characters",
+    "Empowering France: Unveiling Progress, One Event at a Time!":"Empowering France: Unveiling Progress, One Event at a Time!",
+    "Name must be greater than 4 characters":"Name must be greater than 4 characters",
+    "Name must be less than 50 characters":"Name must be less than 50 characters",
+    "Duration must contain only digits":"Duration must contain only digits",
+    "Duration cannot exceed 30 months":"Duration cannot exceed 30 months",
+    "Duration must be more than 1 month":"Duration must be more than 1 month",
+    "Budget must contain only digits":"Budget must contain only digits",
+    "Budget cannot exceed 500000":"Budget cannot exceed 500000",
+    "Budget must be more than 1000":"Budget must be more than 1000",
+    "Description cannot exceed 2000 characters":"Description cannot exceed 2000 characters",
+    "Descripton must be more than 250 characters":"Descripton must be more than 250 characters"
+
 
 }   

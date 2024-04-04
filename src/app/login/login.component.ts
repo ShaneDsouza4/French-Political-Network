@@ -3,7 +3,7 @@ import { Component, Inject } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProjectService } from '../service/project.service';
 import { Router, RouterLink } from '@angular/router';
-import { RxReactiveFormsModule, RxwebValidators } from '@rxweb/reactive-form-validators';
+import { ReactiveFormConfig, RxFormBuilder, RxReactiveFormsModule, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { TranslateModule } from '@ngx-translate/core';
@@ -38,24 +38,35 @@ export class LoginComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private _projectService: ProjectService, 
     private router: Router,
-    private ref:MatDialogRef<LoginComponent>
+    private ref:MatDialogRef<LoginComponent>,
+    private formBuilder: RxFormBuilder
   ){
+
     this.loginForm = new FormGroup({
-      email: new FormControl('', [RxwebValidators.email(),RxwebValidators.required() ]),
-      password: new FormControl('', [RxwebValidators.required()]), 
+      email: new FormControl('', [
+        RxwebValidators.email(),
+        RxwebValidators.required(), 
+        RxwebValidators.minLength({value:6}),
+        RxwebValidators.maxLength({value:100})
+      ]),
+      password: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:8}),
+        RxwebValidators.maxLength({value:25})
+      ])
     })
   }
 
   onLogin(){
     if(this.loginForm.status == "INVALID"){
       this.incompleteForm = true
-      //return ;
     }else{
       this.incompleteForm = false
       let payLoad: any = this.loginForm.getRawValue();
+
       this._projectService.login(payLoad).subscribe((res:any)=>{
       if(res.status == 1){
-        alert("Login Sucessfull.")
+        //alert("Login Sucessfull.")
         let loggedInUserDetails = res.userInfo;
         loggedInUserDetails.email = payLoad.email;
         localStorage.setItem('loggedInUser', JSON.stringify(loggedInUserDetails));
@@ -63,7 +74,7 @@ export class LoginComponent {
         this.closepopup();
         window.location.reload()
       }else{
-        alert("Login Not Succesfull.")
+        //alert("Login Not Succesfull.")
       }
     })
     }
@@ -78,5 +89,10 @@ export class LoginComponent {
     this.router.navigate(['/citizen-register'])
     this.closepopup();
   }
+
+
+  public noWhitespaceValidator(control: FormControl) {
+    return (control.value || '').trim().length? null : { 'whitespace': true };       
+}
 
 }
