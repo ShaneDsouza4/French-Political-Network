@@ -1,11 +1,33 @@
+/* whoswho.component.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  /* Ensure the container takes up the full viewport height */
+}
+
+.viewport {
+  flex: 1;
+  /* This will make the viewport fill the remaining vertical space */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  margin-top: auto;
+  /* Push the footer to the bottom */
+}
 
 
 .flip-card {
   display: block;
   position: relative;
   z-index: 1000;
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 350px;
 }
 
 .flip-card .card-front,
@@ -84,5 +106,4 @@ body {
 
 .viewport {
   margin: 10px auto 0;
-  width: 500px;
 }
