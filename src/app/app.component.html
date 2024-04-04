@@ -1,24 +1,4 @@
 <!-- Header -->
-<!-- <header>
-  <div>
-    <img src="https://i.ibb.co/rmrzkVD/Image.png" alt="">
-    <div>
-      <ul class="u-nav u-unstyled u-nav-1"><li><a  href="Home.html" style="padding: 10px 20px;">Home</a>
-    </li><li><a  href="/About.html" style="padding: 10px 20px;">Events</a>
-    </li><li><a  href="/Contact.html" style="padding: 10px 20px;">Vote</a>
-    </li><li><a  style="padding: 10px 20px;">Quiz</a>
-    </li></ul>
-    </div>
-    
-    <div>
-      <ul><li class="u-nav-item"><a style="padding: 0px 20px;">English</a>
-</li><li class="u-nav-item"><a style="padding: 0px 20px;">French</a>
-</li></ul>
-    </div>
-
-    <a href="tel:+12345678910">Login </a>
-  </div>
-</header> -->
 
 <header>
   <nav class="navbar" style="max-height: 92px; box-shadow: none;">
@@ -40,6 +20,50 @@
     </div>
   </nav>
 </header>
+
+<!-- <header>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+        </span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="projects">{{"Projects" | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="" routerLink="/events">{{"Events" | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="" routerLink="/vote">{{"Vote" | translate}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="quiz">{{"Quiz" | translate}} </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" routerLink="home">Feedback</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <div class="form-group mt-2">
+            <select class="form-select" (change)="ChangeLanguage($event)">
+              <option [selected]="language==='en'"  value="en">{{"English" | translate}}</option>
+              <option [selected]="language==='fr'"  value="fr">{{"French" | translate}}</option>
+              
+            </select>
+          </div>
+
+          <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="openLoginModal()" *ngIf="!loggedIn">{{"Login" | translate}}</button>
+          <button style="max-height: 39px;margin-top: 7px;margin-left: 12px;" class="btn btn-success" type="button" (click)="logout()" *ngIf="loggedIn">{{"Logout" | translate}}</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+</header> -->
 
 <!-- Main content -->
 <main class="mt-5">

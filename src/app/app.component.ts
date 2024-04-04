@@ -45,6 +45,7 @@ import { WarningModalComponent } from './warning-modal/warning-modal.component';
 import { VoteComponent } from './vote/vote.component';
 import { PoliticalQuizComponent } from './political-quiz/political-quiz.component';
 import { PoliticalQuizQuestionsComponent } from './political-quiz-questions/political-quiz-questions.component';
+import { FeedbackComponent } from './feedback/feedback.component';
 
 @Component({
   selector: 'app-root',
@@ -88,7 +89,8 @@ import { PoliticalQuizQuestionsComponent } from './political-quiz-questions/poli
     WarningModalComponent,
     VoteComponent,
     PoliticalQuizComponent,
-    PoliticalQuizQuestionsComponent
+    PoliticalQuizQuestionsComponent,
+    FeedbackComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
