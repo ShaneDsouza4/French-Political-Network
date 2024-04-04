@@ -122,7 +122,18 @@
     "Email must be less than 100 characters":"L'e-mail doit contenir moins de 100 caractères",
     "Password is required":"Mot de passe requis",
     "Password must be greater than 8 characters":"Le mot de passe doit comporter plus de 8 caractères",
-    "Password must be less than 25 characters":"Le mot de passe doit contenir moins de 25 caractères"
+    "Password must be less than 25 characters":"Le mot de passe doit contenir moins de 25 caractères",
+    "Empowering France: Unveiling Progress, One Event at a Time!":"Empowering France : dévoiler les progrès, un événement à la fois !",
+    "Name must be greater than 4 characters":"Le nom doit comporter plus de 4 caractères",
+    "Name must be less than 50 characters":"Le nom doit comporter moins de 50 caractères",
+    "Duration must contain only digits":"La durée ne doit contenir que des chiffres",
+    "Duration cannot exceed 30 months":"La durée ne peut excéder 30 mois",
+    "Duration must be more than 1 month":"La durée doit être supérieure à 1 mois",
+    "Budget must contain only digits":"Le budget ne doit contenir que des chiffres",
+    "Budget cannot exceed 500000":"Le budget ne peut pas dépasser 500000",
+    "Budget must be more than 1000":"Le budget doit être supérieur à 1 000",
+    "Description cannot exceed 2000 characters":"La description ne peut pas dépasser 2 000 caractères",
+    "Descripton must be more than 250 characters":"La description doit comporter plus de 250 caractères"
 
 
 }

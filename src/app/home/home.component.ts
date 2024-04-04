@@ -10,6 +10,7 @@ import { OpinionModalComponent } from '../opinion-modal/opinion-modal.component'
 import { CreatePostModalComponent } from '../create-post-modal/create-post-modal.component';
 import { ProjectService } from '../service/project.service';
 import { LoginComponent } from '../login/login.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +20,8 @@ import { LoginComponent } from '../login/login.component';
     FormsModule,
     NgMultiSelectDropDownModule,
     RouterLink,
-    FontAwesomeModule
+    FontAwesomeModule,
+    TranslateModule
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
