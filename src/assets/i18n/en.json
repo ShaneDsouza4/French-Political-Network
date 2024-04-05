@@ -140,7 +140,6 @@
     "Capacity must contain only digits":"Capacity must contain only digits",
     "Capacity cannot exceed 200":"Capacity cannot exceed 200",
     "Capacity must be more than 50":"Capacity must be more than 50",
-    "Name must be less than 150 characters":"Name must be less than 150 characters",
     "Only alphabeta allowed":"Only alphabeta allowed",
     "First Name must be greater than 4 characters":"First Name must be greater than 4 characters",
     "First Name must be less than 50 characters":"First Name must be less than 50 characters",
@@ -152,7 +151,17 @@
     "Contact Number must contain only digits":"Contact Number must contain only digits",
     "Identity Number is required":"Identity Number is required",
     "Contact Number is required":"Contact Number is required",
-    "Contact Number must be 10 digits":"Contact Number must be 10 digits"
+    "Contact Number must be 10 digits":"Contact Number must be 10 digits",
+    "France unveils 'Avant Garde Politique': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement":"France unveils 'Avant Garde Politique': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement",
+    "Innovating for Impact":"Innovating for Impact",
+    "Discover Our Government Projects":"Discover Our Government Projects",
+    "Feedback":"Feedback",
+    "Terms":"Terms",
+    "Privacy": "Privacy",
+    "Help" : "Help",
+    "Teams": "Teams",
+    "Press": "Press",
+    "Name must be less than 150 characters":"Name must be less than 150 characters"
 
 
 }   

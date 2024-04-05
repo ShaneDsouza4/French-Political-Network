@@ -6,15 +6,15 @@
       <div class="blue-box"></div>
       <img src="https://i.ibb.co/FXGmqtT/EmmyMac.jpg" alt="Your Image" class="image">
       <div class="text-box-class">
-        <h2 class="heading-main-page"> {{ 'Empowering France: Unveiling Progress, One Event at a Time!' | translate}}</h2>
-        <p class="main-page-para"> France unveils 'Révéler le Progrès': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement</p>
+        <h2 class="heading-main-page"> {{"Empowering France: Unveiling Progress, One Event at a Time!" | translate}}</h2>
+        <p class="main-page-para">{{"France unveils 'Avant Garde Politique': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement" | translate}} </p>
         <p class="credits-para"> Image source:</p>
         <p class="credits-para"> Christine Ockrent</p>
         <button class="projects-button" (click)="scrollToProjectsDiv(projectsDiv)">Explore</button>
       </div>
       <!-- <div style="height: 10vh;"></div> -->
-      <h2 #projectsDiv class="tagline-home" style="padding-top: 70px;">Innovating for Impact</h2>
-      <h2 class="tagline-home" style="margin-top: -20px;">Discover Our Government Projects</h2>
+      <h2 #projectsDiv class="tagline-home" style="padding-top: 70px;">{{"Innovating for Impact" | translate}}</h2>
+      <h2 class="tagline-home" style="margin-top: -20px;">{{"Discover Our Government Projects" | translate}}</h2>
       <div class="container">
         <div class="item"  *ngFor="let project of projectList" (click)="openProject(project.projectId)" style="cursor: pointer;">
           <img  *ngIf="project.department == 'Transportation'" class="item-img" src="https://www.businesslinkuae.com/wp-content/uploads/2023/11/cb34db5d-eef1-4e26-a0e0-296b86234423.jpg" alt="">
