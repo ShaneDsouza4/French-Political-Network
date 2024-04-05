@@ -136,4 +136,7 @@ body {
   font-family: Optima, sans-serif;
   /* Add padding for top and bottom */
   position: absolute;
+  padding-top: 2rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
