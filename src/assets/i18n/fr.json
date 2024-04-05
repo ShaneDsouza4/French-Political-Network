@@ -1,6 +1,6 @@
 {
     "Home":"Accueil",
-    "Quiz":"Quiz",
+    "Quiz":"Questionnaire",
     "Projects":"Projets",
     "Create New Project":"Créer un nouveau projet",
     "Dashboard":"Tableau de bord",
@@ -122,7 +122,12 @@
     "Email must be less than 100 characters":"L'e-mail doit contenir moins de 100 caractères",
     "Password is required":"Mot de passe requis",
     "Password must be greater than 8 characters":"Le mot de passe doit comporter plus de 8 caractères",
-    "Password must be less than 25 characters":"Le mot de passe doit contenir moins de 25 caractères"
+    "Password must be less than 25 characters":"Le mot de passe doit contenir moins de 25 caractères",
+    "Empowering France: Unveiling Progress, One Event at a Time!":"Empowering France : dévoiler les progrès, un événement à la fois !",
+    "France unveils 'Avant Garde Politique': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement":"La France dévoile 'Avant Garde Politique' : un site Web gouvernemental dynamique présentant les progrès nationaux, favorisant la transparence et l'engagement des citoyens",
+    "Innovating for Impact":"Innover pour avoir un impact",
+    "Discover Our Government Projects":"Découvrez nos projets gouvernementaux",
+    "Feedback":"Retour"
 
 
 }
