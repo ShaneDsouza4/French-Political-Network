@@ -97,8 +97,9 @@ export class VoteComponent implements OnInit {
         if (res.status == 1) {
           this.spinner = false
           alert("Vote Sucessfull!")
-          let objIndex = this.AllParties.findIndex(obj => obj.id == res.party.id)
-          this.AllParties[objIndex] = res.party
+          this.AllParties = res.party
+          // let objIndex = this.AllParties.findIndex(obj => obj.id == res.party.id)
+          // this.AllParties[objIndex] = res.party
         } else {
           this.spinner = false
           alert("Vote Not Sucessfull!")
@@ -129,8 +130,9 @@ export class VoteComponent implements OnInit {
         console.log("Party Un Vote Response: ", res)
         if (res.status == 1) {
           this.spinner = false
-          let objIndex = this.AllParties.findIndex(obj => obj.id == res.party.id)
-          this.AllParties[objIndex] = res.party
+          this.AllParties = res.party
+          // let objIndex = this.AllParties.findIndex(obj => obj.id == res.party.id)
+          // this.AllParties[objIndex] = res.party
           alert("Un Vote Sucessfull!")
         } else {
           this.spinner = false
