@@ -40,6 +40,43 @@
 	font-weight: bold;
 	margin-top: 5px;
   }
+
+  .candidates-grid {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px; /* Adjust based on your layout */
+  }
+  
+  .candidate {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Pushes content to top and vote-actions to the bottom */
+	height: 100%; /* Ensure div takes full height */
+	width: 350px; /* Fixed width for each card */
+	box-sizing: border-box; /* Include padding and border in the element's total width and height */
+	/* Add any additional styling here (e.g., padding, border, etc.) */
+  }
+  
+  .vote-actions {
+	margin-top: auto; /* Pushes itself to the bottom */
+  }
+  
+  .candidate {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between; /* Pushes content to top and vote-actions to the bottom */
+	height: 100%; /* Ensure div takes full height */
+	width: 350px; /* Fixed width for each card */
+	box-sizing: border-box; /* Include padding and border in the element's total width and height */
+	/* Add any additional styling here (e.g., padding, border, etc.) */
+  }
+  
+  .vote-actions {
+	margin-top: auto; /* Ensures it's pushed to the bottom */
+  }
+  
+  
+
   
   @media (max-width: 980px) {
 	.candidates-grid {
