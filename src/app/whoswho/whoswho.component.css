@@ -18,7 +18,7 @@
 
 #banner-image {
   width: 100%;
-  height: 30%;
+  height: auto;
   /* This property ensures that the image covers the entire container while maintaining its aspect ratio */
 }
 
@@ -82,9 +82,7 @@ footer {
 .flip-card .card-front,
 .flip-card .card-back {
   border-radius: 5px;
-  box-shadow: 1px 1px 2px rgba(21, 64, 94, 0.8);
   box-sizing: border-box;
-  border: 1px solid #0b3a4f;
 }
 
 .flip-card .card-front {
@@ -94,8 +92,7 @@ footer {
 }
 
 .flip-card .card-back {
-  box-shadow: 0 0 20px rgba(21, 64, 94, 0.8) inset;
-  background-color: #478ce0;
+  background-color: #3f51b5;
   background-image: linear-gradient(top, #478ce0 0%, #1168db 100%, #0263db 100%);
 }
 
@@ -128,14 +125,15 @@ body {
 .title {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  font-family: Optima, sans-serif;
+  padding: auto;
+  padding-top: 0.5rem;
 }
 
 .content {
   text-align: center;
   font-size: 14px;
-  padding: 0 10px;
+  font-family: Optima, sans-serif;
+  /* Add padding for top and bottom */
+  position: absolute;
 }
