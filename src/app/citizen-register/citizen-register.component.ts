@@ -38,14 +38,43 @@ export class CitizenRegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.citizenRegForm = new FormGroup({
-      firstName: new FormControl('', [RxwebValidators.required()]),
-      lastName:  new FormControl('', [RxwebValidators.required()]),
+      firstName: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.alpha(),
+        RxwebValidators.minLength({value:4}),
+        RxwebValidators.maxLength({value:50})
+
+      ]),
+      lastName:  new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.alpha(),
+        RxwebValidators.minLength({value:4}),
+        RxwebValidators.maxLength({value:50})
+      ]),
       dob:  new FormControl('', [RxwebValidators.required()]),
       city: new FormControl(null, [RxwebValidators.required()]),
-      passportNumber: new FormControl('', [RxwebValidators.required()]),
-      contactNumber: new FormControl('', [RxwebValidators.required(), RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false })]),
-      email: new FormControl('', [RxwebValidators.email(),RxwebValidators.required() ]),
-      password: new FormControl('', [RxwebValidators.required(), RxwebValidators.password({validation:{maxLength: 10,minLength: 5} })]), 
+      passportNumber: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:13}),
+        RxwebValidators.maxLength({value:13})
+      ]),
+      contactNumber: new FormControl('', [
+        RxwebValidators.required(), 
+        RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }),
+        RxwebValidators.minLength({value:10}),
+        RxwebValidators.maxLength({value:10})
+      ]),
+      email: new FormControl('', [
+        RxwebValidators.email(),
+        RxwebValidators.required(), 
+        RxwebValidators.minLength({value:6}),
+        RxwebValidators.maxLength({value:100})
+      ]),
+      password: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:8}),
+        RxwebValidators.maxLength({value:25})
+      ]),
       role: new FormControl('citizen')
     })
   }

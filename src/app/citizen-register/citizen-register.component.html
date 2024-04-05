@@ -15,14 +15,27 @@
         <div class="form-group mt-2 ">
           <label for="firstName">{{ 'First Name' | translate}}</label>
           <input type="text" formControlName="firstName" class="form-control" id="firstName" placeholder="{{ 'Enter First Name' | translate}}">
-          <small class="text-danger" *ngIf="citizenRegForm.get('firstName')?.invalid && citizenRegForm.get('firstName')?.touched">{{ 'First Name is required' | translate}}</small>
+          <!-- <small class="text-danger" *ngIf="citizenRegForm.get('firstName')?.invalid && citizenRegForm.get('firstName')?.touched">{{ 'First Name is required' | translate}}</small> -->
+
+          <span *ngIf="citizenRegForm.get('firstName')?.invalid && citizenRegForm.get('firstName')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('firstName')?.errors?.['required']" class="text-danger" >{{ 'First Name is required' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('firstName')?.errors?.['alpha']" class="text-danger" >{{ 'Only alphabeta allowed' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('firstName')?.errors?.['minLength']" class="text-danger" >{{ 'First Name must be greater than 4 characters' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('firstName')?.errors?.['maxLength']" class="text-danger" >{{ 'First Name must be less than 50 characters' | translate}}</span>
+          </span>
         </div>
 
         
         <div class="form-group mt-2 mt-2">
           <label for="lastName">{{ 'Last Name' | translate}}</label>
           <input formControlName="lastName" type="text" class="form-control" id="lastName" placeholder="{{ 'Enter Last Name' | translate}}">
-          <small class="text-danger" *ngIf="citizenRegForm.get('lastName')?.invalid && citizenRegForm.get('lastName')?.touched">{{ 'Last Name is required' | translate}}</small>
+          <!-- <small class="text-danger" *ngIf="citizenRegForm.get('lastName')?.invalid && citizenRegForm.get('lastName')?.touched">{{ 'Last Name is required' | translate}}</small> -->
+          <span *ngIf="citizenRegForm.get('lastName')?.invalid && citizenRegForm.get('lastName')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('lastName')?.errors?.['required']" class="text-danger" >{{ 'Last Name is required' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('lastName')?.errors?.['alpha']" class="text-danger" >{{ 'Only alphabeta allowed' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('lastName')?.errors?.['minLength']" class="text-danger" >{{ 'Last Name must be greater than 4 characters' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('lastName')?.errors?.['maxLength']" class="text-danger" >{{ 'Last Name must be less than 50 characters' | translate}}</span>
+          </span>
         </div>
 
         <div class="form-group mt-2">
@@ -42,30 +55,52 @@
         
    
         <div class="form-group mt-2">
-          <label for="passportNumber">{{ 'Identity Number or Passport Number' | translate}}</label>
-          <input  type="text" class="form-control" formControlName="passportNumber" id="passportNumber" placeholder= "{{ 'Enter the passport number' | translate}}">
-          <small class="text-danger" *ngIf="citizenRegForm.get('passportNumber')?.invalid && citizenRegForm.get('passportNumber')?.touched">{{ 'Identity Number is required' | translate}}</small>
+          <label for="passportNumber">{{ 'Identity Number' | translate}}</label>
+          <input  type="text" class="form-control" formControlName="passportNumber" id="passportNumber" placeholder= "{{ 'Enter the identity number' | translate}}">
+          <!-- <small class="text-danger" *ngIf="citizenRegForm.get('passportNumber')?.invalid && citizenRegForm.get('passportNumber')?.touched">{{ 'Identity Number is required' | translate}}</small> -->
+          <span *ngIf="citizenRegForm.get('passportNumber')?.invalid && citizenRegForm.get('passportNumber')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('passportNumber')?.errors?.['required']" class="text-danger" >{{ 'Identity Number is required' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('passportNumber')?.errors?.['minLength']" class="text-danger" >{{ 'Identity Number must be 13 characters' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('passportNumber')?.errors?.['maxLength']" class="text-danger" >{{ 'Identity Number must be 13 characters' | translate}}</span>
+          </span>
         </div>
 
 
         <div class="form-group mt-2">
           <label for="contactNumber">{{ 'Contact Number' | translate}}</label>
           <input  type="text" class="form-control" formControlName="contactNumber" id="contactNumber" placeholder="{{ 'Enter Contact Number' | translate}}">
-          <small class="text-danger" *ngIf="citizenRegForm.get('contactNumber')?.invalid && citizenRegForm.get('contactNumber')?.touched">{{ 'Valid Contact Number is required' | translate}}</small>
+          <!-- <small class="text-danger" *ngIf="citizenRegForm.get('contactNumber')?.invalid && citizenRegForm.get('contactNumber')?.touched">{{ 'Valid Contact Number is required' | translate}}</small> -->
+          <span *ngIf="citizenRegForm.get('contactNumber')?.invalid && citizenRegForm.get('contactNumber')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('contactNumber')?.errors?.['required']" class="text-danger" >{{ 'Contact Number is required' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('contactNumber')?.errors?.['minLength']" class="text-danger" >{{ 'Contact Number must be 10 digits' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('contactNumber')?.errors?.['maxLength']" class="text-danger" >{{ 'Contact Number must be 10 digits' | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('contactNumber')?.errors?.['numeric']" class="text-danger" >{{ 'Contact Number must contain only digits' | translate}}</span>
+          </span>
         </div>
 
 
         <div class="form-group mt-2">
           <label for="email">{{ 'Email Address' | translate}}</label>
           <input type="email" class="form-control" formControlName="email" id="email" placeholder="{{ 'Enter Email Address' | translate}}">
-          <small class="text-danger" *ngIf="citizenRegForm.get('email')?.invalid && citizenRegForm.get('email')?.touched">{{ 'Enter a Valid Email' | translate}}</small>
+          <!-- <small class="text-danger" *ngIf="citizenRegForm.get('email')?.invalid && citizenRegForm.get('email')?.touched">{{ 'Enter a Valid Email' | translate}}</small> -->
+          <span *ngIf="citizenRegForm.get('email')?.invalid && citizenRegForm.get('email')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('email')?.errors?.['email']" class="text-danger">{{"Email is invalid" | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('email')?.errors?.['required']" class="text-danger" >{{"Email is required" | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('email')?.errors?.['minLength']" class="text-danger" >{{"Email must be greater than 6 characters" | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('email')?.errors?.['maxLength']" class="text-danger" >{{"Email must be less than 100 characters" | translate}}</span>
+          </span>
         </div>
 
 
         <div class="form-group mt-2">
           <label for="password">{{ 'Password' | translate}}</label>
           <input type="password" class="form-control" formControlName="password" id="password" placeholder="{{ 'Password' | translate}}">
-          <small class="text-danger" *ngIf="citizenRegForm.get('password')?.invalid && citizenRegForm.get('password')?.touched">{{ 'Password must be min 5 characters and max 10 characters' | translate}}</small>
+          <!-- <small class="text-danger" *ngIf="citizenRegForm.get('password')?.invalid && citizenRegForm.get('password')?.touched">{{ 'Password must be min 5 characters and max 10 characters' | translate}}</small> -->
+          <span *ngIf="citizenRegForm.get('password')?.invalid && citizenRegForm.get('password')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('password')?.errors?.['required']" class="text-danger" >{{"Password is required" | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('password')?.errors?.['minLength']" class="text-danger" >{{"Password must be greater than 8 characters" | translate}}</span>
+            <span style="display: block;" *ngIf="this.citizenRegForm.get('password')?.errors?.['maxLength']" class="text-danger" >{{"Password must be less than 25 characters" | translate}}</span>
+          </span>
         </div>
 
    

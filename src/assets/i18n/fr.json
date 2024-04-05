@@ -140,7 +140,19 @@
     "Capacity must contain only digits":"La capacité ne doit contenir que des chiffres",
     "Capacity cannot exceed 200":"La capacité ne peut pas dépasser 200",
     "Capacity must be more than 50":"La capacité doit être supérieure à 50",
-    "Name must be less than 150 characters":"Le nom doit comporter moins de 150 caractères"
+    "Name must be less than 150 characters":"Le nom doit comporter moins de 150 caractères",
+    "Only alphabeta allowed":"Seul l'alphabet est autorisé",
+    "First Name must be greater than 4 characters":"Le prénom doit être supérieur à 4 caractères",
+    "First Name must be less than 50 characters":"Le prénom doit contenir moins de 50 caractères",
+    "Last Name must be greater than 4 characters":"Dernière Name must be greater than 4 characters",
+    "Last Name must be less than 50 characters":"Dernière Name must be less than 50 characters",
+    "Identity Number":"Numéro d'identité",
+    "Identity Number must be 13 characters":"Le numéro d'identité doit comporter 13 caractères",
+    "Enter the identity number":"Entrez le numéro d'identité",
+    "Contact Number must contain only digits":"Le numéro de contact ne doit contenir que des chiffres",
+    "Identity Number is required":"Le numéro d'identité est requis",
+    "Contact Number is required":"Le numéro de contact est requis",
+    "Contact Number must be 10 digits":"Le numéro de contact doit comporter 10 chiffres"
 
 
 }
