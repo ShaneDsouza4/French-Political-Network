@@ -133,7 +133,14 @@
     "Budget cannot exceed 500000":"Budget cannot exceed 500000",
     "Budget must be more than 1000":"Budget must be more than 1000",
     "Description cannot exceed 2000 characters":"Description cannot exceed 2000 characters",
-    "Descripton must be more than 250 characters":"Descripton must be more than 250 characters"
+    "Descripton must be more than 250 characters":"Descripton must be more than 250 characters",
+    "Location is required":"Location is required",
+    "Location must be greater than 8 characters":"Location must be greater than 8 characters",
+    "Location must be less than 50 characters":"Location must be less than 50 characters",
+    "Capacity must contain only digits":"Capacity must contain only digits",
+    "Capacity cannot exceed 200":"Capacity cannot exceed 200",
+    "Capacity must be more than 50":"Capacity must be more than 50",
+    "Name must be less than 150 characters":"Name must be less than 150 characters"
 
 
 }   

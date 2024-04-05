@@ -12,37 +12,58 @@
           <div class="form-group mt-2 ">
             <label for="eventName">{{ 'Event Name' | translate}}</label>
             <input type="text" formControlName="eventName" class="form-control" id="eventName" placeholder="Enter Event Name">
-            <small class="text-danger" *ngIf="createEventForm.get('eventName')?.invalid && createEventForm.get('eventName')?.touched">{{ 'Event Name is required' | translate}}</small>
+            <!-- <small class="text-danger" *ngIf="createEventForm.get('eventName')?.invalid && createEventForm.get('eventName')?.touched">{{ 'Event Name is required' | translate}}</small> -->
+            <span *ngIf="createEventForm.get('eventName')?.invalid && createEventForm.get('eventName')?.touched" class="error-messages">
+              <span style="display: block;" *ngIf="this.createEventForm.get('eventName')?.errors?.['required']" class="text-danger" >{{ 'Name is required' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('eventName')?.errors?.['minLength']" class="text-danger" >{{ 'Name must be greater than 4 characters' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('eventName')?.errors?.['maxLength']" class="text-danger" >{{ 'Name must be less than 150 characters' | translate}}</span>
+            </span>
           </div>
 
           <div class="form-group mt-2 ">
             <label for="eventStart">{{ 'Event Start' | translate}}</label>
-            <input type="datetime-local" formControlName="eventStart" class="form-control" id="eventStart" placeholder="Enter Event Start">
-            <small class="text-danger" *ngIf="createEventForm.get('eventStart')?.invalid && createEventForm.get('eventStart')?.touched">{{ 'Event Start is required' | translate}}</small>
+            <input type="date" formControlName="eventStart" class="form-control" id="eventStart" placeholder="Enter Event Start" [min]="minDate">
+            <small class="text-danger" *ngIf="createEventForm.get('eventStart')?.invalid && createEventForm.get('eventStart')?.touched">{{ 'Event Start Date is required' | translate}}</small>
           </div>
 
           <div class="form-group mt-2 ">
             <label for="eventEnd">{{ 'Event End' | translate}}</label>
-            <input type="datetime-local" formControlName="eventEnd" class="form-control" id="eventEnd" placeholder="Enter Event End">
-            <small class="text-danger" *ngIf="createEventForm.get('eventEnd')?.invalid && createEventForm.get('eventEnd')?.touched">{{ 'Event End is required' | translate}}</small>
+            <input type="date" formControlName="eventEnd" class="form-control" id="eventEnd" placeholder="Enter Event End">
+            <small class="text-danger" *ngIf="createEventForm.get('eventEnd')?.invalid && createEventForm.get('eventEnd')?.touched">{{ 'Event End Date is required' | translate}}</small>
           </div>
 
           <div class="form-group mt-2 ">
             <label for="location">{{ 'Event Location' | translate}}</label>
             <input type="text" formControlName="location" class="form-control" id="location" placeholder="Enter Event Location">
-            <small class="text-danger" *ngIf="createEventForm.get('location')?.invalid && createEventForm.get('location')?.touched">{{ 'Event Location is required' | translate}}</small>
+            <!-- <small class="text-danger" *ngIf="createEventForm.get('location')?.invalid && createEventForm.get('location')?.touched">{{ 'Event Location is required' | translate}}</small> -->
+            <span *ngIf="createEventForm.get('location')?.invalid && createEventForm.get('location')?.touched" class="error-messages">
+              <span style="display: block;" *ngIf="this.createEventForm.get('location')?.errors?.['required']" class="text-danger" >{{ 'Location is required' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('location')?.errors?.['minLength']" class="text-danger" >{{ 'Location must be greater than 8 characters' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('location')?.errors?.['maxLength']" class="text-danger" >{{ 'Location must be less than 50 characters' | translate}}</span>
+            </span>
           </div>
 
           <div class="form-group mt-2 ">
             <label for="capacity">{{ 'Event End is required' | translate}}</label>
             <input type="number" formControlName="capacity" class="form-control" id="capacity" placeholder="Enter Event Capacity">
-            <small class="text-danger" *ngIf="createEventForm.get('capacity')?.invalid && createEventForm.get('capacity')?.touched">{{ 'Event Capacity is required' | translate}}</small>
+            <!-- <small class="text-danger" *ngIf="createEventForm.get('capacity')?.invalid && createEventForm.get('capacity')?.touched">{{ 'Event Capacity is required' | translate}}</small> -->
+            <span *ngIf="createEventForm.get('budget')?.invalid && createEventForm.get('budget')?.touched" class="error-messages">
+              <span style="display: block;" *ngIf="this.createEventForm.get('capacity')?.errors?.['required']" class="text-danger" >{{ 'Event Capacity is required'  | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('capacity')?.errors?.['numeric']" class="text-danger" >{{ 'Capacity must contain only digits' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('capacity')?.errors?.['maxNumber']" class="text-danger" >{{ 'Capacity cannot exceed 200' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('capacity')?.errors?.['minNumber']" class="text-danger" >{{ 'Capacity must be more than 50' | translate}}</span>
+            </span>
           </div>
 
           <div class="form-group mt-2 ">
             <label for="organizer">{{ 'Event Organizer' | translate}}</label>
             <input type="text" formControlName="organizer" class="form-control" id="organizer" placeholder="Enter Event Organizer">
-            <small class="text-danger" *ngIf="createEventForm.get('organizer')?.invalid && createEventForm.get('organizer')?.touched">{{ 'Event Organizer is required' | translate}}</small>
+            <!-- <small class="text-danger" *ngIf="createEventForm.get('organizer')?.invalid && createEventForm.get('organizer')?.touched">{{ 'Event Organizer is required' | translate}}</small> -->
+            <span *ngIf="createEventForm.get('organizer')?.invalid && createEventForm.get('organizer')?.touched" class="error-messages">
+              <span style="display: block;" *ngIf="this.createEventForm.get('organizer')?.errors?.['required']" class="text-danger" >{{ 'Name is required' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('organizer')?.errors?.['minLength']" class="text-danger" >{{ 'Name must be greater than 4 characters' | translate}}</span>
+              <span style="display: block;" *ngIf="this.createEventForm.get('organizer')?.errors?.['maxLength']" class="text-danger" >{{ 'Name must be less than 150 characters' | translate}}</span>
+            </span>
           </div>
 
 
@@ -55,7 +76,12 @@
           <div class="form-group mt-2 ">
             <label for="description">{{ 'Event Description' | translate}}</label>
             <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
-            <small class="text-danger" *ngIf="createEventForm.get('description')?.invalid && createEventForm.get('description')?.touched">{{ 'Event Description is required' | translate}}</small>
+           <!--  <small class="text-danger" *ngIf="createEventForm.get('description')?.invalid && createEventForm.get('description')?.touched">{{ 'Event Description is required' | translate}}</small> -->
+           <span *ngIf="createEventForm.get('description')?.invalid && createEventForm.get('description')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.createEventForm.get('description')?.errors?.['required']" class="text-danger" >{{ 'Description is required'  | translate}}</span>
+            <span style="display: block;" *ngIf="this.createEventForm.get('description')?.errors?.['maxLength']" class="text-danger" >{{ 'Description cannot exceed 2000 characters' | translate}}</span>
+            <span style="display: block;" *ngIf="this.createEventForm.get('description')?.errors?.['minLength']" class="text-danger" >{{ 'Descripton must be more than 250 characters' | translate}}</span>
+          </span>
           </div>
 
           <!-- Action Buttons -->
