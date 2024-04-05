@@ -149,7 +149,9 @@
     "Help" : "Help",
     "Teams": "Teams",
     "Press": "Press",
-    "Name must be less than 150 characters":"Name must be less than 150 characters"
+    "Name must be less than 150 characters":"Name must be less than 150 characters",
+    "Explore": "Explore",
+    "Who's who": "Who's who"
 
 
 }   
