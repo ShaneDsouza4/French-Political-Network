@@ -436,6 +436,7 @@
   }
   
   .heading-main-page {
+    margin: 50px;
     font-size: 3rem;
     line-height: 1.1;
     margin-top: 20px;
@@ -547,6 +548,16 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+  }
+
+  .projects-button {
+    background-color: #139536;
+    color: white;
+    width: 102px;
+    text-align: center;
+    border: navajowhite;
+    height: 34px;
+    border-radius: 50px;
   }
   
   @media (max-width: 768px) {

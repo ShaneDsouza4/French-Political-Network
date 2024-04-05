@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProjectService } from '../service/project.service';
-import { RxReactiveFormsModule, RxwebValidators } from '@rxweb/reactive-form-validators';
+import { NumericValueType, RxReactiveFormsModule, RxwebValidators } from '@rxweb/reactive-form-validators';
 import { cities } from '../constants/constants';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -28,18 +28,46 @@ export class CreateProjectComponent implements OnInit {
   projectList:any
   departmentList: any[] = [{name:'Transportation'}, {name:'Education'}, {name:'Crime'}, {name:'Environment'} ]
   incompleteForm:boolean = false;
+  minDate:any;
 
   constructor(private _projectService: ProjectService, private router: Router, private http: HttpClient){}
 
   ngOnInit(): void {
+
+    // Get today's date
+    const today = new Date();
+    // Format today's date as YYYY-MM-DD
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    this.minDate = `${yyyy}-${mm}-${dd}`;
+
     this.newProjectForm = new FormGroup({
-      name: new FormControl('', [RxwebValidators.required()]),
+      name: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:4}),
+        RxwebValidators.maxLength({value:50})
+      ]),
       department: new FormControl(null, [RxwebValidators.required()]),
       city: new FormControl(null, [RxwebValidators.required()]),
-      duration:  new FormControl('', [RxwebValidators.required()]),
-      budget:  new FormControl('', [RxwebValidators.required()]),
+      duration:  new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }),
+        RxwebValidators.maxNumber({value:30 }),
+        RxwebValidators.minNumber({value:1 })
+      ]),
+      budget:  new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }),
+        RxwebValidators.maxNumber({value:500000 }),
+        RxwebValidators.minNumber({value:1000 })
+      ]),
       projectStartDate: new FormControl('', [RxwebValidators.required()]),
-      description: new FormControl('', [RxwebValidators.required()]),
+      description: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:250}),
+        RxwebValidators.maxLength({value:2000})
+      ]),
       createdDate: new FormControl(new Date().toISOString()),
       opinions: new FormControl([]),
       upVotes: new FormControl([]),

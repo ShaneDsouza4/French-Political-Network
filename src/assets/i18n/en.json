@@ -123,7 +123,23 @@
     "Password is required":"Password is required",
     "Password must be greater than 8 characters":"Password must be greater than 8 characters",
     "Password must be less than 25 characters":"Password must be less than 25 characters",
-    "Empowering France: Unveiling Progress, One Event at a Time!": "Empowering France: Unveiling Progress, One Event at a Time!",
+    "Empowering France: Unveiling Progress, One Event at a Time!":"Empowering France: Unveiling Progress, One Event at a Time!",
+    "Name must be greater than 4 characters":"Name must be greater than 4 characters",
+    "Name must be less than 50 characters":"Name must be less than 50 characters",
+    "Duration must contain only digits":"Duration must contain only digits",
+    "Duration cannot exceed 30 months":"Duration cannot exceed 30 months",
+    "Duration must be more than 1 month":"Duration must be more than 1 month",
+    "Budget must contain only digits":"Budget must contain only digits",
+    "Budget cannot exceed 500000":"Budget cannot exceed 500000",
+    "Budget must be more than 1000":"Budget must be more than 1000",
+    "Description cannot exceed 2000 characters":"Description cannot exceed 2000 characters",
+    "Descripton must be more than 250 characters":"Descripton must be more than 250 characters",
+    "Location is required":"Location is required",
+    "Location must be greater than 8 characters":"Location must be greater than 8 characters",
+    "Location must be less than 50 characters":"Location must be less than 50 characters",
+    "Capacity must contain only digits":"Capacity must contain only digits",
+    "Capacity cannot exceed 200":"Capacity cannot exceed 200",
+    "Capacity must be more than 50":"Capacity must be more than 50",
     "France unveils 'Avant Garde Politique': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement":"France unveils 'Avant Garde Politique': A dynamic government website showcasing national progress, fostering transparency, and citizen engagement",
     "Innovating for Impact":"Innovating for Impact",
     "Discover Our Government Projects":"Discover Our Government Projects",
@@ -132,5 +148,8 @@
     "Privacy": "Privacy",
     "Help" : "Help",
     "Teams": "Teams",
-    "Press": "Press"
+    "Press": "Press",
+    "Name must be less than 150 characters":"Name must be less than 150 characters"
+
+
 }   

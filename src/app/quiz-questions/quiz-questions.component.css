@@ -186,3 +186,7 @@
     border-bottom: none;
     background: transparent;
 }
+
+.answer-hover:hover {
+    border-color: #ffffff !important;
+}

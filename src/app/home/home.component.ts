@@ -12,7 +12,6 @@ import { ProjectService } from '../service/project.service';
 import { LoginComponent } from '../login/login.component';
 import { TranslateModule } from '@ngx-translate/core';
 
-
 @Component({
   selector: 'app-home',
   standalone: true,
@@ -23,7 +22,6 @@ import { TranslateModule } from '@ngx-translate/core';
     RouterLink,
     FontAwesomeModule,
     TranslateModule
-    
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

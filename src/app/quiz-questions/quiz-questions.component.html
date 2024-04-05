@@ -1,28 +1,21 @@
-<div  class="row justify-content-md-center">
+<div style="border-radius: 25px;"  class="row justify-content-md-center">
     <!-- <div class="col-md-9 mx-auto"> -->
-        <div class="card quiz-form">
+        <div style="background-color: #1a1d28bf;" class="card quiz-form">
             <div class="row">
                 <div class="col-md-12">
-
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title text-center">{{"Loading" | translate}}</h4>
-                      </div>
-                      
-
                     <div class="form-group" *ngIf="selected.question">
                         <!-- <h1>Quiz</h1> -->
-                        <hr>
-                        <p><b>{{index+1}}.</b> {{selected.question}}</p>
+                        <p style="font-size: 20px; color: white; font-family: Optima, sans-serif;"><b>{{index+1}}.</b> {{selected.question}}</p>
                         
                         <div *ngIf="selected.answers.answer_a">
                             <input type="radio" id="answer_a" class="btn-check" name="answer" autocomplete="off" 
                             value="answer_a_correct" [(ngModel)]="answer">
-                            <label class="btn btn-outline-success" for="answer_a">{{selected.answers.answer_a}}</label><br><br>
+                            <label style="color: #edeff4; border-color: #bbbec6; font-family: Optima, sans-serif;" class="btn btn-outline-success answer-hover" for="answer_a">{{selected.answers.answer_a}}</label><br><br>
                         </div>
                         <div *ngIf="selected.answers.answer_b">
                             <input type="radio" id="answer_b" class="btn-check" name="answer" autocomplete="off"
                             value="answer_b_correct" [(ngModel)]="answer">
-                            <label class="btn btn-outline-success" for="answer_b">{{selected.answers.answer_b}}</label><br><br>
+                            <label style="color: #edeff4; border-color: #bbbec6; font-family: Optima, sans-serif;" class="btn btn-outline-success answer-hover" for="answer_b">{{selected.answers.answer_b}}</label><br><br>
                         </div>
 
                     </div>

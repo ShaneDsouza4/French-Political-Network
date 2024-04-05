@@ -1,51 +1,46 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  MatDialog,
+  MatDialogModule
+} from '@angular/material/dialog';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { CitizenActivityComponent } from './citizen-activity/citizen-activity.component';
+import { CitizenProjectsComponent } from './citizen-projects/citizen-projects.component';
 import { CitizenRegisterComponent } from './citizen-register/citizen-register.component';
+import { CreateEventComponent } from './create-event/create-event.component';
+import { CreatePostModalComponent } from './create-post-modal/create-post-modal.component';
+import { CreateProjectComponent } from './create-project/create-project.component';
+import { EventBookingModalComponent } from './event-booking-modal/event-booking-modal.component';
+import { EventBookingsComponent } from './event-bookings/event-bookings.component';
+import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventListComponent } from './event-list/event-list.component';
+import { EventsComponent } from './events/events.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { GovtDashboardComponent } from './govt-dashboard/govt-dashboard.component';
 import { GovtRegisterComponent } from './govt-register/govt-register.component';
 import { HomeComponent } from './home/home.component';
-import { CreateProjectComponent } from './create-project/create-project.component';
+import { LoginComponent } from './login/login.component';
+import { MyBookingComponent } from './my-booking/my-booking.component';
+import { OpinionModalComponent } from './opinion-modal/opinion-modal.component';
+import { PoliticalQuizQuestionsComponent } from './political-quiz-questions/political-quiz-questions.component';
+import { PoliticalQuizComponent } from './political-quiz/political-quiz.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectListingComponent } from './project-listing/project-listing.component';
 import { ProjectsComponent } from './projects/projects.component';
-import { CitizenProjectsComponent } from './citizen-projects/citizen-projects.component';
-import { CommonModule } from '@angular/common';
-import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { OpinionModalComponent } from './opinion-modal/opinion-modal.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CitizenActivityComponent } from './citizen-activity/citizen-activity.component';
-import { GovtDashboardComponent } from './govt-dashboard/govt-dashboard.component';
-import {
-  MatDialog,
-  MAT_DIALOG_DATA,
-  MatDialogRef,
-  MatDialogTitle,
-  MatDialogContent,
-  MatDialogActions,
-  MatDialogClose,
-  MatDialogModule
-} from '@angular/material/dialog';
-import { QuizComponent } from './quiz/quiz.component';
 import { QuizQuestionsComponent } from './quiz-questions/quiz-questions.component';
 import { QuizResultComponent } from './quiz-result/quiz-result.component';
-import { EventsComponent } from './events/events.component';
-import { CreatePostModalComponent } from './create-post-modal/create-post-modal.component';
+import { QuizComponent } from './quiz/quiz.component';
 import { ProjectService } from './service/project.service';
-import { HttpClientModule } from '@angular/common/http';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { CreateEventComponent } from './create-event/create-event.component';
-import { EventBookingsComponent } from './event-bookings/event-bookings.component';
-import { EventListComponent } from './event-list/event-list.component';
-import { MyBookingComponent } from './my-booking/my-booking.component';
-import { EventBookingModalComponent } from './event-booking-modal/event-booking-modal.component';
-import { EventDetailsComponent } from './event-details/event-details.component';
-import { WarningModalComponent } from './warning-modal/warning-modal.component';
 import { VoteComponent } from './vote/vote.component';
-import { PoliticalQuizComponent } from './political-quiz/political-quiz.component';
-import { PoliticalQuizQuestionsComponent } from './political-quiz-questions/political-quiz-questions.component';
-import { FeedbackComponent } from './feedback/feedback.component';
+import { WarningModalComponent } from './warning-modal/warning-modal.component';
+import { WhoswhoComponent } from './whoswho/whoswho.component';
 
 @Component({
   selector: 'app-root',
@@ -90,7 +85,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     VoteComponent,
     PoliticalQuizComponent,
     PoliticalQuizQuestionsComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    WhoswhoComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

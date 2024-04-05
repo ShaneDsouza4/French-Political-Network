@@ -12,7 +12,15 @@
         <div class="form-group mt-2 ">
           <label for="name">{{ 'Project Name' | translate}}</label>
           <input type="text" formControlName="name" class="form-control" id="name" placeholder="{{ 'Enter Name' | translate}}">
-          <small class="text-danger" *ngIf="newProjectForm.get('name')?.invalid && newProjectForm.get('name')?.touched">{{ 'Name is required' | translate}}</small>
+
+          <!-- <small class="text-danger" *ngIf="newProjectForm.get('name')?.invalid && newProjectForm.get('name')?.touched">{{ 'Name is required' | translate}}</small> -->
+
+          <span *ngIf="newProjectForm.get('name')?.invalid && newProjectForm.get('name')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.newProjectForm.get('name')?.errors?.['required']" class="text-danger" >{{ 'Name is required' | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('name')?.errors?.['minLength']" class="text-danger" >{{ 'Name must be greater than 4 characters' | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('name')?.errors?.['maxLength']" class="text-danger" >{{ 'Name must be less than 50 characters' | translate}}</span>
+          </span>
+  
         </div>
 
         <!-- Department -->
@@ -39,23 +47,35 @@
 
         <!-- Duration -->
         <div class="form-group mt-2 ">
-          <label for="duration">{{ 'Project Duration' | translate}}</label>
-          <span> {{ '(Specify in months or year)' | translate}}</span>
-          <input type="text" formControlName="duration" class="form-control" id="duration" placeholder="Enter Duration">
-          <small class="text-danger" *ngIf="newProjectForm.get('duration')?.invalid && newProjectForm.get('duration')?.touched">{{ 'Duration is required' | translate}}</small>
+          <label for="duration">{{ 'Project Duration' | translate}} </label>
+          <span> {{ '(Specify in months)' | translate}}</span>
+          <input type="number" formControlName="duration" class="form-control" id="duration" placeholder="Enter Duration">
+          <!-- <small class="text-danger" *ngIf="newProjectForm.get('duration')?.invalid && newProjectForm.get('duration')?.touched">{{ 'Duration is required' | translate}}</small> -->
+          <span *ngIf="newProjectForm.get('duration')?.invalid && newProjectForm.get('duration')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.newProjectForm.get('duration')?.errors?.['required']" class="text-danger" >{{ 'Duration is required' | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('duration')?.errors?.['numeric']" class="text-danger" >{{ 'Duration must contain only digits' | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('duration')?.errors?.['maxNumber']" class="text-danger" >{{ 'Duration cannot exceed 30 months' | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('duration')?.errors?.['minNumber']" class="text-danger" >{{ 'Duration must be more than 1 month' | translate}}</span>
+          </span>
         </div>
 
         <!-- Budget -->
         <div class="form-group mt-2 ">
           <label for="budget">{{ 'Project Budget' | translate}}</label>
-          <input type="text" formControlName="budget" class="form-control" id="budget" placeholder="Enter Budget">
-          <small class="text-danger" *ngIf="newProjectForm.get('budget')?.invalid && newProjectForm.get('budget')?.touched">{{ 'Budget is required' | translate}}</small>
+          <input type="number" formControlName="budget" class="form-control" id="budget" placeholder="Enter Budget">
+         <!--  <small class="text-danger" *ngIf="newProjectForm.get('budget')?.invalid && newProjectForm.get('budget')?.touched">{{ 'Budget is required' | translate}}</small> -->
+         <span *ngIf="newProjectForm.get('budget')?.invalid && newProjectForm.get('budget')?.touched" class="error-messages">
+          <span style="display: block;" *ngIf="this.newProjectForm.get('budget')?.errors?.['required']" class="text-danger" >{{ 'Budget is required'  | translate}}</span>
+          <span style="display: block;" *ngIf="this.newProjectForm.get('budget')?.errors?.['numeric']" class="text-danger" >{{ 'Budget must contain only digits' | translate}}</span>
+          <span style="display: block;" *ngIf="this.newProjectForm.get('budget')?.errors?.['maxNumber']" class="text-danger" >{{ 'Budget cannot exceed 500000' | translate}}</span>
+          <span style="display: block;" *ngIf="this.newProjectForm.get('budget')?.errors?.['minNumber']" class="text-danger" >{{ 'Budget must be more than 1000' | translate}}</span>
+        </span>
         </div>
 
         <!-- project start date -->
         <div class="form-group mt-2 ">
           <label for="projectStartDate">{{ 'Project Start Date' | translate}}</label>
-          <input type="date" formControlName="projectStartDate" class="form-control" id="dob" placeholder="Enter Date">
+          <input type="date" formControlName="projectStartDate" class="form-control" id="dob" placeholder="Enter Date" [min]="minDate">
           <small class="text-danger" *ngIf="newProjectForm.get('projectStartDate')?.invalid && newProjectForm.get('projectStartDate')?.touched">{{ 'Start Date is required' | translate}}</small>
         </div>
 
@@ -69,7 +89,12 @@
         <div class="form-group mt-2 ">
           <label for="description">{{ 'Project Description' | translate}}</label>
           <textarea class="form-control" formControlName="description" id="description" rows="3"></textarea>
-          <small class="text-danger" *ngIf="newProjectForm.get('description')?.invalid && newProjectForm.get('description')?.touched">{{ 'Description is required' | translate}}</small>
+          <!-- <small class="text-danger" *ngIf="newProjectForm.get('description')?.invalid && newProjectForm.get('description')?.touched">{{ 'Description is required' | translate}}</small> -->
+          <span *ngIf="newProjectForm.get('description')?.invalid && newProjectForm.get('description')?.touched" class="error-messages">
+            <span style="display: block;" *ngIf="this.newProjectForm.get('description')?.errors?.['required']" class="text-danger" >{{ 'Description is required'  | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('description')?.errors?.['maxLength']" class="text-danger" >{{ 'Description cannot exceed 2000 characters' | translate}}</span>
+            <span style="display: block;" *ngIf="this.newProjectForm.get('description')?.errors?.['minLength']" class="text-danger" >{{ 'Descripton must be more than 250 characters' | translate}}</span>
+          </span>
         </div>
 
         <!-- Action Buttons -->

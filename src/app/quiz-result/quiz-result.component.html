@@ -1,17 +1,20 @@
 <div class="row justify-content-md-center">
     <!-- <div class="col-md-9 mx-auto"> -->
-        <div class="card quiz-form">
+        <div class="card quiz-form" style="background-color: #1a1d28bf;">
             <div class="row">
                 <div class="col-md-12">
 
-                    <div class="card-header card-header-danger">
-                        <h4 class="card-title text-center">{{"Quiz Result" | translate}}</h4>
-                      </div>
-
                     <div class="form-group">
+                        <div style="width: 100%; display: flex; justify-content: center;">
+                          <span style="color: white; font-size: 37px; font-family: Optima, sans-serif;">Quiz Result</span>  
+                        </div>
+                        
                         <!-- <h1>Result</h1> -->
                         <div *ngFor="let item of finalResult">
-                            <p>{{"Political Party" | translate}}: <b>{{item.party}}</b> {{"aligns" | translate}} <b>{{item.percentMatch}}%</b> {{"with your interests" | translate}}<span *ngFor="let i of item.interests">, <b>{{i}}</b></span> </p>
+                            <div style="width: 100%; display: flex; justify-content: center;">
+<p style="color: white; justify-content: center;">{{"Political Party" | translate}}: <b>{{item.party}}</b> {{"aligns" | translate}} <b>{{item.percentMatch}}%</b> {{"with your interests" | translate}}<span *ngFor="let i of item.interests">, <b>{{i}}</b></span> </p>
+                            </div>
+                            
                         </div>
                         <hr>
                         <!-- <div class="row text-center">

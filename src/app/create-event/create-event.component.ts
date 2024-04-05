@@ -30,10 +30,19 @@ export class CreateEventComponent implements OnInit {
   loggedIn: boolean = false
   incompleteForm: boolean = false
   spinner: boolean = false
+  minDate:any;
 
   constructor(private _EventService: EventService, private _projectService: ProjectService){ }
 
   ngOnInit(): void {
+
+    // Get today's date
+    const today = new Date();
+    // Format today's date as YYYY-MM-DD
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    this.minDate = `${yyyy}-${mm}-${dd}`;
 
     //Login Logout Check
     let loggedIn = localStorage.getItem('loggedInUser')
@@ -46,13 +55,34 @@ export class CreateEventComponent implements OnInit {
     }
     
     this.createEventForm = new FormGroup({
-      eventName:  new FormControl('', [RxwebValidators.required()]),
+      eventName:  new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:4}),
+        RxwebValidators.maxLength({value:150})
+      ]),
       eventStart: new FormControl('', [RxwebValidators.required()]),
       eventEnd:  new FormControl('', [RxwebValidators.required()]),
-      location: new FormControl('', [RxwebValidators.required()]),
-      description: new FormControl(null, [RxwebValidators.required()]),
-      capacity: new FormControl('', [RxwebValidators.required()]),
-      organizer: new FormControl('', [RxwebValidators.required()]),
+      location: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:8}),
+        RxwebValidators.maxLength({value:50})
+      ]),
+      description: new FormControl(null, [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:250}),
+        RxwebValidators.maxLength({value:2000})
+      ]),
+      capacity: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.numeric({acceptValue:NumericValueType.PositiveNumber  ,allowDecimal:false }),
+        RxwebValidators.maxNumber({value:200}),
+        RxwebValidators.minNumber({value:50 })
+      ]),
+      organizer: new FormControl('', [
+        RxwebValidators.required(),
+        RxwebValidators.minLength({value:4}),
+        RxwebValidators.maxLength({value:150})
+      ]),
       createdBy: new FormControl(this.loggedInUserID),
       price: new FormControl(null),
     })
