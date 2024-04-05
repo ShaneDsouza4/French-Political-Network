@@ -71,6 +71,12 @@ export class VoteComponent implements OnInit {
         this.noDataAvailable = true
       }
     })
+
+    setTimeout(()=>{
+      const scrollEle = document.querySelector('.candidates-grid');
+      if(scrollEle)
+      scrollEle.scrollIntoView();
+    }, 1500);
   }
 
 
