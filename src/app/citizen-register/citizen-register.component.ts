@@ -85,6 +85,7 @@ export class CitizenRegisterComponent implements OnInit {
       //return ;
     }else{
       let payload = this.citizenRegForm.getRawValue();
+      console.log("Payload: ", payload)
       this.incompleteForm = false;
       this._projectService.registerCitizen(payload).subscribe((res:any)=>{
         if(res.status == 1){

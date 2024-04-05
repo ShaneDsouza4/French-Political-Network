@@ -9,7 +9,7 @@
       <li class="nav-item">
         <a class="nav-link"  routerLink="home">{{"Home" | translate}}</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="loggedInRole== 'admin'">
         <a class="nav-link"  routerLink="projects">{{"Projects" | translate}}</a>
       </li>
       <li class="nav-item">

@@ -28,11 +28,23 @@ export class EventsComponent implements OnInit {
   eventList:any[] = []
   loader: boolean = true
   noDataAvailable: boolean = false
- 
+  loggedInRole: any = "";
+  loggedInDetails: any = {}
+  loggedIn: boolean = false
 
   constructor(public dialog: MatDialog, private _ProjectService: ProjectService, private router: Router){}
 
   ngOnInit(): void {
+
+    //Login Logout Check
+    let loggedIn = localStorage.getItem('loggedInUser')
+    if (loggedIn !== null) {
+      this.loggedInDetails = JSON.parse(loggedIn);
+      this.loggedInRole = this.loggedInDetails.role
+      this.loggedIn = true
+    } else {
+      this.loggedIn = false
+    }
 
     this.loadEvents();
   }

@@ -31,6 +31,7 @@ export class CreateEventComponent implements OnInit {
   incompleteForm: boolean = false
   spinner: boolean = false
   minDate:any;
+  loggedInRole: any = "";
 
   constructor(private _EventService: EventService, private _projectService: ProjectService){ }
 
@@ -49,6 +50,7 @@ export class CreateEventComponent implements OnInit {
     if (loggedIn !== null) {
       this.loggedInDetails = JSON.parse(loggedIn);
       this.loggedInUserID = Number(this.loggedInDetails.id)
+      this.loggedInRole = this.loggedInDetails.role
       this.loggedIn = true
     } else {
       this.loggedIn = false
