@@ -1,7 +1,12 @@
 # AseProject
-University Project.
+University Project for Advanced Software Engineering.
+Below are the necessary commands. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+
+## Installing Dependedncies
+
+Run `npm i --force` before beginning any work.
 
 ## Development server
 
@@ -30,7 +35,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## Deploying to Netlify
 When deploying to Netflify;
 
-1. Open project, in Terminal type: "npm i" once completed type "ng build".
+1. Open project, in Terminal type: "npm i --force" once completed type "ng build".
 
 2. Navigate to "dist" folder then create a new file "netlify.toml" inside the "browser" folder. Enter the below code snippet in the "netlify.toml" file and save the file.
 
