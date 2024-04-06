@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { CitizenActivityComponent } from './citizen-activity/citizen-activity.component';
-import { CitizenProjectsComponent } from './citizen-projects/citizen-projects.component';
 import { CitizenRegisterComponent } from './citizen-register/citizen-register.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
@@ -20,7 +18,8 @@ import { VoteComponent } from './vote/vote.component';
 import { WhoswhoComponent } from './whoswho/whoswho.component';
 
 export const routes: Routes = [
-    {path:'', redirectTo:'home', pathMatch:'full'},
+    {path:'/', redirectTo:'home', pathMatch:'full'},
+    //{path:'', redirectTo:'home', pathMatch:'full'},
     {path:'home', component: HomeComponent},
     {path:'login', component: LoginComponent},
     {path:'citizen-register', component: CitizenRegisterComponent},
@@ -29,8 +28,6 @@ export const routes: Routes = [
     {path:'project-listing', component: ProjectListingComponent},
     {path:'project-detail/:projectId', component: ProjectDetailsComponent},
     {path:'new-project', component: CreateProjectComponent},
-    {path:'my-project', component: CitizenProjectsComponent},
-    {path: 'my-activity', component: CitizenActivityComponent},
     {path: 'govt-dashboard', component: GovtDashboardComponent},
     {path: 'quiz', component: QuizComponent},
     {path:'events', component: EventsComponent},

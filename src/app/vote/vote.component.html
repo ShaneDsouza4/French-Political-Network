@@ -1,9 +1,8 @@
-
 <div *ngIf="!loader">
-<!-- <img style="height: 401px; width: 100%;" src="/assets/Black Abstract We Are Hiring LinkedIn Banner.png" alt="image"> -->
-<img style="width: 100%;" src="/assets/Blue and Red 72x36 Landscape Voter Education Banner-cropped-min.png" alt="image">
+  <!-- <img style="height: 401px; width: 100%;" src="/assets/Black Abstract We Are Hiring LinkedIn Banner.png" alt="image"> -->
+  <img style="width: 100%;" src="/assets/Blue and Red 72x36 Landscape Voter Education Banner-cropped-min.png" alt="image">
 
-<!-- <div class="voting-container">
+  <!-- <div class="voting-container">
   <div class="candidates-grid">
 
     <div class="candidate" *ngFor="let item of AllParties">
@@ -21,16 +20,23 @@
   </div>
 </div> -->
 
-<div class="voting-container">
-  <div class="candidates-grid">
-    <div class="candidate" *ngFor="let item of AllParties">
-      <img [src]="item.imageURL" alt="Party Name">
-      <p style="margin-top: -12px;">{{item?.name}}</p>
-      <span style="font-size: 0.9em;">{{ 'Total Votes:' | translate}} {{item?.vote.length}}</span>
-      <div class="vote-actions text-center">
-        <button *ngIf="!item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="voteParty(item.id)">{{ 'Vote' | translate}}</button>
-        <button *ngIf="item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="unVoteParty(item.id)">{{ 'Un-vote' | translate}}</button>
+  <div class="voting-container">
+    <div class="candidates-grid">
+      <div class="candidate" *ngFor="let item of AllParties">
+        <img [src]="item.imageURL" alt="Party Name">
+        <p style="margin-top: -12px;">{{item?.name}}</p>
+        <span style="font-size: 0.9em;">{{ 'Total Votes:' | translate}} {{item?.vote.length}}</span>
+        <div class="vote-actions text-center">
+          <button *ngIf="!item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="voteParty(item.id)">{{
+            'Vote' | translate}}</button>
+          <button *ngIf="item.vote.includes(loggedInUserID)" class="btn btn-primary" (click)="unVoteParty(item.id)">{{
+            'Un-vote' | translate}}</button>
+        </div>
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="spinner" *ngIf="loader">
 </div>

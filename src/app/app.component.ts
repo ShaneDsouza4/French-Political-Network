@@ -7,18 +7,15 @@ import {
   MatDialogModule
 } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { CitizenActivityComponent } from './citizen-activity/citizen-activity.component';
-import { CitizenProjectsComponent } from './citizen-projects/citizen-projects.component';
 import { CitizenRegisterComponent } from './citizen-register/citizen-register.component';
 import { CreateEventComponent } from './create-event/create-event.component';
 import { CreatePostModalComponent } from './create-post-modal/create-post-modal.component';
 import { CreateProjectComponent } from './create-project/create-project.component';
 import { EventBookingModalComponent } from './event-booking-modal/event-booking-modal.component';
-import { EventBookingsComponent } from './event-bookings/event-bookings.component';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { EventsComponent } from './events/events.component';
@@ -27,10 +24,8 @@ import { GovtDashboardComponent } from './govt-dashboard/govt-dashboard.componen
 import { GovtRegisterComponent } from './govt-register/govt-register.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { MyBookingComponent } from './my-booking/my-booking.component';
 import { OpinionModalComponent } from './opinion-modal/opinion-modal.component';
 import { PoliticalQuizQuestionsComponent } from './political-quiz-questions/political-quiz-questions.component';
-import { PoliticalQuizComponent } from './political-quiz/political-quiz.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectListingComponent } from './project-listing/project-listing.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -41,6 +36,7 @@ import { ProjectService } from './service/project.service';
 import { VoteComponent } from './vote/vote.component';
 import { WarningModalComponent } from './warning-modal/warning-modal.component';
 import { WhoswhoComponent } from './whoswho/whoswho.component';
+import { ReloadServiceService } from './service/reload-service.service';
 
 @Component({
   selector: 'app-root',
@@ -58,14 +54,12 @@ import { WhoswhoComponent } from './whoswho/whoswho.component';
     ProjectDetailsComponent,
     ProjectListingComponent,
     ProjectsComponent,
-    CitizenProjectsComponent,
     CommonModule,
     NgMultiSelectDropDownModule,
     FontAwesomeModule,
     OpinionModalComponent,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    CitizenActivityComponent,
     GovtDashboardComponent,
     MatDialogModule,
     QuizComponent,
@@ -76,14 +70,11 @@ import { WhoswhoComponent } from './whoswho/whoswho.component';
     HttpClientModule,
     TranslateModule,
     CreateEventComponent,
-    EventBookingsComponent,
     EventListComponent,
-    MyBookingComponent,
     EventBookingModalComponent,
     EventDetailsComponent,
     WarningModalComponent,
     VoteComponent,
-    PoliticalQuizComponent,
     PoliticalQuizQuestionsComponent,
     FeedbackComponent,
     WhoswhoComponent
@@ -126,7 +117,7 @@ export class AppComponent implements OnInit {
     {email: 'citizen@team14.com', password: '12345678', role: 'citizen' },
   ]
 
-  constructor(private _ProjectService: ProjectService, private _translateService: TranslateService, public dialog: MatDialog) {
+  constructor(private _ProjectService: ProjectService, private _translateService: TranslateService, public dialog: MatDialog, private _router: Router, private _ReloadService: ReloadServiceService) {
     //Login Logout Check
     let loggedInX = localStorage.getItem('loggedInUser')
     if (loggedInX !== null) {
@@ -154,7 +145,7 @@ export class AppComponent implements OnInit {
       this.loggedIn = true
     }else{
       this.loggedIn = false
-    }
+    } 
    
   }
 
@@ -164,7 +155,8 @@ export class AppComponent implements OnInit {
     console.log("Selected Language: ", selectedLanguage);
     localStorage.setItem("language", selectedLanguage);
     this._translateService.use(selectedLanguage);
-
+    this._ReloadService.reloadComponent();
+    //this._router.navigateByUrl('/quiz', { skipLocationChange: true })
   }
 
 
@@ -183,6 +175,7 @@ export class AppComponent implements OnInit {
     localStorage.removeItem('loggedInUser');
     this.loggedIn = false
     this.loggedInRole = ""
+    window.location.reload();
   }
 
 }

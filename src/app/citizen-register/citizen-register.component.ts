@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-citizen-register',
@@ -33,7 +34,8 @@ export class CitizenRegisterComponent implements OnInit {
   constructor(
     private _projectService: ProjectService, 
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private toastr: ToastrService
     ){}
 
   ngOnInit(): void {
@@ -89,7 +91,7 @@ export class CitizenRegisterComponent implements OnInit {
       this.incompleteForm = false;
       this._projectService.registerCitizen(payload).subscribe((res:any)=>{
         if(res.status == 1){
-          alert("Citizen Created Succesfully.")
+          this.toastr.success("Citizen Created Succesfully.");
           this.citizenRegForm.reset({});
           var _popup = this.dialog.open(LoginComponent, {
             width: '60%',
@@ -98,12 +100,12 @@ export class CitizenRegisterComponent implements OnInit {
             }
           })
         }else if(res.status == 0){
-          alert("Email already Exists.")
+          this.toastr.error("Email already Exists.");
         }else if(res.status == 2){
-          alert("Identity Number already Exists.")
+          this.toastr.error('Identity Number already Exists.');
         }
         else{
-          alert("Citizen Not Created Succesfully.")
+          this.toastr.error("Citizen Not Created Succesfully.");
         }
       })
     }

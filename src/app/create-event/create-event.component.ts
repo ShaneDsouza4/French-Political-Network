@@ -7,6 +7,7 @@ import { cities } from '../constants/constants';
 import { ProjectService } from '../service/project.service';
 import { faL } from '@fortawesome/free-solid-svg-icons';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-event',
@@ -33,7 +34,7 @@ export class CreateEventComponent implements OnInit {
   minDate:any;
   loggedInRole: any = "";
 
-  constructor(private _EventService: EventService, private _projectService: ProjectService){ }
+  constructor(private _EventService: EventService, private _projectService: ProjectService, private toastr: ToastrService){ }
 
   ngOnInit(): void {
 
@@ -105,10 +106,11 @@ export class CreateEventComponent implements OnInit {
         if(res.status == 1){
           console.log('Response Added Sucessfully: ', res)
           this.spinner = false
-          alert("Event Added Sucessfully.")
+          this.toastr.success("Event Added Sucessfully.");
           this.reset();
         }else{
           this.spinner = false
+          this.toastr.error('Could not add Event.');
         }
       })
       

@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from '../login/login.component';
 import { WarningModalComponent } from '../warning-modal/warning-modal.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-project-details',
@@ -50,7 +51,7 @@ export class ProjectDetailsComponent implements OnInit {
   noDataAvailable: boolean = false
   otherEvents: any[] = []
 
-  constructor(private activatedRouted: ActivatedRoute, private _projectService: ProjectService, private router: Router, public dialog: MatDialog) {
+  constructor(private activatedRouted: ActivatedRoute, private _projectService: ProjectService, private router: Router, public dialog: MatDialog, private toastr: ToastrService) {
 
     /* const loginDetails = localStorage.getItem('loggedIn');
     if(loginDetails == null){
@@ -188,7 +189,7 @@ export class ProjectDetailsComponent implements OnInit {
                 this.opinionForm.reset({});
               } else {
                 this.spinner = false
-                alert("Upvote unsucessfull");
+                this.toastr.error( "Upvote unsucessfull" );
               }
             })
           }
@@ -222,7 +223,7 @@ export class ProjectDetailsComponent implements OnInit {
           if (res.status == 1) {
             this.projectDetails = res.project
           } else {
-            alert("Upvote unsucessfull");
+            this.toastr.error( "Upvote unsucessfull" );
           }
         })
       }
@@ -249,7 +250,7 @@ export class ProjectDetailsComponent implements OnInit {
           if (res.status == 1) {
             this.projectDetails = res.project
           } else {
-            alert("Downvote unsucessfull");
+            this.toastr.error( "Downvote unsucessfull" );
           }
         })
       }

@@ -24,7 +24,7 @@
                         <button class="submit-btn" *ngIf="!spinner" (click)="nextQuestion()">{{questions.length === (index+1) ? 'Finish' : 'Next'  }}</button>
                         <button class="btn btn-success" style="margin-right: 10px;" type="button" disabled *ngIf="spinner">
                         <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                            Loading...
+                        {{"Loading" | translate}}...
                         </button>
                     </div>
                 </div>

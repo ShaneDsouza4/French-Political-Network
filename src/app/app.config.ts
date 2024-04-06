@@ -6,6 +6,9 @@ import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { provideToastr } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
+
 
 export function createTranslateLoader(http:HttpClient){
 	//return new TranslateHttpLoader(http, './assets/i18n', '.json')
@@ -13,7 +16,13 @@ export function createTranslateLoader(http:HttpClient){
 }
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes), provideHttpClient(), provideAnimationsAsync(),
+  providers: [provideRouter(routes), provideHttpClient(), provideToastr(
+    {
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }
+  ),provideAnimations(), provideAnimationsAsync(),
     importProvidersFrom(HttpClientModule), // or provideHttpClient() in Angular v15+
     importProvidersFrom(TranslateModule.forRoot({
         loader: {

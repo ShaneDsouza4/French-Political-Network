@@ -6,6 +6,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EventBookingModalComponent } from '../event-booking-modal/event-booking-modal.component';
 import { ProjectService } from '../service/project.service';
 import { LoginComponent } from '../login/login.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-event-details',
@@ -31,7 +32,7 @@ export class EventDetailsComponent {
 
   otherEvents: any[] = []
 
-  constructor(private activatedRouted: ActivatedRoute, public dialog: MatDialog, private _projectService: ProjectService) {
+  constructor(private activatedRouted: ActivatedRoute, public dialog: MatDialog, private _projectService: ProjectService, private toastr: ToastrService) {
 
     //Login Logout Check
     let loggedInX = localStorage.getItem('loggedInUser')
@@ -102,10 +103,10 @@ export class EventDetailsComponent {
 
       this._projectService.registerForEvent(payLoad).subscribe((res:any)=>{
         if(res.status == 1){
-          alert("Registered Succesfully!")
+          this.toastr.success("Registered Succesfully!");
           this.userRegistered = true
         }else{
-          alert("Could not register.")
+          this.toastr.error("Could not register.");
           this.userRegistered = false
         }
       })
@@ -134,10 +135,10 @@ export class EventDetailsComponent {
       this._projectService.unRegisterForEvent(payLoad).subscribe((res:any)=>{
         console.log("Unregister Result: ", res)
         if(res.status == 1){
-          alert("Un Registered Succesfully!")
+          this.toastr.success("Un Registered Succesfully!");
           this.userRegistered = false
         }else{
-          alert("Could not register.")
+          this.toastr.error("Could not unregister.");
           this.userRegistered = true
         }
       })

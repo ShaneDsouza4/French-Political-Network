@@ -9,6 +9,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-projects',
@@ -46,7 +47,7 @@ export class ProjectsComponent implements OnInit {
   searchProject: any = ""
   departmentList: any[] = [{ name: 'Transportation' }, { name: 'Education' }, { name: 'Crime' }, { name: 'Environment' }]
 
-  constructor(private _projectService: ProjectService, private router: Router, public dialog: MatDialog) { }
+  constructor(private _projectService: ProjectService, private router: Router, public dialog: MatDialog, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.loadProjects();
@@ -119,7 +120,7 @@ export class ProjectsComponent implements OnInit {
             let objIndex = this.projectList.findIndex(obj => obj.projectId == res.project.projectId)
             this.projectList[objIndex] = res.project
           } else {
-            alert("Up vote unsucessfull");
+            this.toastr.error( "Up vote unsucessfull" );
           }
         })
       } 
@@ -148,7 +149,7 @@ export class ProjectsComponent implements OnInit {
             let objIndex = this.projectList.findIndex(obj => obj.projectId == res.project.projectId)
             this.projectList[objIndex] = res.project
           } else {
-            alert("Down vote unsucessfull");
+            this.toastr.error( "Down vote unsucessfull" );
           }
         })
       }

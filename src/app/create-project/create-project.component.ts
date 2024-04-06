@@ -7,6 +7,7 @@ import { cities } from '../constants/constants';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create-project',
@@ -30,7 +31,7 @@ export class CreateProjectComponent implements OnInit {
   incompleteForm:boolean = false;
   minDate:any;
 
-  constructor(private _projectService: ProjectService, private router: Router, private http: HttpClient){}
+  constructor(private _projectService: ProjectService, private router: Router, private http: HttpClient, private toastr: ToastrService  ){}
 
   ngOnInit(): void {
 
@@ -85,11 +86,11 @@ export class CreateProjectComponent implements OnInit {
       let payLoad: any = this.newProjectForm.getRawValue();
       this._projectService.createNewProject(payLoad).subscribe((res:any)=>{
         if(res.status == 1){
-          alert("Project Created Succesfully.")
+          this.toastr.success("Project Created Succesfully.");
           this.newProjectForm.reset({});
           this.router.navigate(['/projects'])
         }else{
-          alert("Project Not Created Succesfully.")
+          this.toastr.error("Project Not Created Succesfully.");
         }
       })
     }

@@ -9,6 +9,7 @@ import { ProjectService } from '../service/project.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-vote',
@@ -38,7 +39,7 @@ export class VoteComponent implements OnInit {
   loader: boolean = true
   noDataAvailable: boolean = false
 
-  constructor(private _projectService: ProjectService, public dialog: MatDialog) {
+  constructor(private _projectService: ProjectService, public dialog: MatDialog, private toastr: ToastrService) {
 
   }
   ngOnInit(): void {
@@ -102,13 +103,13 @@ export class VoteComponent implements OnInit {
         console.log("Party Vote Response: ", res)
         if (res.status == 1) {
           this.spinner = false
-          alert("Vote Sucessfull!")
+          this.toastr.success( "Vote Sucessfull!" );
           this.AllParties = res.party
           // let objIndex = this.AllParties.findIndex(obj => obj.id == res.party.id)
           // this.AllParties[objIndex] = res.party
         } else {
           this.spinner = false
-          alert("Vote Not Sucessfull!")
+          this.toastr.error( "Vote Not Sucessfull!" );
         }
       })
     }
@@ -139,10 +140,10 @@ export class VoteComponent implements OnInit {
           this.AllParties = res.party
           // let objIndex = this.AllParties.findIndex(obj => obj.id == res.party.id)
           // this.AllParties[objIndex] = res.party
-          alert("Un Vote Sucessfull!")
+          this.toastr.success( "Un Vote Sucessfull!" );
         } else {
           this.spinner = false
-          alert("Un Vote Not Sucessfull!")
+          this.toastr.error( "Un Vote Not Sucessfull!" );
         }
       })
     }

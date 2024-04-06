@@ -65,6 +65,8 @@ export class QuizQuestionsComponent {
   checkAnswer(){
     if(this.questions[this.index].correct_answers[this.answer] == "true"){
       this.interests.push(this.questions[this.index].ValueToAdd)
+    }else{
+      this.interests.push("Nationalism")
     }
 
     //let isAnswer = this.questions[this.index].correct_answers[this.answer];

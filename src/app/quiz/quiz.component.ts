@@ -10,6 +10,7 @@ import { Question } from '../interface/question';
 import { QuizResultComponent } from '../quiz-result/quiz-result.component';
 import { PoliticalQuizQuestionsComponent } from '../political-quiz-questions/political-quiz-questions.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { ReloadServiceService } from '../service/reload-service.service';
 
 @Component({
   selector: 'app-quiz',
@@ -45,6 +46,8 @@ export class QuizComponent implements OnInit{
   
   @ViewChild('quiz',{static:true}) quiz! : QuizQuestionsComponent;
   @ViewChild('result',{static:true}) result! : QuizResultComponent;
+
+
 
   
 
@@ -458,7 +461,7 @@ export class QuizComponent implements OnInit{
     }
   ]
 
-  constructor(private quizService: QuizService){
+  constructor(private quizService: QuizService, private _reloadService: ReloadServiceService){
     this.language = localStorage.getItem("language")
     console.log("Language>>>", this.language)
     this.questionsLimit = 5;
@@ -468,6 +471,13 @@ export class QuizComponent implements OnInit{
     //this.quizQuestionList = JSON.parse(quizListX);
   }
   ngOnInit(): void {
+
+    this._reloadService.getReloadObservable().subscribe(() => {
+      // Reload logic for the component
+      //console.log('Reloading target component');
+      // Perform necessary actions to reload the component
+      window.location.reload()
+    });
     
   }
 
@@ -511,6 +521,8 @@ export class QuizComponent implements OnInit{
     this.toggleSpinner();
     this.showPoliticQuestions = true
   }
+
+  
 
  
   
