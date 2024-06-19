@@ -1,5 +1,19 @@
-# AseProject
-University Project for Advanced Software Engineering.
+**French Political Network: Shape Your Future**
+This was a University projct, the problem we had to solve was getting French citizens to participate in Politics. We solved this issue by building a web app, that was designed to empower French citizens to participate actively in politics. Here’s what our web app does:
+
+**Stay Informed:** Get the latest news on political events and updates.
+**Discover Your Alignment:** Participate in interactive quizzes to find the political party that aligns with your values.
+**Vote:** Make your voice heard by voting for political parties.
+**Attend Events:** Stay updated on political events happening near you.
+
+**************************************
+Technology;
+Frontend: Angular
+Backend: NodeJS
+Database: PostgresSQL
+
+Backend Link: https://github.com/sheldon124/political-network-API
+
 Below are the necessary commands. 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
