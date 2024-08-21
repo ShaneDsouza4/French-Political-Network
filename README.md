@@ -1,18 +1,26 @@
-**French Political Network: Shape Your Future**
-This was a University projct, the problem we had to solve was getting French citizens to participate in Politics. We solved this issue by building a web app, that was designed to empower French citizens to participate actively in politics. Here’s what our web app does:
+# French Political Network: Shape Your Future
 
-**Stay Informed:** Get the latest news on political events and updates.
-**Discover Your Alignment:** Participate in interactive quizzes to find the political party that aligns with your values.
-**Vote:** Make your voice heard by voting for political parties.
-**Attend Events:** Stay updated on political events happening near you.
+This web application is designed to empower French citizens to actively participate in politics. The app provides tools and information to help users stay informed, discover their political alignment, vote, and attend political events.
 
-**************************************
-Technology;
-Frontend: Angular
-Backend: NodeJS
-Database: PostgresSQL
+## Features
 
-Backend Link: https://github.com/sheldon124/political-network-API
+- **Real-Time Political Updates**: Stay informed with the latest news and developments in French politics, ensuring you're always up-to-date on critical events.
+- **Personalized Political Alignment**: Discover the political party that best aligns with your values through interactive and insightful quizzes.
+- **Secure Voting Platform**: Participate in polls and express your opinions on various political issues directly through the app.
+- **Event Notifications**: Receive timely updates on political events happening near you, keeping you engaged and active in the political process.
+- **Interactive User Interface**: Enjoy a user-friendly interface that makes it easy to navigate through different features and access information quickly.
+- **Data-Driven Insights**: Access analytics and insights based on user engagement, helping you understand broader political trends.
+- **Multi-Device Support**: Access the app from various devices, ensuring a seamless experience whether you're on desktop, tablet, or mobile.
+  
+## Technology Stack
+
+- **Frontend**: Angular
+- **Backend**: Node.js
+- **Database**: PostgreSQL
+
+## Backend API
+
+The backend API for this project is available [here](https://github.com/sheldon124/political-network-API).
 
 Below are the necessary commands. 
 
