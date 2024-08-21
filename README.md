@@ -22,7 +22,7 @@ This web application is designed to empower French citizens to actively particip
 
 The backend API for this project is available [here](https://github.com/sheldon124/political-network-API).
 
-Below are the necessary commands. 
+## Getting Started
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
